@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>narendra's blog - Church Numerals</title>
+    <!-- CSS files -->
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../css/syntax.css" />
+
+    <!-- Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Ubuntu+Mono|Lato|Pacifico&subset=latin,greek" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="container" id="main-container">
+      <div class="row">
+
+        <!-- Left side-column -->
+        <div class="col-md-2">
+          <div class="row">
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-6">
+              <a href="../about.html">
+                <img src="../images/narendra.jpeg" alt="My image!" class="img-responsive" id="myhead" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main center-column -->
+        <div class="col-md-8" id="main-content-column">
+          <!-- Banner -->
+          <div class="row">
+            <div class="col-md-12" id="banner">
+              <a href="../">Ramblings from a corner</a>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+          <div class="row">
+            <div class="col-md-12">
+              <nav>
+                <span id="home"> <a href="../"> Home </a> </span>
+                <span id="miscellany"> <a href="../miscellany/miscellany.html">Miscellany</a> </span>
+                <span id="about"> <a href="../about.html">About</a> </span>
+                <span id="contact"> <a href="../contact.html">Contact</a> </span>
+                <span id="archive"> <a href="../archive.html">Archive</a> </span>
+              </nav>
+            </div>
+          </div>
+
+         <!-- -- Status Row ---->
+         <div class="row" id="statusbar">
+            <div class="col-md-12">
+            </div>
+         </div>
+
+          <!-- Main content -->
+          <div class="row">
+            <div class="col-md-12 content">
+              <article>
+                <h1>Church Numerals</h1>
+
+                <div class="info">
+    Posted on October 18, 2014
+    
+</div>
+
+<p>Reading the second chapter of The Structure and Interpretation of Computer Programs, I came across an exercise wherein natural numbers were defined entirely in terms of lambda expressions, i.e. anonymous functions.</p>
+<p>To understand how this can be accomplished, we must look into how one can have a functional representation for numbers. To represent all of the natural numbers, it is sufficient to have two things defined –</p>
+<ol style="list-style-type: decimal">
+<li>zero</li>
+<li>succ, a function that returns the successor of the number it is provided with.</li>
+</ol>
+<p>It’s easy to see how the above two definitions would be sufficient to obtain any natural number. You just have to repeatedly apply the successor function starting from zero. But how on earth are we going to define both of them without using any data at all!</p>
+<p>Let’s see how Mr. Church defined them.</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">
+<span class="co">-- zero is defined as a function that takes the successor funtion and</span>
+<span class="co">-- the representation for zero</span>
+<span class="co">-- and evaluates to the representation of zero. Seems legit.</span>
+zero <span class="fu">=</span> \f x <span class="ot">-&gt;</span> x
+
+<span class="co">-- succ function first gets the concrete representation for the numeral n,</span>
+<span class="co">-- then applies the function f to it to get the next numeral.</span>
+succ n <span class="fu">=</span> \f x <span class="ot">-&gt;</span> f (n f x)</code></pre>
+<p>If you try evaluating the functions to obtain representations for natural numbers, you will find out that the definitions are as follows –</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">one <span class="fu">=</span> \f x <span class="ot">-&gt;</span> f x
+two <span class="fu">=</span> \f x <span class="ot">-&gt;</span> f (f x)
+three <span class="fu">=</span> \f x <span class="ot">-&gt;</span> f (f (f x))</code></pre>
+<p>We can figure out what the number is with this representation as long as we can look <em>into</em> the definition of a function. It is so because the subsequent calls to f that we are courting lie inside a function’s body itself. That violates the abstraction barrier, i.e. you should use a function without having any knowledge about its implementation.</p>
+<p>Before we come to problem of actually understanding the numbers in the representation that we have, let’s define the complete algebra of these numbers.</p>
+<p>Definitions for addition and multiplication:</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">add m n <span class="fu">=</span> \f x <span class="ot">-&gt;</span> m f (n f x)
+multiply m n <span class="fu">=</span> \f x <span class="ot">-&gt;</span> m (n f) x</code></pre>
+<p>It’s fairly easy to see how the above definitions work. For example to obtain the product of numerals that represent 2 and 3, we must consider the internal representation of one of the numerals as the <em>zero</em> and then call the successor function as many times as the other numerals.</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">add two three
+<span class="fu">=</span> \f x <span class="ot">-&gt;</span> two f (three f x)
+<span class="fu">=</span> \f x <span class="ot">-&gt;</span> f (f (three f x))
+<span class="fu">=</span> \f x <span class="ot">-&gt;</span> f (f (f (f (f x))))</code></pre>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">multiply two three
+<span class="fu">=</span> \f x <span class="ot">-&gt;</span> two (three f) x
+<span class="fu">=</span> \f x <span class="ot">-&gt;</span> ((\f x <span class="ot">-&gt;</span> f (f x)) (three f)) x
+<span class="fu">=</span> \f x <span class="ot">-&gt;</span> (\x <span class="ot">-&gt;</span> (three f) ((three f) x)) x
+<span class="fu">=</span> \f x <span class="ot">-&gt;</span> (\x <span class="ot">-&gt;</span> f (f (f ((three f x))))) x
+<span class="fu">=</span> \f x <span class="ot">-&gt;</span> (\x <span class="ot">-&gt;</span> f (f (f (f (f (f x)))))) x
+<span class="fu">-</span> \f x <span class="ot">-&gt;</span> f (f (f (f (f (f x)))))</code></pre>
+<p>If you are looking at these things for the first time, it may seem daunting. Here’s how you should think about them. Think of a number being internally thought of as the number of times a special functions, i.e. the successor, function has been applied to a special value, i.e. zero, to obtain that number. For example, the number one is obtained by a single application of the successor function to zero, number two requires to successive applications to zero and so on.</p>
+<p>So far so good! We have a number system with an almost complete algebra. But how do we make sense of these numbers. It turns out that if our language is a little more expressive and we can define the successor function to do something to the world, e.g. print a dot on the screen or increment the value stored in a register by one unit, we can <strong>understand</strong> the numbers that we have developed so far.</p>
+<h2 id="how-can-we-store-church-numerals-in-hardware">How can we store Church Numerals in hardware?</h2>
+<p>I have no idea!</p>
+
+<hr style="height:2px;background-color:#333;border:none">
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+   var disqus_shortname = 'vicarie'; 
+   (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+   })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+
+              </article>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <div class="row">
+            <div class="col-md-12" id="footer">
+      		    Still figuring out.
+            </div>
+          </div>
+        </div>
+
+        <!-- Right side-column -->
+        <div class="col-md-2">
+        </div>
+
+      </div> <!--main row-->
+    </div> <!--container-->
+
+    <!-- Mathjax -->
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-55966581-1', 'auto');
+      ga('require', 'displayfeatures');
+      ga('send', 'pageview');
+    </script>
+
+  </body>
+</html>
