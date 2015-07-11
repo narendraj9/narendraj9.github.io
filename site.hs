@@ -96,8 +96,7 @@ miscCtx =
 -- configuration for automatically deploying _site to narendraj9.github.io
 config :: Configuration
 config = defaultConfiguration
-         { deployCommand = "./deploy.sh ;" 
-		 , providerDirectory = "./web/"
+         { providerDirectory = "./web/"
          }
 
 -- pandoc compiler with support for latex mathematics equations

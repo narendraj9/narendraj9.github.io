@@ -1,5 +1,5 @@
-hakyll
-hakyll.hi
-hakyll.o
+site
+site.hi
+site.o
 dist/*
 _site/*
