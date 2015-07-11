@@ -1,4 +1,4 @@
-CNAME := www.vicarie.in
+CNAME := vicarie.in
 REPO := git@github.com:narendraj9/narendraj9.github.io.git
 
 EXE := dist/build/site/site
