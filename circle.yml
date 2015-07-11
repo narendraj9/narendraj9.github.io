@@ -1,0 +1,14 @@
+dependencies:
+  override:
+    - cabal install --dependencies-only --avoid-reinstalls
+
+# Compile pages during the test stage
+test:
+  post:
+    - make
+
+deployment:
+  production:
+    branch: source
+    commands:
+    - "make deploy"

@@ -1,0 +1,97 @@
+/* Custom style */
+
+/* style for my banner */
+#banner {
+    left: 0;
+    right: 0;
+    background: black;
+	border-radius: 20px;
+}
+#banner a {
+    color: orange;
+    font-size: 40px;
+    font-weight: bold;
+	font-family: 'Pacifico', cursive;
+}
+
+#myhead {
+    border-radius: 50%;
+    margin-top: 100px;
+    width: 100px;
+}
+
+/* Don't show my head on smaller devices */
+@media (max-width: 1024px) {
+    #myhead {
+        display: none;
+    }
+}
+
+/* style for the footer */
+#footer {
+    border-top: solid 2px black;
+    color: #555;
+    font-size: 12px;
+    margin-top: 30px;
+    padding: 12px 0px 12px 0px;
+    text-align: right;
+}
+
+div#statusbar {
+	display: none;
+}
+
+#main-container {
+	background-color: beige;
+}
+
+#main-content-column {
+	background-color: floralwhite;
+}
+
+/* style for the resume box */
+.resume {
+	width: 100%;
+	height: 948px;
+}
+
+div.content {
+	font-family: 'Lato', sans-serif;
+}
+
+/* main content style */
+div.info {
+    color: #555;
+    font-size: 14px;
+    font-style: italic;
+}
+
+/* my tiny little navigation bar */
+nav {
+    background: grey;
+	border-radius: 5px;
+}
+nav a {
+    color: beige;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 12px;
+    text-decoration: none;
+}
+
+
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+
+body {
+    color: black;
+    font-size: 16px;
+	font-family: 'Lato', sans-serif;
+	background-color: white;
+}
