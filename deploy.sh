@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # variables to be set properly
-BLOG_REPO='https://github.com/narendraj9/narendraj9.github.io'
+BLOG_REPO='git@github.com:narendraj9/narendraj9.github.io'
 CNAME='www.vicarie.in'
 
 echo ${CNAME} > _site/CNAME
