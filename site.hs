@@ -8,6 +8,10 @@ import           Text.Pandoc.Options
 --------------------------------------------------------------------------------
 main :: IO ()
 main = hakyllWith config $ do
+    match "favicon.ico" $ do
+        route idRoute
+        compile copyFileCompiler
+
     match "images/*" $ do
         route   idRoute
         compile copyFileCompiler
