@@ -1,12 +1,19 @@
+# Changes to master shouldn't trigger anything.
+general:
+    branches:
+        ignore:
+            - master
+
 dependencies:
   override:
     - cabal install --dependencies-only --avoid-reinstalls
 
-# Compile pages during the test stage
+# Generate static site during test phase
 test:
   post:
     - make
 
+# Deploy to master branch
 deployment:
   production:
     branch: source
