@@ -146,21 +146,66 @@ Like all stories, written on oceanic tides,
 Mine would become a part of the shore, placid and earthed. [Sedimentary Rock :-D]  
 
 
+
 <a name='poem5'> </a>
 
 [A Lovely Day](#poem5)
 ======================
 
-A clearer sky emblazoned with such beautifying cloudiness
-Roofs restlessness and more than a few endless chases.
-Within life's confused web, a resting plateau;
-Only plateaus, no peaks, I have learned.
-Another day would etch wrinkles on the face of time,
-Caresses on a wrinkled face, with wrinkled hands,
-My mind's box has it's own definition of beauty, it seems.
-I wonder and smile, I look look outside, close my eyes.
-The air is fresher, silence pleasant for a change.
+A clearer sky emblazoned with such beautifying cloudiness  
+Roofs restlessness and more than a few endless chases.  
+Within life's confused web, a resting plateau;  
+Only plateaus, no peaks, I have learned.  
+Another day would etch wrinkles on the face of time,  
+Caresses on a wrinkled face, with wrinkled hands,  
+My mind's box has it's own definition of beauty, it seems.  
+I wonder and smile, I look look outside, close my eyes.  
+The air is fresher, silence pleasant for a change.  
 Today seems like one of those lovely days.
+
+
+<a name='poem6'> </a>
+
+[Just Another Aimless Poem](#poem6)
+===================================
+
+If I had wings, or the magic of a sorcerer's wand,  
+Or the swiftness of my wandering thoughts,   
+Or the strength of the never tiring winds,  
+I would be there before you fall asleep tonight  
+And let you know how in my mind, I caress your cheeks  
+And what the word and signs, they all mean.  
+
+
+What I feel isn't the shallow whim of a wandering mind  
+Which on time's call would fall into pieces  
+But the steady calmness of a mind in rest  
+Amid the million chases of these worldly worries.  
+You are my resting stone, the silence and the song.  
+But my love I am human, weak and strong, so are you.  
+I need you close and I need your hands  
+To hold me, to touch, to feel and see.  
+How your eyes twinkle when they meet mine,  
+Or how your lips taste in these chilly winters   
+Or how your brows curl in a smile  
+On the little foolishness your sweetest slave plays.  
+But I don't want them now, and now  
+Neither in the 'near' future if it means  
+Saying no to my love for distance's sake  
+When it can be, when it can be...  
+Truer a little farther in time.  
+
+
+So, my love I love, these gaps of silence and sleep  
+Of the dormant and the dancing wishes of time  
+Waiting to feel your lips on mine  
+And my hands playing with those twines of hair.  
+I will be there. Or I will take you here.  
+Or we will have a world of a different attire  
+Until my love, you say it's best  
+And finally, you lay beside me under the covers  
+And these blankets forget the smell of loneliness.  
+
 
 
 
