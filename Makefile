@@ -6,7 +6,7 @@ EXE := dist/build/site/site
 all:	build
 	@true
 
-${EXE}:	site.hs
+${EXE}:	src/Main.hs
 	cabal build
 	${EXE} clean
 
