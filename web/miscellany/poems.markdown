@@ -3,6 +3,8 @@ title: Poems I Wrote
 date: 2014-11-11
 ---
 
+Some poems that I have written are here: [blogger.vicarie.in](http://blogger.vicarie.in).
+
 <a name='poem'> </a>
 
 [From the light of Polaris](#poem)
