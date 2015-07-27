@@ -13,7 +13,7 @@ written as if it is meant to be very precise and self-contained.
 > From the ashes a fire shall be woken,  
 > A light from the shadows shall spring;  
 > Renewed shall be blade that was broken,  
-> The crownless again shall be king./  
+> The crownless again shall be king.  
 
 
 Conal Elliot maintains a huge list of quotes. I wonder if all of them are his

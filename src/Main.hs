@@ -42,6 +42,21 @@ main = hakyllWith config $ do
             >>= loadAndApplyTemplate "templates/default.html" postCtx
             >>= relativizeUrls
 
+    tags <- buildTags "posts/*" (fromCapture "tags/*.html")
+    tagsRules tags $ \tag pattern -> do
+        let title = "Posts tagged \"" ++ tag ++ "\""
+        route idRoute
+        compile $ do
+            posts <- recentFirst =<< loadAll pattern
+            let ctx = constField "title" title
+                      `mappend` listField "posts" postCtx (return posts)
+                      `mappend` defaultContext
+
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/tag.html" ctx
+                >>= loadAndApplyTemplate "templates/default.html" ctx
+                >>= relativizeUrls
+
     -- music, books, movies
     match "miscellany/*" $ do
       route $ setExtension "html"
@@ -84,7 +99,8 @@ main = hakyllWith config $ do
 
 --------------------------------------------------------------------------------
 postCtx :: Context String
-postCtx =
+postCtx = 
+    tagsField "tags" tags `mappend`
     dateField "date" "%B %e, %Y" `mappend`
     defaultContext
 

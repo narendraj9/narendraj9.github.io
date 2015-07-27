@@ -1,6 +1,8 @@
 ---
 title: LCM and HCF as Operations on Sets
 date: 2014-11-13
+author: Narendra Joshi
+tags: Mathematics
 ---
 Most of us were taught sometime is school that the product of the
 Lowest Common Multiple, LCM and the Highest Common Factor, HCF of
