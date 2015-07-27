@@ -3,3 +3,5 @@ site.hi
 site.o
 dist/*
 _site/*
+.cabal-sandbox
+cabal.sandbox.config
