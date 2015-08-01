@@ -44,6 +44,12 @@ code > span.er { color: #c3bf9f; }
     #myhead {
         display: none;
     }
+    #left-col {
+        display: none; 
+    }
+    #right-col {
+        display: none;
+    }
 }
 
 /* style for the footer */
@@ -66,6 +72,11 @@ div#statusbar {
 
 #main-content-column {
 	background-color: floralwhite;
+}
+
+.tag {
+    color:beige;
+    background-color: silver;
 }
 
 /* style for the resume box */

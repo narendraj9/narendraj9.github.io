@@ -20,14 +20,14 @@ main = hakyllWith config $ do
         route   idRoute
         compile compressCssCompiler
 
-	match "js/*" $ do
-		route idRoute
-		compile copyFileCompiler
+        match "js/*" $ do
+                route idRoute
+                compile copyFileCompiler
 
-	-- files : resume.pdf, etc.
-	match "data/*" $ do
-		route idRoute
-		compile copyFileCompiler
+        -- files : resume.pdf, etc.
+        match "data/*" $ do
+                route idRoute
+                compile copyFileCompiler
 
     match (fromList ["about.markdown", "contact.markdown"]) $ do
         route   $ setExtension "html"
@@ -107,8 +107,8 @@ postCtxWithTags tags = tagsField "tags" tags `mappend` postCtx
 
 miscCtx :: Context String
 miscCtx =
-	dateField "date" "%B %e, %Y" `mappend`
-	defaultContext
+        dateField "date" "%B %e, %Y" `mappend`
+        defaultContext
 
 -- configuration for automatically deploying _site to narendraj9.github.io
 config :: Configuration

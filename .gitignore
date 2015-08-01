@@ -2,6 +2,7 @@ site
 site.hi
 site.o
 dist/*
-_site/*
+_site/
+_cache/
 .cabal-sandbox
 cabal.sandbox.config
