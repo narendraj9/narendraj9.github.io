@@ -19,20 +19,6 @@ code > span.fu { color: #efef8f; }
 code > span.er { color: #c3bf9f; }
 
 
-/* style for my banner */
-#banner {
-    left: 0;
-    right: 0;
-    background: black;
-	border-radius: 20px;
-}
-#banner a {
-    color: orange;
-    font-size: 40px;
-    font-weight: bold;
-	font-family: 'Pacifico', cursive;
-}
-
 #myhead {
     border-radius: 50%;
     margin-top: 100px;
@@ -74,9 +60,36 @@ div#statusbar {
 	background-color: floralwhite;
 }
 
+.jumbotron h1 {
+    /* style for my banner */
+    left: 0;
+    right: 0;
+    background: black;
+	border-radius: 20px;
+
+
+    
+
+    color: orange;
+    font-size: 40px;
+    font-weight: bold;
+	font-family: 'Pacifico', cursive;
+}
+
+
+}
+
 .tag {
     color:beige;
     background-color: silver;
+}
+
+.navbar {
+    border-radius: 20px;
+}
+
+.navbar-inverse {
+    border-radius: 20px;
 }
 
 /* style for the resume box */
@@ -86,7 +99,7 @@ div#statusbar {
 }
 
 div.content {
-	font-family: 'Lato', sans-serif;
+	font-family: 'Vollkorn', serif;
 }
 
 /* main content style */
