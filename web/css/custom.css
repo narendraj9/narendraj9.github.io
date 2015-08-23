@@ -60,7 +60,7 @@ div#statusbar {
 	background-color: floralwhite;
 }
 
-#banner {
+#banner h1{
     /* style for my banner */
     left: 0;
     right: 0;
