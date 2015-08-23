@@ -1,6 +1,7 @@
 ---
 title: The Jewel of Algebra
 date: 2014-10-30
+tags: Miscellany
 ---
 
 Richard P. Feynman calls it our jewel --

@@ -1,6 +1,7 @@
 ---
 title: Church Numerals
 date: 2014-10-18
+tags: Miscellany
 ---
 
 Reading the second chapter of The Structure and Interpretation of Computer
