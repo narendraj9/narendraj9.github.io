@@ -60,17 +60,14 @@ div#statusbar {
 	background-color: floralwhite;
 }
 
-.jumbotron h1 {
+#banner {
     /* style for my banner */
     left: 0;
     right: 0;
     background: black;
 	border-radius: 20px;
 
-
-    
-
-    color: orange;
+    color: black;
     font-size: 40px;
     font-weight: bold;
 	font-family: 'Pacifico', cursive;
