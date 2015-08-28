@@ -27,8 +27,9 @@ code > span.er { color: #c3bf9f; }
     font-family: 'Pacifico', cursive;
     font-size: 23px;
 }
-.navbar-inverse .navbar-brand {
-    color: 'antiquewhite';
+
+#blog-title {
+    color: antiquewhite;
 }
 
 #post-content {
