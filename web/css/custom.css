@@ -32,8 +32,12 @@ code > span.er { color: #c3bf9f; }
     color: antiquewhite;
 }
 
+#post-container {
+    max-width: 612px;
+}
+
 #post-content {
-    font-family: 'Crimson Text'
+    font-family: 'Vollkorn', serif;
     font-size: 19px;
 	background-color: floralwhite;
 }
