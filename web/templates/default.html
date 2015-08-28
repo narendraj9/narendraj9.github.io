@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    
     <title>narendra's blog - $title$</title>
 
     <!-- CSS -->
@@ -14,88 +17,52 @@
   </head>
 
   <body>
-    <div class="container" id="top-container">
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation-bar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/"><span id="blog-title">Ramblings from a corner</span></a>
+        </div>
 
-      <!-- Banner -->
-      <!--
-      <div class="row">
-        <div class="col-md-12" id="banner">
-            <h1> Ramblings from a corner </h1>
+        <div id="navigation-bar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li> <a href="/"> Home </a> </li>
+            <li> <a href="/about.html">About</a> </li>
+            <li> <a href="/contact.html">Contact</a> </li>
+            <li> <a href="/miscellany/miscellany.html">Miscellany</a> </li>
+            <li> <a href="/archive.html">Archive</a> </li>
+          </ul>
         </div>
       </div>
-      -->
+    </nav>
     
-      <!-- Navigation -->
-      <div class="row">
-        <div class="col-md-12">
-          <nav class="navbar navbar-inverse collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-              <li id="home"> <a href="/"> Home </a> </li>
-              <li id="miscellany"> <a href="/miscellany/miscellany.html">Miscellany</a> </li>
-              <li id="about"> <a href="/about.html">About</a> </li>
-              <li id="contact"> <a href="/contact.html">Contact</a> </li>
-              <li id="archive"> <a href="/archive.html">Archive</a> </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-  </div>
-    
-    <div class="container" id="main-container">
-      <div class="row">
+    <div class="container section">
+      <article id="post-content">
+        <h1>$title$</h1>
 
-        <!-- Left side-column -->
-        <div class="col-md-2" id="left-col">
-          <div class="row">
-            <div class="col-md-6">
-            </div>
-            <div class="col-md-6">
-              <a href="/about.html">
-                <img src="/images/narendra.jpeg" alt="My image!" class="img-responsive" id="myhead" />
-              </a>
-            </div>
-          </div>
-        </div>
+        $body$
+      </article>
 
-        <!-- Main center-column -->
-        <div class="col-md-8" id="main-content-column">
+      <hr/>
+      <footer id="post-footer">
+      	Still figuring out.
+      </footer>
+    </div>
 
-          
-          <!-- Main content -->
-          <div class="row">
-            <div class="col-md-12 content">
-              <article>
-                <h1>$title$</h1>
 
-                $body$
-              </article>
-            </div>
-          </div>
-
-          <!-- Footer -->
-          <div class="row">
-            <div class="col-md-12" id="footer">
-      		    Still figuring out.
-            </div>
-          </div>
-        </div>
-
-        <!-- Right side-column -->
-        <div class="col-md-2" id="right-col">
-        </div>
-
-      </div> <!--main row-->
-    </div> <!--container-->
-
-    <!-- Bootstrap js-->
-    <script type="text/javascript"
-            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js">
-    </script>
     <!-- Jquery -->
     <script type="text/javascript"
             src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
     </script>
-
+    <!-- Bootstrap js-->
+    <script type="text/javascript"
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js">
+    </script>
     <!-- Mathjax -->
     <script type="text/javascript"
             src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">

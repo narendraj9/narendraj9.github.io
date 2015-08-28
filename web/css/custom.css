@@ -18,28 +18,27 @@ code > span.al { color: #ffcfaf; }
 code > span.fu { color: #efef8f; }
 code > span.er { color: #c3bf9f; }
 
-
-#myhead {
-    border-radius: 50%;
-    margin-top: 100px;
-    width: 100px;
+.resume {
+	width: 100%;
+	height: 948px;
 }
 
-/* Don't show my head on smaller devices */
-@media (max-width: 1024px) {
-    #myhead {
-        display: none;
-    }
-    #left-col {
-        display: none; 
-    }
-    #right-col {
-        display: none;
-    }
+.navbar-brand {
+    font-family: 'Pacifico', cursive;
+    font-size: 23px;
+}
+
+#blog-title {
+    color: antiquewhite;
+}
+
+#post-content {
+    font-family: 'Vollkorn', serif;
+	background-color: floralwhite;
 }
 
 /* style for the footer */
-#footer {
+#post-footer {
     border-top: solid 2px black;
     color: #555;
     font-size: 12px;
@@ -48,91 +47,10 @@ code > span.er { color: #c3bf9f; }
     text-align: right;
 }
 
-div#statusbar {
-	display: none;
-}
-
-#main-container {
-	background-color: beige;
-}
-
-#main-content-column {
-	background-color: floralwhite;
-}
-
-#banner h1{
-    /* style for my banner */
-    left: 0;
-    right: 0;
-    background: black;
-	border-radius: 20px;
-
-    color: silver;
-    font-size: 40px;
-    font-weight: bold;
-	font-family: 'Pacifico', cursive;
-}
-
-
-}
-
-.tag {
-    color:beige;
-    background-color: silver;
-}
-
-.navbar {
-    border-radius: 20px;
-}
-
-.navbar-inverse {
-    border-radius: 20px;
-}
-
-/* style for the resume box */
-.resume {
-	width: 100%;
-	height: 948px;
-}
-
-div.content {
-	font-family: 'Vollkorn';
-}
-
-/* main content style */
-div.info {
-    color: #555;
-    font-size: 14px;
-    font-style: italic;
-}
-
-/* my tiny little navigation bar */
-nav {
-    background: grey;
-	border-radius: 5px;
-}
-nav a {
-    color: beige;
-    font-size: 18px;
-    font-weight: bold;
-    margin-left: 12px;
-    text-decoration: none;
-}
-
-
-h1 {
-    font-size: 24px;
-}
-
-h2 {
-    font-size: 20px;
-}
-
-
-body {
-    color: black;
-    font-size: 16px;
-	font-family: 'Lato', sans-serif;
-	background-color: white;
+/* Overwrite navbar-brand font-size for large devices. */
+@media (min-width: 768px) {
+    .navbar-brand  {
+        font-size: 30px;
+    }
 }
 
