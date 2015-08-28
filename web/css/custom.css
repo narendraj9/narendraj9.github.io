@@ -18,14 +18,18 @@ code > span.al { color: #ffcfaf; }
 code > span.fu { color: #efef8f; }
 code > span.er { color: #c3bf9f; }
 
-
 #myhead {
     border-radius: 50%;
     margin-top: 100px;
     width: 100px;
 }
 
-/* Don't show my head on smaller devices */
+#banner  {
+    font-size: 40px;
+	font-family: 'Pacifico', cursive;
+}
+
+/* For Mobile phones */
 @media (max-width: @screen-sm) {
     #myhead {
         display: none;
@@ -36,6 +40,11 @@ code > span.er { color: #c3bf9f; }
     #right-col {
         display: none;
     }
+
+    #banner {
+        font-size: 10px;
+    }
+    
 }
 
 /* style for the footer */
@@ -56,63 +65,9 @@ code > span.er { color: #c3bf9f; }
 	background-color: floralwhite;
 }
 
-#banner  {
-    /* style for my banner */
-    left: 0;
-    right: 0;
-
-    color: silver;
-    font-size: 40px;
-    font-weight: bold;
-	font-family: 'Pacifico', cursive;
-}
-
-@media (max-width: @screen-sm) #banner {
-    font-size: 10px;
-}
-
-.tag {
-    color:beige;
-    background-color: silver;
-}
-
 /* style for the resume box */
 .resume {
 	width: 100%;
 	height: 948px;
-}
-
-div.content {
-	font-family: 'Vollkorn';
-}
-
-/* my tiny little navigation bar */
-nav {
-    background: grey;
-	border-radius: 5px;
-}
-nav a {
-    color: beige;
-    font-size: 18px;
-    font-weight: bold;
-    margin-left: 12px;
-    text-decoration: none;
-}
-
-
-h1 {
-    font-size: 24px;
-}
-
-h2 {
-    font-size: 20px;
-}
-
-
-body {
-    color: black;
-    font-size: 16px;
-	font-family: 'Lato', sans-serif;
-	background-color: white;
 }
 
