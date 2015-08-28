@@ -18,8 +18,8 @@ code > span.al { color: #ffcfaf; }
 code > span.fu { color: #efef8f; }
 code > span.er { color: #c3bf9f; }
 
-@media (min-width: @screen-sm-min) {
-    .nav-brand  {
+@media (min-width: @screen-md-min) {
+    .navbar-brand  {
         font-size: 30px;
     }
 }
@@ -29,7 +29,7 @@ code > span.er { color: #c3bf9f; }
 	height: 948px;
 }
 
-.nav-brand {
+.navbar-brand {
     font-family: 'Pacifico', cursive;
     
 }
