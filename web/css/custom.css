@@ -18,22 +18,20 @@ code > span.al { color: #ffcfaf; }
 code > span.fu { color: #efef8f; }
 code > span.er { color: #c3bf9f; }
 
-.section {
-	background-color: beige;
+/* For Mobile phones */
+@media (max-width: @screen-sm-max) {
+    #banner {
+        font-size: 10px;
+	    font-family: 'Pacifico', cursive;
+    }
+    
 }
 
-.section {
-	background-color: floralwhite;
-}
-
-/* style for the footer */
-.footer {
-    border-top: solid 2px black;
-    color: #555;
-    font-size: 12px;
-    margin-top: 30px;
-    padding: 12px 0px 12px 0px;
-    text-align: right;
+@media (min-width: @screen-md-min) {
+    #banner  {
+        font-size: 40px;
+        font-family: 'Pacifico', cursive;
+    }
 }
 
 /* style for the resume box */
@@ -42,16 +40,17 @@ code > span.er { color: #c3bf9f; }
 	height: 948px;
 }
 
-#banner  {
-    font-size: 40px;
-	font-family: 'Pacifico', cursive;
+#post-content {
+	background-color: floralwhite;
 }
 
-/* For Mobile phones */
-@media (max-width: @screen-sm-max) {
-    #banner {
-        font-size: 10px;
-    }
-    
+/* style for the footer */
+#post-footer {
+    border-top: solid 2px black;
+    color: #555;
+    font-size: 12px;
+    margin-top: 30px;
+    padding: 12px 0px 12px 0px;
+    text-align: right;
 }
 
