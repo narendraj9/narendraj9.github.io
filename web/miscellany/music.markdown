@@ -9,7 +9,7 @@ have no idea how I would do it.
 [Rascal Flatts: God Bless the Broken Road](https://www.youtube.com/watch?v=Do32g82qilk)  
 [Darden Smith: Perfect Moment](https://www.youtube.com/watch?v=V_TespZ3tag)   
 [Eddie Vedder: No Ceiling]()  
-[Phillip Phillips: Gone Gone Gone]() 
+[Phillip Phillips: Gone Gone Gone]()  
 [Luke Bryan: Drink a Beer]()  
 [Rosi Golan: Think of Me]()   
 [Sara Bareilles: Choose You]()  
