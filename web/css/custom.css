@@ -18,14 +18,7 @@ code > span.al { color: #ffcfaf; }
 code > span.fu { color: #efef8f; }
 code > span.er { color: #c3bf9f; }
 
-@media (max-width: @screen-sm-max) {
-    .nav-brand {
-        font-size: 18px;
-    }
-    
-}
-
-@media (min-width: @screen-md-min) {
+@media (min-width: @screen-sm-min) {
     .nav-brand  {
         font-size: 30px;
     }
