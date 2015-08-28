@@ -33,7 +33,8 @@ code > span.er { color: #c3bf9f; }
 }
 
 #post-content {
-    font-family: 'Vollkorn', serif;
+    font-family: 'Crimson Text'
+    font-size: 19px;
 	background-color: floralwhite;
 }
 
