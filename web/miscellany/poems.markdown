@@ -109,7 +109,7 @@ And the smile that adores your face when it's known.
 
 <a name='poem3'> </a>
 
-[Yet Another Rambling Poem ](#poem3)
+[Nostalgia](#poem3)
 ====================================
 
 Another day sinks and disappears,  
@@ -134,7 +134,7 @@ Reading this page. Remembering this day.
 
 <a name='poem4'> </a>
 
-[Yet Yet Another Little Rambling Poem](#poem4)
+[Departure](#poem4)
 =======================================
 
 Sails of my little boat flapping to the tunes of traveling winds,  
@@ -168,7 +168,7 @@ Today seems like one of those lovely days.
 
 <a name='poem6'> </a>
 
-[Just Another Aimless Poem](#poem6)
+[Whims](#poem6)
 ===================================
 
 If I had wings, or the magic of a sorcerer's wand,  
@@ -207,6 +207,33 @@ Or we will have a world of a different attire
 Until my love, you say it's best  
 And finally, you lay beside me under the covers  
 And these blankets forget the smell of loneliness.  
+
+<a href='poem7'> </a>
+
+[A Lost Poem](#poem7)
+=====================
+Places bathe in sunshine and shade.  
+Structures gigantic, with time, decay.  
+Beauty and colors fade, to my dismay.  
+Each moment at its own pace  
+Marches to the beats of an oldened drum. (let's name it "time")  
+
+Waves oceanic, they retreat  
+After, with the shore, having a meet.  
+Faces of the moon, shadowy afternoons,  
+Songs of Silence, the vigor of vengeance,  
+Fruits of a tree, the hum of a bee;  
+With Time all fall into laps of change, you know.  
+Amid these changes, I can assure  
+My Love would stand brave and bold.  
+As time would etch age on my face  
+And weakness would crawl into my days,  
+My hand would lay held out for you,  
+My Love, I promise, agelessly true.  
+My Raison D'etre! You are   
+In my days and in my dreams;  
+For none would be complete without thee  
+Stay with me Stay with me.  
 
 
 
