@@ -18,12 +18,6 @@ code > span.al { color: #ffcfaf; }
 code > span.fu { color: #efef8f; }
 code > span.er { color: #c3bf9f; }
 
-@media (min-width: @screen-md-min) {
-    .navbar-brand  {
-        font-size: 30px;
-    }
-}
-
 .resume {
 	width: 100%;
 	height: 948px;
@@ -31,7 +25,8 @@ code > span.er { color: #c3bf9f; }
 
 .navbar-brand {
     font-family: 'Pacifico', cursive;
-    
+    font-family: 20px;
+    color: orange;
 }
 
 #post-content {
@@ -47,5 +42,12 @@ code > span.er { color: #c3bf9f; }
     margin-top: 30px;
     padding: 12px 0px 12px 0px;
     text-align: right;
+}
+
+/* Overwrite navbar-brand font-size for large devices. */
+@media (min-width: 768px) {
+    .navbar-brand  {
+        font-size: 30px;
+    }
 }
 
