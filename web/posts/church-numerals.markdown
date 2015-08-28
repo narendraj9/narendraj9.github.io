@@ -96,6 +96,3 @@ world, e.g. print a dot on the screen or increment the value stored in a
 register by one unit, we can __understand__ the numbers that we have developed
 so far.
 
-How can we store Church Numerals in hardware?
----
-I have no idea!
