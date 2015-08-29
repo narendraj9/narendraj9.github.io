@@ -5,9 +5,9 @@ date: 2014-11-11
 
 Some poems that I have written are here: [blogger.vicarie.in](http://blogger.vicarie.in).
 
-<a name='poem'> </a>
+<div id='poem0'> </div>
 
-[From the light of Polaris](#poem)
+[From the light of Polaris](#poem0)
 ==================================
 
 No new morrow would see me abandon your streets  
@@ -53,7 +53,7 @@ Shyly blinking with a shimmer of heavens
 That's all I am wishing for. That's all this is for.  
                                                     --__Genie__
 
-<a name='poem1'> </a>
+<div id='poem1'> </div>
 
 [A Constellation of Thoughts](#poem1)
 =================================================
@@ -86,7 +86,7 @@ Until the call that puts it to an end.
 
 
 
-<a name='poem2'> </a>
+<div id='poem2'> </div>
 
 [An Evening](#poem2)
 ===============================
@@ -107,7 +107,7 @@ And the smile that adores your face when it's known.
   
 
 
-<a name='poem3'> </a>
+<div id='poem3'> </div>
 
 [Nostalgia](#poem3)
 ====================================
@@ -132,7 +132,7 @@ Or I would wake up and smile one day
 Reading this page. Remembering this day.  
 
 
-<a name='poem4'> </a>
+<div id='poem4'> </div>
 
 [Departure](#poem4)
 =======================================
@@ -149,7 +149,7 @@ Mine would become a part of the shore, placid and earthed. [Sedimentary Rock :-D
 
 
 
-<a name='poem5'> </a>
+<div id='poem5'> </div>
 
 [A Lovely Day](#poem5)
 ======================
@@ -166,7 +166,7 @@ The air is fresher, silence pleasant for a change.
 Today seems like one of those lovely days.
 
 
-<a name='poem6'> </a>
+<div id='poem6'> </div>
 
 [Whims](#poem6)
 ===================================
@@ -209,7 +209,7 @@ And finally, you lay beside me under the covers
 And these blankets forget the smell of loneliness.  
 
 
-<a href='poem7'> </a>
+<div id='poem7'> </div>
 
 [A Lost Poem](#poem7)
 =====================
@@ -235,6 +235,29 @@ My Raison D'etre! You are
 In my days and in my dreams;  
 For none would be complete without thee  
 Stay with me Stay with me.  
+
+
+<div id='poem8'></div>
+
+[Eyes](#poem8)
+==============
+
+Eyes, those eyes, they say. They speak  
+A language so foreign to me--  
+A thousand words in a single blink;  
+A song that I have been chasing.  
+When they smile, curved the brows;  
+Resembling pearls embedded in snow,  
+All the seven wanderers, I know,  
+Envy our little dusty globe!  
+In bitter times, the twins they dive  
+Into majestic oceans and seas.  
+Ruby red, shiny wet  
+Silencing every word meant to hurt.  
+All my world of words won't suffice  
+To be just with those two eyes.  
+Audio: [Recitation](https://drive.google.com/open?id=0Bw3s0KNkAWLINnU3SFNzUlk2UUE)
+
 
 
 
