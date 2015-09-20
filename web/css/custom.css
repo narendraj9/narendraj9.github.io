@@ -32,6 +32,10 @@ code > span.er { color: #c3bf9f; }
     color: antiquewhite;
 }
 
+#post-container-wrapper {
+    background-color: floralwhite;
+}
+
 #post-container {
     max-width: 648px;
 }
