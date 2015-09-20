@@ -16,5 +16,7 @@ written as if it is meant to be very precise and self-contained.
 > The crownless again shall be king.  
 
 
+Not quotes, but worth reading and watching: [Obscure Sorrows](http://www.dictionaryofobscuresorrows.com/).
+
 Conal Elliot maintains a huge list of quotes. I wonder if all of them are his
 favorites. Here: [Quotes](http://conal.net/quotes.htm)

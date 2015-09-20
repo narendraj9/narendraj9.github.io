@@ -25,3 +25,4 @@ My Resume
 <iframe src="/data/resume.pdf#view=fit&scrollbar=0&navpanes=0&toolbar=0" type="application/pdf" class="resume">
 <p> <a href="/data/resume.pdf"> Resume </a> </p>
 </iframe>
+

@@ -259,7 +259,30 @@ To be just with those two eyes.
 Audio: [Recitation](https://drive.google.com/open?id=0Bw3s0KNkAWLINnU3SFNzUlk2UUE)
 
 
+<div id='poem9'> </div>
 
+[Nostalgia](#poem9)
+===================
+
+Amid a thousand passing seconds  
+None of which dearer to the Gods,  
+It's so strange of this human heart  
+That only a few it adores.  
+It could be her eyes;  
+Could be some six year old's smile;  
+Could be rainbows in the sky  
+Or an equation after those years of time;  
+Could be the sunshine  
+Or that ball of snow that lovingly hit your face.  
+Could be the water, cold and sweet and tastless at the same time.  
+Or the fire that lets you read through darkness;  
+It could be silence, void and complete and strange  
+Or cheerful voices shouting at the top of their lungs.  
+Could be just words, ink and paper and life  
+Or the canvas you paint every night,   
+Or be forgotten and remembered those dreams.  
+But do those blind and deaf moments know  
+How much of your life they have made?  
 
 
 <hr>
