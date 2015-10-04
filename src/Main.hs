@@ -49,7 +49,6 @@ main = hakyllWith config $ do
                 >>= loadAndApplyTemplate "templates/tag.html" ctx
                 >>= loadAndApplyTemplate "templates/default.html" ctx
                 >>= relativizeUrls
-
     match "posts/*" $ do
       route $ setExtension "html"
       compile $ pandocCompilerWithMath
@@ -88,7 +87,6 @@ main = hakyllWith config $ do
                     listField "posts" postCtx (return posts) `mappend`
                     constField "title" "Home"                `mappend`
                     defaultContext
-
             getResourceBody
                 >>= applyAsTemplate indexCtx
                 >>= loadAndApplyTemplate "templates/default.html" indexCtx
@@ -103,7 +101,9 @@ postCtx =
     dateField "date" "%B %e, %Y" `mappend`
     defaultContext
 postCtxWithTags :: Tags -> Context String
-postCtxWithTags tags = tagsField "tags" tags `mappend` postCtx
+postCtxWithTags tags = tagsField "tags" tags
+                       `mappend` postCtx
+
 
 miscCtx :: Context String
 miscCtx =
