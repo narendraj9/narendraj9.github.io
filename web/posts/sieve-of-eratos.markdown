@@ -53,10 +53,10 @@ take if that set of numbers happens to be empty. It's trivially a never-ending
 sequence of 1's. You just walk the whole number line stepping upon each number.
 
 Now, let's see what the sequence is when we have one element in the set,
-say $p$. Since you are standing on $1$, the first multiple is yet to be
-encountered and is at $p$. All numbers between $1$ and $p$ are numbers you must
-step upon. So the sequence must contain $(p - 2)$ values equal to $1$ followed
-by a single $2$. The $2$ in the sequence is for the point in time when I ask you
+say $p$. Since you are standing on 1, the first multiple is yet to be
+encountered and is at $p$. All numbers between 1 and $p$ are numbers you must
+step upon. So the sequence must contain $(p - 2)$ values equal to 1 followed
+by a single 2. The 2 in the sequence is for the point in time when I ask you
 to jump over $p$. After this, the same numbers just repeat themselves
 indefinitely.
 
@@ -67,7 +67,7 @@ genWheel x = let ys = replicate (x - 2) 1 ++ [2] ++ ys in Wheel ys
 
 Eventually, we would want our wheels to be generated for larger sets of numbers
 because we would like to avoid as many multiples of already known primes as
-possible. So, we want to combine two wheels, say $(genWheel 2)$ and $(genWheel 3)$.
+possible. So, we want to combine two wheels, say `genWheel 2` and `genWheel 3`.
 We definitely expect the combine operation to be associative and the wheel
 generated for the empty set to be its identity element. Yes, it is a Monoid.
 
