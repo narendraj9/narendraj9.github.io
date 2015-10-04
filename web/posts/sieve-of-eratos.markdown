@@ -49,7 +49,7 @@ Imagine yourself standing on the number line. You are initially on the number 1.
 Now, I am supposed to give you the number of steps you must take so that you
 end up on the next number that isn't a multiple of 2 or 3; or in general not a
 multiple of any of the numbers in a set. What would be the steps that you would
-take if that set of numbers happens to be empty. It's trivially a never-ending
+take if that set of numbers happens to be empty? It's trivially a never-ending
 sequence of 1's. You just walk the whole number line stepping upon each number.
 
 Now, let's see what the sequence is when we have one element in the set,
@@ -68,7 +68,7 @@ genWheel x = let ys = replicate (x - 2) 1 ++ [2] ++ ys in Wheel ys
 Eventually, we would want our wheels to be generated for larger sets of numbers
 because we would like to avoid as many multiples of already known primes as
 possible. So, we want to combine two wheels, say `genWheel 2` and `genWheel 3`.
-We definitely expect the combine operation to be associative and the wheel
+We definitely expect the `combine` operation to be associative and the wheel
 generated for the empty set to be its identity element. Yes, it is a Monoid.
 
 ~~~~ { .haskell }
@@ -84,7 +84,7 @@ instance Monoid Wheel where
 ~~~~
 
 Our combine operation is defined above as `mappend`. The idea is to merge
-consecutive elements of the the wheel when we encounter a mismatch between the
+consecutive elements of the wheel when we encounter a mismatch between the
 two wheels to be combined. It makes sense because the sum of consecutive
 elements on a wheel constitutes a valid step size. So, in essence we are trying
 to morph the smaller wheel to look more like the larger wheel whenever we see
