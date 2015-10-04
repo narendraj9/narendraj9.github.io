@@ -86,6 +86,7 @@ main = hakyllWith config $ do
             let indexCtx =
                     listField "posts" postCtx (return posts) `mappend`
                     constField "title" "Home"                `mappend`
+                    field "tags" (\_ -> renderTagList tags)  `mappend`
                     defaultContext
             getResourceBody
                 >>= applyAsTemplate indexCtx
