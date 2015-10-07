@@ -12,7 +12,7 @@
 <script language="javascript">
                         //alert('Inside iresponseFrame data return ' + window.parent.DataReturned);
                         
-                        if (window.parent.document != window.document) 
+                        if (window.parent != window) 
                         {
                         top.postMessage({info: "This is dummy info."}, "*");
                         }
