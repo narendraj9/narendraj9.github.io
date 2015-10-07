@@ -15,6 +15,7 @@ I want to hack XMonad to increase my productivity on the computer as it eats
 most of my time.
 That _ambition_ keeps me on the road to learning Haskell these days.
 
+
 And yes, the monk is named Narendra.
 If you want to have a chat, email me at narendraj9 at gmail dot com.
 
