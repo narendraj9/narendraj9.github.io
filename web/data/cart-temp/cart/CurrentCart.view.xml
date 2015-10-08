@@ -1,0 +1,46 @@
+<core:View
+ xmlns:core="sap.ui.core"
+ xmlns:mvc="sap.ui.core.mvc"
+ xmlns="sap.m"
+ controllerName="cart.CurrentCart"
+ xmlns:html="http://www.w3.org/1999/xhtml">
+ <List
+  headerText="Selected Products"
+  items="{
+            path: '/cart'
+            }">
+  <StandardListItem
+   xmlns="sap.m"
+   title="{Name} | Price = {Price}$"
+   description="{Description}"
+   icon="{ProductPicUrl}">
+  </StandardListItem>
+ </List>
+ <HBox
+  alighItems="Stretch"
+  justifyContent="End">
+  <Text text="Total Amount: {/totalAmount}$"/>
+ </HBox>
+ <HBox
+  alignItems="Stretch"
+  justifyContent="End">
+  <items>
+   <Button
+    press="onHomeButtonPress"
+    text="Home"
+    icon="sap-icon://home" />
+   <Button
+    press="onSendApprovalPress"
+    icon="sap-icon://action"
+    text="Submit for Approval" />
+   <Button
+    press="onClearButtonPress"
+    text="Clear"
+    icon="sap-icon://delete" />
+   <Button
+    press="onCartHistoryPress"
+    text="History"
+    icon="sap-icon://history" />
+  </items> <!-- sap.ui.core.Control -->
+ </HBox>
+</core:View>

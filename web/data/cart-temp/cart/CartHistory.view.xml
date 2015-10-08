@@ -1,0 +1,33 @@
+<core:View
+ xmlns:core="sap.ui.core"
+ xmlns:mvc="sap.ui.core.mvc"
+ xmlns="sap.m"
+ controllerName="cart.CartHistory"
+ xmlns:html="http://www.w3.org/1999/xhtml">
+ <List items="{
+            path: '/history'
+            }">
+  <StandardListItem
+   xmlns="sap.m"
+   title="Cart ID: {id}"
+   description="Item Count: {count} Total Amount: {totalAmount}$ Status: {status}">
+   
+  </StandardListItem>
+ </List>
+ <HBox
+  xmlns="sap.m"
+  direction="Row"
+  justifyContent="End"
+  alignItems="Stretch">
+  <items>
+   <Button
+    text="Home"
+    icon="sap-icon://home"
+    press="onHomeButtonPress" />
+   <Button
+    text="Clear"
+    icon="sap-icon://delete"
+    press="onClearButtonPress" />
+  </items> <!-- sap.ui.core.Control -->
+ </HBox>
+</core:View>

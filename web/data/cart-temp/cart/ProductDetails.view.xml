@@ -1,0 +1,29 @@
+<core:View
+ xmlns:core="sap.ui.core"
+ xmlns:mvc="sap.ui.core.mvc"
+ xmlns="sap.m"
+ controllerName="cart.ProductDetails"
+ xmlns:html="http://www.w3.org/1999/xhtml">
+ <VBox
+  xmlns="sap.m"
+  id="detailsViewBox"
+  alignItems="Center">
+  <items>
+   <Image
+    xmlns="sap.m"
+    id="pImage"
+    src="{/ProductPicUrl}">
+   </Image>
+   <Text text="{/Name}" />
+   <Text text="{/Price}" />
+   <Text text="{/Description}" />
+   <Button
+    xmlns="sap.m"
+    id="buyButton"
+    text="Add to Cart"
+    press="onBuyButtonPress"
+    icon="sap-icon://add">
+   </Button>
+  </items> <!-- sap.ui.core.Control -->
+ </VBox>
+</core:View>

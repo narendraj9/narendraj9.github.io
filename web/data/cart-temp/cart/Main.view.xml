@@ -1,0 +1,52 @@
+<core:View
+ xmlns:core="sap.ui.core"
+ xmlns:mvc="sap.ui.core.mvc"
+ xmlns="sap.m"
+ controllerName="cart.Main"
+ xmlns:html="http://www.w3.org/1999/xhtml">
+ <Page title="Shopping Cart">
+  <content>
+   <SplitApp
+    xmlns="sap.m"
+    id="splitApp">
+    <masterPages>
+     <Page
+      xmlns="sap.m"
+      title=""
+      id="masterPage">
+      <headerContent>
+       <SearchField
+        width="100%"
+        liveChange="onSearch" />
+      </headerContent>
+      <content>
+       <mvc:XMLView
+        viewName="cart.ProductsList"
+        id="productsView" />
+      </content> <!-- sap.ui.core.Control -->
+     </Page>
+    </masterPages> <!-- sap.ui.core.Control -->
+    <detailPages>
+     <Page
+      xmlns="sap.m"
+      id="detailPage"
+      title="Product Info">
+      <headerContent>
+       <Button
+        xmlns="sap.m"
+        id="cartButton"
+        icon="sap-icon://cart"
+        press="showCurrentCart">
+       </Button>
+      </headerContent>
+      <content>
+       <mvc:XMLView
+        viewName="cart.ProductDetails"
+        id="detailsView" />
+      </content> <!-- sap.ui.core.Control -->
+     </Page>
+    </detailPages> <!-- sap.ui.core.Control -->
+   </SplitApp>
+  </content>
+ </Page>
+</core:View>
