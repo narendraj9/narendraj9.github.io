@@ -20,12 +20,12 @@ main = hakyllWith config $ do
         route   idRoute
         compile compressCssCompiler
 
-        match "js/*" $ do
+    match "js/*" $ do
                 route idRoute
                 compile copyFileCompiler
-
-        -- files : resume.pdf, etc.
-        match "data/*" $ do
+    
+    -- files : resume.pdf, etc.
+    match "data/**" $ do
                 route idRoute
                 compile copyFileCompiler
 
