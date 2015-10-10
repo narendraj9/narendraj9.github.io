@@ -46,6 +46,18 @@ code > span.er { color: #c3bf9f; }
 	background-color: floralwhite;
 }
 
+
+ul.share-buttons{
+  list-style: none;
+  padding: 0;
+  float: right;
+}
+
+ul.share-buttons li{
+  display: inline;
+}
+
+
 /* style for the footer */
 #post-footer {
     border-top: solid 2px black;
