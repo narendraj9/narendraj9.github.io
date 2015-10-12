@@ -7,6 +7,7 @@ This page is for books that I have read or are on my to-read list, movies
 and music that I love.
 
 ### [Books](books.html)
+### [Links](links.html)
 ### [Music](music.html)
 ### [Movies](movies.html)
 ### [Poems](poems.html)
