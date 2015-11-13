@@ -51,7 +51,7 @@ Unless you let your lips curl as your mind reads
 And your eyes speak as if a young lover kissed them;  
 Shyly blinking with a shimmer of heavens  
 That's all I am wishing for. That's all this is for.  
-                                                    --__Genie__
+
 
 <div id='poem1'> </div>
 
@@ -283,6 +283,21 @@ Or the canvas you paint every night,
 Or be forgotten and remembered those dreams.  
 But do those blind and deaf moments know  
 How much of your life they have made?  
+
+
+<div id='poem10'> </div>
+
+[Seclusion](#poem10)
+======================
+
+A tryst, Of the silence and a few fleeting thoughts;  
+Leaves a constellation of eerie knots.  
+Am I a slave to the passing time  
+Or the winds, not chariot mine?  
+Stillness has answers that refuse;  
+Maybe it is the seclusion, still and calm  
+Or these words just smudge those lines.  
+
 
 
 <hr>
