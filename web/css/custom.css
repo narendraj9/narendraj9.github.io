@@ -28,6 +28,10 @@ code > span.er { color: #c3bf9f; }
     font-size: 23px;
 }
 
+.navbar {
+    margin-bottom: 0px;
+}
+
 #blog-title {
     color: antiquewhite;
 }
