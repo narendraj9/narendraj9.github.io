@@ -40,6 +40,12 @@ code > span.er { color: #c3bf9f; }
     max-width: 648px;
 }
 
+#post-container,
+#post-container-wrapper {
+    border-left: 1px solid #eeeeee;
+    border-right: 1px solid #eeeeee
+}
+
 #post-content {
     font-family: 'Bree Serif', serif;
     font-size: 19px;
