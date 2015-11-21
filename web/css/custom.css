@@ -46,6 +46,10 @@ code > span.er { color: #c3bf9f; }
 	background-color: floralwhite;
 }
 
+#post-content p {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 15px;
+}
 
 ul.share-buttons{
   list-style: none;
