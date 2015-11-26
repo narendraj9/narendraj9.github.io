@@ -32,6 +32,10 @@ code > span.er { color: #c3bf9f; }
     margin-bottom: 0px;
 }
 
+.nav {
+    font-weight: bold;
+}
+
 #blog-title {
     color: antiquewhite;
 }
