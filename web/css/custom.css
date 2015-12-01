@@ -17,6 +17,11 @@ code > span.ot { color: #efef8f; }
 code > span.al { color: #ffcfaf; }
 code > span.fu { color: #efef8f; }
 code > span.er { color: #c3bf9f; }
+    
+p > code {
+    background-color: wheat;
+    color: brown;
+}
 
 .resume {
 	width: 100%;
