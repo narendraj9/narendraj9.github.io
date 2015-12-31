@@ -6,7 +6,7 @@ general:
 
 dependencies:
   override:
-    - cabal install --dependencies-only --avoid-reinstalls
+    - cabal update && cabal install --dependencies-only --avoid-reinstalls
 
 # Generate static site during test phase
 test:
