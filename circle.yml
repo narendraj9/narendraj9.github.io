@@ -12,7 +12,7 @@ general:
 # Install dependencies only
 dependencies:
   override:
-    - cabal install --dependencies-only --avoid-reinstalls
+    - cabal install --dependencies-only --avoid-reinstalls --constraint="hslua < 0.4"
 
 # Generate static site during test phase
 test:
