@@ -12,6 +12,8 @@ general:
 # Install dependencies only
 dependencies:
   override:
+    # Temporary fix
+    - sudo apt-get install libluajit
     - cabal install --dependencies-only --avoid-reinstalls --constraint="hslua +system-lua +luajit"
 
 # Generate static site during test phase
