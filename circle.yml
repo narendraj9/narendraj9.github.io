@@ -6,8 +6,8 @@ machine:
 # Changes to master shouldn't trigger anything.
 general:
     branches:
-        only:
-            - source
+        ignore:
+            - master
 
 # Install dependencies only
 dependencies:
