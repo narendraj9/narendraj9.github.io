@@ -13,7 +13,7 @@ general:
 dependencies:
   override:
     # Temporary fix
-    - sudo apt-get install luajit-5.1-dev
+    - sudo apt-get install libluajit-5.1.0-dev liblualib-5.1.0-dev
     - cabal install --dependencies-only --avoid-reinstalls --constraint="hslua +system-lua +luajit"
 
 # Generate static site during test phase
