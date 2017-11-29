@@ -1,0 +1,3 @@
+#+TITLE: Sitemap for project orgfiles
+
+- [[file:index.org][index]]

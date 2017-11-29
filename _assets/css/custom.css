@@ -1,0 +1,85 @@
+.resume {
+	width: 100%;
+	height: 948px;
+}
+
+nav {
+    font-family: 'Pacifico', cursive;
+    font-size: 23px;
+    padding-left: 4em;
+}
+
+.navbar {
+    margin-bottom: 0px;
+}
+
+
+#blog-title {
+    color: black;
+}
+
+body {
+    background-color: floralwhite;
+}
+
+#content {
+    margin: auto;
+    max-width: 648px;
+    border-left: 1px solid #eeeeee;
+    border-right: 1px solid #eeeeee
+}
+
+#content div {
+    font-family: 'Bree Serif', serif;
+    margin: 2em;
+    font-size: 19px;
+	background-color: floralwhite;
+}
+
+#content p {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 15px;
+}
+
+ul.share-buttons{
+  list-style: none;
+  padding: 0;
+  float: right;
+}
+
+ul.share-buttons li{
+  display: inline;
+}
+
+#postamble {
+    width: 40%;
+    margin: auto;
+}
+
+footer {
+    border-top: solid 2px black;
+    color: #555;
+    font-size: 12px;
+    margin-top: 30px;
+    padding: 12px 0px 12px 0px;
+    text-align: center;
+}
+
+#i-heart {
+    color: "red";
+    viewBox: "0 0 32 32";
+    width:16;
+    height:16;
+    fill: "solid";
+    stroke: "currentcolor";
+    stroke-linecap: "round";
+    stroke-linejoin: "round";
+    stroke-width: 2;
+}
+
+/* Overwrite navbar-brand font-size for large devices. */
+@media (min-width: 768px) {
+    .navbar-brand  {
+        font-size: 30px;
+    }
+}
