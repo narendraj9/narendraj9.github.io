@@ -1,25 +1,29 @@
+body {
+    background-color: floralwhite;
+}
+
+footer {
+    border-top: solid 2px black;
+    color: #555;
+    font-size: 12px;
+    margin-top: 30px;
+    padding: 12px 0px 12px 0px;
+    text-align: center;
+}
+
+ul.share-buttons{
+  list-style: none;
+  padding: 0;
+  float: right;
+}
+
+ul.share-buttons li{
+  display: inline;
+}
+
 .resume {
 	width: 100%;
 	height: 948px;
-}
-
-nav {
-    font-family: 'Pacifico', cursive;
-    font-size: 23px;
-    padding-left: 4em;
-}
-
-.navbar {
-    margin-bottom: 0px;
-}
-
-
-#blog-title {
-    color: black;
-}
-
-body {
-    background-color: floralwhite;
 }
 
 #content {
@@ -41,28 +45,9 @@ body {
     font-size: 15px;
 }
 
-ul.share-buttons{
-  list-style: none;
-  padding: 0;
-  float: right;
-}
-
-ul.share-buttons li{
-  display: inline;
-}
-
 #postamble {
     width: 40%;
     margin: auto;
-}
-
-footer {
-    border-top: solid 2px black;
-    color: #555;
-    font-size: 12px;
-    margin-top: 30px;
-    padding: 12px 0px 12px 0px;
-    text-align: center;
 }
 
 #i-heart {
@@ -75,11 +60,4 @@ footer {
     stroke-linecap: "round";
     stroke-linejoin: "round";
     stroke-width: 2;
-}
-
-/* Overwrite navbar-brand font-size for large devices. */
-@media (min-width: 768px) {
-    .navbar-brand  {
-        font-size: 30px;
-    }
 }

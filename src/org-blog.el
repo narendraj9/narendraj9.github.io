@@ -39,7 +39,8 @@ Argument `PROJECT-PLIST' contains information about the current project."
     (kill-buffer buffer)))
 
 (defvar org-blog-head
-  "<link rel=\"stylesheet\" type=\"text/css\" href=\"_assets/css/custom.css\"/>
+  "<link rel=\"stylesheet\" type=\"text/css\" href=\"_assets/css/bootstrap.css\"/>
+   <link rel=\"stylesheet\" type=\"text/css\" href=\"_assets/css/custom.css\"/>
    <link rel=\"stylesheet\" type=\"text/css\" href=\"https://fonts.googleapis.com/css?family=Libre+Baskerville|Bree+Serif|Ubuntu+Mono|Pacifico&subset=latin,greek\"/>")
 
 (defun org-blog-postamble (_plist)
