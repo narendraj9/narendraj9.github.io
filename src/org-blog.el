@@ -40,12 +40,11 @@ Argument `PROJECT-PLIST' contains information about the current project."
 
 (defvar org-blog-head
   "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/css/bootstrap.css\"/>
-   <link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/css/custom.css\"/>
    <link rel=\"stylesheet\" type=\"text/css\" href=\"https://fonts.googleapis.com/css?family=Libre+Baskerville|Bree+Serif|Ubuntu+Mono|Pacifico&subset=latin,greek\"/>")
 
 (defun org-blog-preamble (_plist)
   "Pre-amble for whole blog."
-  "<div> Ramblings from a Corner </div> <hr>")
+  "<div class=\"\"> Ramblings from a Corner </div> <hr>")
 
 (defun org-blog-postamble (_plist)
   "Post-amble for whole blog."
@@ -53,7 +52,8 @@ Argument `PROJECT-PLIST' contains information about the current project."
 	<p> Built with
 		<svg id=\"i-heart\" viewBox=\"0 0 32 32\">
     		<path d=\"M4 16 C1 12 2 6 7 4 12 2 15 6 16 8 17 6 21 2 26 4 31 6 31 12 28 16 25 20 16 28 16 28 16 28 7 20 4 16 Z\"/>
-	    </svg> and <code>org-publish</code>
+	    </svg> and
+        <img id=\"i-emacs\" src=\"/assets/images/emacs.svg\">
 	</p>
   </footer>
   <script type=\"text/javascript\" src=\"/assets/js/custom.js\"> </script> ")

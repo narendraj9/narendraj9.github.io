@@ -352,24 +352,24 @@ pre code {
   max-height: 340px;
   overflow-y: scroll;
 }
-.container {
+.container, #content {
   margin-right: auto;
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
 }
 @media (min-width: 768px) {
-  .container {
+  .container, #content {
     width: 750px;
   }
 }
 @media (min-width: 992px) {
-  .container {
+  .container, #content {
     width: 970px;
   }
 }
 @media (min-width: 1200px) {
-  .container {
+  .container, #content {
     width: 1170px;
   }
 }
@@ -379,7 +379,7 @@ pre code {
   padding-left: 15px;
   padding-right: 15px;
 }
-.row {
+.row, #content > * {
   margin-left: -15px;
   margin-right: -15px;
 }
@@ -1278,4 +1278,88 @@ pre code {
   .hidden-print {
     display: none !important;
   }
+}
+
+
+/* ----------------------------------CUSTOM---------------------------------- */
+
+body {
+    background-color: floralwhite;
+}
+
+#preamble {
+    font-family: Pacifico;
+    margin: auto;
+    max-width: 768px;
+    font-size: 40px;
+    padding-left: 10px;
+}
+
+@media (max-width: 768px) {
+    #preamble {
+        font-size: 20px;
+    }
+}
+
+footer {
+    font-family: Pacifico;
+    border-top: solid 2px black;
+    color: #555;
+    font-size: 18px;
+    margin-top: 30px;
+    padding: 12px 0px 12px 0px;
+    text-align: center;
+}
+
+ul.share-buttons{
+  list-style: none;
+  padding: 0;
+  float: right;
+}
+
+ul.share-buttons li{
+  display: inline;
+}
+
+.resume {
+	width: 100%;
+	height: 948px;
+}
+
+#content {
+    margin: auto;
+    max-width: 768px;
+    border-left: 1px solid #eeeeee;
+    border-right: 1px solid #eeeeee
+}
+
+#content div {
+    font-family: 'Bree Serif', serif;
+    margin: 2em;
+	background-color: floralwhite;
+}
+
+#content p {
+    font-family: 'Libre Baskerville', serif;
+}
+
+#postamble {
+    width: 40%;
+    margin: auto;
+}
+
+#i-emacs {
+    height: 30px;
+    width: 30px;
+}
+
+#i-heart {
+    viewBox: 0 0 32 32;
+    width: 20px;
+    height: 20px;
+    stroke: black;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2px;
+    fill: red;
 }
