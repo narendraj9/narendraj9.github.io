@@ -43,6 +43,10 @@ Argument `PROJECT-PLIST' contains information about the current project."
    <link rel=\"stylesheet\" type=\"text/css\" href=\"assets/css/custom.css\"/>
    <link rel=\"stylesheet\" type=\"text/css\" href=\"https://fonts.googleapis.com/css?family=Libre+Baskerville|Bree+Serif|Ubuntu+Mono|Pacifico&subset=latin,greek\"/>")
 
+(defun org-blog-preamble (_plist)
+  "Pre-amble for whole blog."
+  "<div> Ramblings from a Corner </div> <hr>")
+
 (defun org-blog-postamble (_plist)
   "Post-amble for whole blog."
   "<footer class=\"footer\">
@@ -73,7 +77,9 @@ Argument `PROJECT-PLIST' contains information about the current project."
          :html-head-include-scripts nil
          :htmlized-source t
          :html-head-extra ,org-blog-head
+         :html-preamble org-blog-preamble
          :html-postamble org-blog-postamble
+
 
          :html-link-home "/"
          :html-link-up "/")

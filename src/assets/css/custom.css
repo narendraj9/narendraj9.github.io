@@ -2,8 +2,10 @@ body {
     background-color: floralwhite;
 }
 
-header > h1 {
+#preamble {
     font-family: Pacifico;
+    margin: auto;
+    max-width: 648px;
     font-size: 40px;
 }
 

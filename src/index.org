@@ -1,3 +1,4 @@
+#+HTML_HEAD: <style type="text/css"> <!--/*--><![CDATA[/*><!--*/ .title { display: none; } /*]]>*/--> </style>
 #+TITLE: Ramblings from a corner
 * Welcome!
 - Welcome to my corner of the web!
