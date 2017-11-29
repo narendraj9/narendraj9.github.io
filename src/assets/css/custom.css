@@ -51,13 +51,12 @@ ul.share-buttons li{
 }
 
 #i-heart {
-    color: "red";
-    viewBox: "0 0 32 32";
-    width:16;
-    height:16;
-    fill: "solid";
-    stroke: "currentcolor";
-    stroke-linecap: "round";
-    stroke-linejoin: "round";
-    stroke-width: 2;
+    fill: red;
+    viewBox: 0 0 32 32;
+    width: 32px;
+    height: 32px;
+    stroke: black;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2px;
 }
