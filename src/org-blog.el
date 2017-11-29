@@ -39,8 +39,8 @@ Argument `PROJECT-PLIST' contains information about the current project."
     (kill-buffer buffer)))
 
 (defvar org-blog-head
-  "<link rel=\"stylesheet\" type=\"text/css\" href=\"_assets/css/bootstrap.css\"/>
-   <link rel=\"stylesheet\" type=\"text/css\" href=\"_assets/css/custom.css\"/>
+  "<link rel=\"stylesheet\" type=\"text/css\" href=\"assets/css/bootstrap.css\"/>
+   <link rel=\"stylesheet\" type=\"text/css\" href=\"assets/css/custom.css\"/>
    <link rel=\"stylesheet\" type=\"text/css\" href=\"https://fonts.googleapis.com/css?family=Libre+Baskerville|Bree+Serif|Ubuntu+Mono|Pacifico&subset=latin,greek\"/>")
 
 (defun org-blog-postamble (_plist)
@@ -52,7 +52,7 @@ Argument `PROJECT-PLIST' contains information about the current project."
 	    </svg> and <code>org-publish</code>
 	</p>
   </footer>
-  <script type=\"text/javascript\" src=\"_assets/js/custom.js\"> </script> ")
+  <script type=\"text/javascript\" src=\"assets/js/custom.js\"> </script> ")
 
 (setq org-publish-project-alist
       `(("orgfiles"
@@ -79,9 +79,9 @@ Argument `PROJECT-PLIST' contains information about the current project."
          :html-link-up "/")
 
         ("assets"
-         :base-directory "~/blog/src/_assets/"
+         :base-directory "~/blog/src/assets/"
          :base-extension ".*"
-         :publishing-directory "~/blog/_assets/"
+         :publishing-directory "~/blog/assets/"
          :publishing-function org-publish-attachment
          :recursive t)
 
