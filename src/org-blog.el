@@ -24,6 +24,7 @@
 
 ;;; Code:
 
+(require 'org)
 (require 'ox-publish)
 (require 'ox-html)
 
