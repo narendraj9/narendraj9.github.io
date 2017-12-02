@@ -1363,3 +1363,8 @@ ul.share-buttons li{
     stroke-width: 2px;
     fill: red;
 }
+
+/* Thanks to advent of code */
+em {
+    text-shadow: 0 0 5px #555555;
+}
