@@ -1368,3 +1368,7 @@ ul.share-buttons li{
 em {
     text-shadow: 0 0 5px #555555;
 }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Amaranth', sans-serif;
+}
