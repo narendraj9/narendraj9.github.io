@@ -1,4 +1,10 @@
 #+HTML_HEAD: <style type="text/css"> <!--/*--><![CDATA[/*><!--*/ .title { display: none; } /*]]>*/--> </style>
 #+TITLE: Ramblings from a corner
-* Welcome!
-- Welcome to my corner of the web!
+Hi!
+
+I am a Software Developer by profession, an /Emacs/ devotee and a untalented
+poet. To get in touch, email me at narendraj9 at gmail dot com.
+
+I intend to use this space for writing about things that I think I have
+understood deeply in the hope that they may be helpful to others (including my
+future self).

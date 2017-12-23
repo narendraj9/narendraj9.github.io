@@ -1330,7 +1330,8 @@ ul.share-buttons li{
     margin: auto;
     max-width: 768px;
     border-left: 1px solid #eeeeee;
-    border-right: 1px solid #eeeeee
+    border-right: 1px solid #eeeeee;
+    padding-left: 3em;
 }
 
 #content div {
