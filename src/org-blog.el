@@ -27,6 +27,7 @@
 (require 'org)
 (require 'ox-publish)
 (require 'ox-html)
+(require 'org-element)
 
 (defun org-blog-prepare (project-plist)
   "With help from `https://github.com/howardabrams/dot-files'.
@@ -59,11 +60,40 @@ Argument `PROJECT-PLIST' contains information about the current project."
   </footer>
   <script type=\"text/javascript\" src=\"/assets/js/custom.js\"> </script> ")
 
+(defun org-blog-sitemap-format-entry (entry _style project)
+  "Format for site map ENTRY, as a string.
+ENTRY is a file name.  STYLE is the style of the sitemap.
+PROJECT is the current project."
+  (if (s-starts-with-p "posts/" entry)
+      (format "@@html:<span class=\"archive-date\">@@ %s @@html:</span>@@ [[file:%s][%s]]"
+              (format-time-string "%h %m, %Y"
+                                  (org-publish-find-date entry project))
+		      entry
+		      (org-publish-find-title entry project))
+    ""))
+
+(defun org-blog-sitemap-function (title list)
+  "Return sitemap as a string.
+TITLE is the the title of the site map.  LIST is an internal
+representation for the files to include, as returned by
+`org-list-to-lisp'.  PROJECT is the current project."
+  (concat "#+TITLE: " title "\n\n"
+          "\n#+begin_archive\n"
+	      (mapconcat (lambda (li)
+                       (format "@@html:<li>@@ %s @@html:</li>@@"
+                               (car li)))
+                     (cdr list)
+                     "\n")
+          "\n#+end_archive\n"))
+
 (setq org-publish-project-alist
       `(("orgfiles"
          :base-directory "~/blog/src/"
+         :exclude ".*drafts/.*"
          :base-extension "org"
+
          :publishing-directory "~/blog/"
+
          :recursive t
          :preparation-function org-blog-prepare
          :publishing-function org-html-publish-to-html
@@ -71,7 +101,6 @@ Argument `PROJECT-PLIST' contains information about the current project."
          :with-toc nil
          :with-title t
          :section-numbers nil
-         :auto-sitemap t
          :html-doctype "html5"
          :html-html5-fancy t
          :html-head-include-default-style t
@@ -81,6 +110,13 @@ Argument `PROJECT-PLIST' contains information about the current project."
          :html-preamble org-blog-preamble
          :html-postamble org-blog-postamble
 
+         :auto-sitemap t
+         :sitemap-filename "archive.org"
+         :sitemap-title "Blog Posts"
+         :sitemap-style list
+         :sitemap-sort-files anti-chronologically
+         :sitemap-format-entry org-blog-sitemap-format-entry
+         :sitemap-function org-blog-sitemap-function
 
          :html-link-home "/"
          :html-link-up "/")

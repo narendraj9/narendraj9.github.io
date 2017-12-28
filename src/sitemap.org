@@ -1,5 +1,0 @@
-#+TITLE: Sitemap for project orgfiles
-
-- [[file:index.org][index]]
-- posts
-  - [[file:posts/first-post.org][first-post]]

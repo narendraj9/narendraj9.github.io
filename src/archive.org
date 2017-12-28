@@ -1,0 +1,7 @@
+#+TITLE: Blog Posts
+
+
+#+begin_archive
+@@html:<li>@@  @@html:</li>@@
+@@html:<li>@@ @@html:<span class="archive-date">@@ Dec 12, 2017 @@html:</span>@@ [[file:posts/initial-post.org][Writing about things I know]] @@html:</li>@@
+#+end_archive

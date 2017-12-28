@@ -1,0 +1,7 @@
+#+TITLE Distributed Snapshots
+* Introduction
+* Why take snapshots?
+* Snapshots in the blink of an eye
+* Snapshots taken over a period of time
+* Globally Consistent Snapshots
+* Conclusion
