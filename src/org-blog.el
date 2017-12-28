@@ -18,11 +18,11 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-;;; Commentary:
+  ;;; Commentary:
 
 ;; Org project configuration my personal blog.
 
-;;; Code:
+  ;;; Code:
 
 (require 'org)
 (require 'ox-publish)
@@ -31,8 +31,8 @@
 
 (defun org-blog-prepare (project-plist)
   "With help from `https://github.com/howardabrams/dot-files'.
-Touch `index.org' to rebuilt it.
-Argument `PROJECT-PLIST' contains information about the current project."
+  Touch `index.org' to rebuilt it.
+  Argument `PROJECT-PLIST' contains information about the current project."
   (let* ((base-directory (plist-get project-plist :base-directory))
          (buffer (find-file-noselect (expand-file-name "index.org" base-directory) t)))
     (with-current-buffer buffer
@@ -42,44 +42,50 @@ Argument `PROJECT-PLIST' contains information about the current project."
 
 (defvar org-blog-head
   "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/css/bootstrap.css\"/>
-   <link rel=\"stylesheet\" type=\"text/css\" href=\"https://fonts.googleapis.com/css?family=Amaranth|Libre+Baskerville|Bree+Serif|Ubuntu+Mono|Pacifico&subset=latin,greek\"/>")
+  <link rel=\"stylesheet\" type=\"text/css\" href=\"https://fonts.googleapis.com/css?family=Amaranth|Libre+Baskerville|Bree+Serif|Ubuntu+Mono|Pacifico&subset=latin,greek\"/>")
 
 (defun org-blog-preamble (_plist)
   "Pre-amble for whole blog."
-  "<div class=\"\"> Ramblings from a Corner </div> <hr>")
+  "<div class=\"banner\">
+    <a href=\"/\"> Ramblings from a Corner </a>
+  </div>
+  <ul class=\"banner-links\">
+    <li><a href=\"archive.html\"> Posts </a> </li>
+  </ul>
+  <hr>")
 
 (defun org-blog-postamble (_plist)
   "Post-amble for whole blog."
   "<footer class=\"footer\">
 	<p> Built with
-		<svg id=\"i-heart\" viewBox=\"0 0 32 32\">
-    		<path d=\"M4 16 C1 12 2 6 7 4 12 2 15 6 16 8 17 6 21 2 26 4 31 6 31 12 28 16 25 20 16 28 16 28 16 28 7 20 4 16 Z\"/>
-	    </svg> in
-        <img id=\"i-emacs\" src=\"/assets/images/emacs.svg\">
+	  <svg id=\"i-heart\" viewBox=\"0 0 32 32\">
+    	<path d=\"M4 16 C1 12 2 6 7 4 12 2 15 6 16 8 17 6 21 2 26 4 31 6 31 12 28 16 25 20 16 28 16 28 16 28 7 20 4 16 Z\"/>
+	  </svg> in
+      <img id=\"i-emacs\" src=\"/assets/images/emacs.svg\">
 	</p>
   </footer>
   <script type=\"text/javascript\" src=\"/assets/js/custom.js\"> </script> ")
 
 (defun org-blog-sitemap-format-entry (entry _style project)
   "Format for site map ENTRY, as a string.
-ENTRY is a file name.  STYLE is the style of the sitemap.
-PROJECT is the current project."
+  ENTRY is a file name.  STYLE is the style of the sitemap.
+  PROJECT is the current project."
   (if (s-starts-with-p "posts/" entry)
       (format "@@html:<span class=\"archive-date\">@@ %s @@html:</span>@@ [[file:%s][%s]]"
               (format-time-string "%h %m, %Y"
                                   (org-publish-find-date entry project))
-		      entry
-		      (org-publish-find-title entry project))
+              entry
+              (org-publish-find-title entry project))
     ""))
 
 (defun org-blog-sitemap-function (title list)
   "Return sitemap as a string.
-TITLE is the the title of the site map.  LIST is an internal
-representation for the files to include, as returned by
-`org-list-to-lisp'.  PROJECT is the current project."
+  TITLE is the the title of the site map.  LIST is an internal
+  representation for the files to include, as returned by
+  `org-list-to-lisp'.  PROJECT is the current project."
   (concat "#+TITLE: " title "\n\n"
           "\n#+begin_archive\n"
-	      (mapconcat (lambda (li)
+          (mapconcat (lambda (li)
                        (format "@@html:<li>@@ %s @@html:</li>@@"
                                (car li)))
                      (cdr list)

@@ -271,7 +271,7 @@ img {
   border-radius: 50%;
 }
 hr {
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 20px;
   border: 0;
   border-top: 1px solid #eeeeee;
@@ -1295,10 +1295,31 @@ body {
     padding-left: 10px;
 }
 
+#preamble > .banner-links {
+    list-style: none;
+    text-align: right;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 20px;
+    font-family: Amaranth;
+}
+
 @media (max-width: 768px) {
     #preamble {
         font-size: 20px;
     }
+
+    #preamble > .banner-links {
+        font-size: 10px;
+    }
+}
+
+#preamble a {
+    color: black;
+}
+
+.banner-links a {
+    color: black;
 }
 
 footer {
@@ -1380,4 +1401,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .archive-date {
     foreground: green;
+}
+
+.all-posts-link {
+    font-size: 1.5em;
+    text-align: left;
 }
