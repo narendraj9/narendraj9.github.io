@@ -69,7 +69,7 @@
 (defun org-blog-sitemap-format-entry (entry _style project)
   "Return string for each ENTRY in PROJECT."
   (if (s-starts-with-p "posts/" entry)
-      (format "@@html:<span class=\"archive-date\">@@ %s @@html:</span>@@ [[file:%s][%s]]"
+      (format "@@html:<span class=\"archive-item\"><span class=\"archive-date\">@@ %s @@html:</span>@@ [[file:%s][%s]] @@html:</span>@@"
               (format-time-string "%h %m, %Y"
                                   (org-publish-find-date entry project))
               entry
@@ -93,10 +93,12 @@
     (with-current-buffer (find-file-noselect file-path)
       (goto-char (point-min))
       (search-forward "<body>")
-      (insert "\n<div class=\"content-wrapper\">\n")
+      (insert (concat "\n<div class=\"content-wrapper container\">\n "
+                      "  <div class=\"row\"> "
+                      "  <div class=\"col-sm-6 col-sm-offset-3\"> "))
       (goto-char (point-max))
       (search-backward "</body>")
-      (insert "\n</div>\n")
+      (insert "\n</div>\n</div>\n</div>\n")
       (save-buffer)
       (kill-buffer))
     file-path))
@@ -119,7 +121,7 @@
          :section-numbers nil
          :html-doctype "html5"
          :html-html5-fancy t
-         :html-head-include-default-style t
+         :html-head-include-default-style nil
          :html-head-include-scripts nil
          :htmlized-source t
          :html-head-extra ,org-blog-head
@@ -132,10 +134,7 @@
          :sitemap-style list
          :sitemap-sort-files anti-chronologically
          :sitemap-format-entry org-blog-sitemap-format-entry
-         :sitemap-function org-blog-sitemap-function
-
-         :html-link-home "/"
-         :html-link-up "/")
+         :sitemap-function org-blog-sitemap-function)
 
         ("assets"
          :base-directory "~/blog/src/assets/"

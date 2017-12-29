@@ -352,24 +352,24 @@ pre code {
   max-height: 340px;
   overflow-y: scroll;
 }
-.container, #content {
+.container {
   margin-right: auto;
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
 }
 @media (min-width: 768px) {
-  .container, #content {
+  .container {
     width: 750px;
   }
 }
 @media (min-width: 992px) {
-  .container, #content {
+  .container {
     width: 970px;
   }
 }
 @media (min-width: 1200px) {
-  .container, #content {
+  .container {
     width: 1170px;
   }
 }
@@ -379,7 +379,7 @@ pre code {
   padding-left: 15px;
   padding-right: 15px;
 }
-.row, #content > * {
+.row > * {
   margin-left: -15px;
   margin-right: -15px;
 }
@@ -1287,15 +1287,15 @@ body {
     background-color: white;
 }
 
-.content-wrapper {
+.content-wrapper .col-sm-6 {
     background-color: floralwhite;
     width: fit-content;
+    box-shadow: 0px 1px 10px -3px #b97700;
 }
 
 #preamble {
     font-family: Pacifico;
     margin: auto;
-    max-width: 768px;
     font-size: 40px;
     padding-left: 10px;
 }
@@ -1354,8 +1354,6 @@ ul.share-buttons li{
 }
 
 #content {
-    margin: auto;
-    max-width: 768px;
     border-left: 1px solid #eeeeee;
     border-right: 1px solid #eeeeee;
     padding-left: 3em;
@@ -1406,7 +1404,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .archive-date {
-    foreground: green;
+    color: #77500a;
+}
+
+.archive-item {
+    font-size: 16px;
+}
+
+.archive-item > a {
+    margin-left: 0.5em;
 }
 
 .all-posts-link {
