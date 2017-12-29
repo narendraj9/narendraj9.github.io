@@ -1284,7 +1284,12 @@ pre code {
 /* ----------------------------------CUSTOM---------------------------------- */
 
 body {
+    background-color: white;
+}
+
+.content-wrapper {
     background-color: floralwhite;
+    width: fit-content;
 }
 
 #preamble {
@@ -1300,17 +1305,18 @@ body {
     text-align: right;
     margin-top: 0px;
     margin-bottom: 0px;
+    margin-right: 10px;
     font-size: 20px;
     font-family: Amaranth;
 }
 
 @media (max-width: 768px) {
     #preamble {
-        font-size: 20px;
+        font-size: 25px;
     }
 
     #preamble > .banner-links {
-        font-size: 10px;
+        font-size: 15px;
     }
 }
 

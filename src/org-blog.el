@@ -67,9 +67,7 @@
   <script type=\"text/javascript\" src=\"/assets/js/custom.js\"> </script> ")
 
 (defun org-blog-sitemap-format-entry (entry _style project)
-  "Format for site map ENTRY, as a string.
-  ENTRY is a file name.  STYLE is the style of the sitemap.
-  PROJECT is the current project."
+  "Return string for each ENTRY in PROJECT."
   (if (s-starts-with-p "posts/" entry)
       (format "@@html:<span class=\"archive-date\">@@ %s @@html:</span>@@ [[file:%s][%s]]"
               (format-time-string "%h %m, %Y"
@@ -79,10 +77,7 @@
     ""))
 
 (defun org-blog-sitemap-function (title list)
-  "Return sitemap as a string.
-  TITLE is the the title of the site map.  LIST is an internal
-  representation for the files to include, as returned by
-  `org-list-to-lisp'.  PROJECT is the current project."
+  "Return sitemap using TITLE and LIST returned by `org-blog-sitemap-format-entry'."
   (concat "#+TITLE: " title "\n\n"
           "\n#+begin_archive\n"
           (mapconcat (lambda (li)
@@ -91,6 +86,21 @@
                      (cdr list)
                      "\n")
           "\n#+end_archive\n"))
+
+(defun org-blog-publish-to-html (plist filename pub-dir)
+  "Same as `org-html-publish-to-html' but modifies html before finishing."
+  (let ((file-path (org-html-publish-to-html plist filename pub-dir)))
+    (with-current-buffer (find-file-noselect file-path)
+      (goto-char (point-min))
+      (search-forward "<body>")
+      (insert "\n<div class=\"content-wrapper\">\n")
+      (goto-char (point-max))
+      (search-backward "</body>")
+      (insert "\n</div>\n")
+      (save-buffer)
+      (kill-buffer))
+    file-path))
+
 
 (setq org-publish-project-alist
       `(("orgfiles"
@@ -102,7 +112,7 @@
 
          :recursive t
          :preparation-function org-blog-prepare
-         :publishing-function org-html-publish-to-html
+         :publishing-function org-blog-publish-to-html
 
          :with-toc nil
          :with-title t
