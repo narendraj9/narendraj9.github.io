@@ -94,11 +94,11 @@
       (goto-char (point-min))
       (search-forward "<body>")
       (insert (concat "\n<div class=\"content-wrapper container\">\n "
-                      "  <div class=\"row\"> "
-                      "  <div class=\"col-sm-6 col-sm-offset-3\"> "))
+                      "  <div class=\"row\"> <div class=\"col\"> </div> "
+                      "  <div class=\"col-sm-6 col-md-8\"> "))
       (goto-char (point-max))
       (search-backward "</body>")
-      (insert "\n</div>\n</div>\n</div>\n")
+      (insert "\n</div>\n<div class=\"col\"></div></div>\n</div>\n")
       (save-buffer)
       (kill-buffer))
     file-path))
