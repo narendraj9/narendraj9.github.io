@@ -50,7 +50,7 @@
     <a href=\"/\"> Ramblings from a Corner </a>
   </div>
   <ul class=\"banner-links\">
-    <li><a href=\"archive.html\"> Posts </a> </li>
+    <li><a href=\"/archive.html\"> Posts </a> </li>
   </ul>
   <hr>")
 
