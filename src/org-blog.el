@@ -66,8 +66,7 @@
       <img id=\"i-emacs\" src=\"/assets/images/emacs.svg\">
 	</p>
   </footer>
-  <script type=\"text/javascript\" src=\"/assets/js/custom.js\"> </script>
-  <script type=\"text/javascript\" src=\"/assets/js/turbolinks.js\"> </script> ")
+  <script type=\"text/javascript\" src=\"/assets/js/custom.js\"> </script>")
 
 (defun org-blog-sitemap-format-entry (entry _style project)
   "Return string for each ENTRY in PROJECT."
