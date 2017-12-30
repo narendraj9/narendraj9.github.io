@@ -9050,3 +9050,13 @@ h1, h2, h3, h4, h5, h6 {
 div.outline-2, div.outline-3 {
     margin: 1em;
 }
+
+.org-src-container {
+    border-width: 1px;
+    border-color: #cbccb8;
+    border-style: solid;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
