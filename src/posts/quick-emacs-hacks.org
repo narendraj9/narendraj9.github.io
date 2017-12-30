@@ -1,0 +1,55 @@
+#+TITLE: Emacs: Quick Hacks
+* Intro
+I spend most of my time inside Emacs ― the truly extensible environment. I keep
+adding new functions to my Emacs configuration that help me accomplish just
+about anything I would like to. In this post, I am sharing with you two such
+functions.
+
+* Code
+Doing Something Based on Activity
+#+begin_src emacs-lisp :session vicarious :exports both :results output
+  (defun do-when-idle (f g interval)
+    "Call F when idle for INTERVAL seconds and then G when there is activity.
+  Thanks to Michael Heerdegen <michael_heerdegen@web.de>."
+    (letrec ((run-timer-fun (lambda ()
+                              (run-with-idle-timer interval
+                                                   nil
+                                                   (lambda ()
+                                                     (funcall f)
+                                                     (add-hook 'post-command-hook
+                                                               activity-fun)))))
+             (activity-fun (lambda ()
+                             (remove-hook 'post-command-hook activity-fun)
+                             (funcall g)
+                             (funcall run-timer-fun))))
+      (funcall run-timer-fun)))
+#+end_src
+
+Limiting Usage of a specific command to a fixed frequency
+#+begin_src emacs-lisp :session vicarious :exports both :results output
+  (defvar limit-usage (make-hash-table :test 'equal))
+  (defun limit-usage (command max-minutes)
+    "Limit usage of COMMAND to only once in MAX-MINUTES."
+    (advice-add command
+                :around
+                (lambda (orig-fn &rest args)
+                  (let* ((hash-key (symbol-name command))
+                         (last-ts (gethash hash-key limit-usage))
+                         (gap-in-minutes (and last-ts
+                                              (/ (time-to-seconds
+                                                  (time-subtract (current-time)
+                                                                 last-ts))
+                                                 60))))
+                    (if (and gap-in-minutes (< gap-in-minutes max-minutes))
+                        (message "Last Accessed: %s Time to go: %.2f minutes"
+                                 (format-time-string "%FT%T%z" last-ts)
+                                 (- max-minutes gap-in-minutes))
+                      (apply orig-fn args)
+                      (puthash hash-key (current-time) limit-usage))))))
+
+#+end_src
+
+* Conclusion
+Emacs is configurable in almost every aspect. Besides the advantages, the only
+problem with it is that it encourages dislike for the defaults. This costs me
+some time every week if not everyday.

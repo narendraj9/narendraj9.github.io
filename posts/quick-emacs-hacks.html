@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2017-12-30 Sat 15:40 -->
+<!-- 2017-12-30 Sat 16:22 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Emacs Quick Hacks</title>
+<title>Emacs: Quick Hacks</title>
 <meta name="generator" content="Org mode">
 <meta name="author" content="Narendra Joshi">
 <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.css"/>
@@ -25,11 +25,10 @@
 </div>
 <div id="content">
 <header>
-<h1 class="title">Emacs Quick Hacks</h1>
-</header>
-<div id="outline-container-org25eb44c" class="outline-2">
-<h2 id="org25eb44c">Intro</h2>
-<div class="outline-text-2" id="text-org25eb44c">
+<h1 class="title">Emacs: Quick Hacks</h1>
+</header><div id="outline-container-org5b1ba7a" class="outline-2">
+<h2 id="org5b1ba7a">Intro</h2>
+<div class="outline-text-2" id="text-org5b1ba7a">
 <p>
 I spend most of my time inside Emacs ― the truly extensible environment. I keep
 adding new functions to my Emacs configuration that help me accomplish just
@@ -39,11 +38,14 @@ functions.
 </div>
 </div>
 
-<div id="outline-container-org5d4a178" class="outline-2">
-<h2 id="org5d4a178">Code</h2>
-<div class="outline-text-2" id="text-org5d4a178">
+<div id="outline-container-org81dde6e" class="outline-2">
+<h2 id="org81dde6e">Code</h2>
+<div class="outline-text-2" id="text-org81dde6e">
+<p>
+Doing Something Based on Activity
+</p>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp" id="orgc8bee02">(<span style="color: #909737;">defun</span> <span style="color: #385e6b;">do-when-idle</span> (f g interval)
+<pre class="src src-emacs-lisp">(<span style="color: #909737;">defun</span> <span style="color: #385e6b;">do-when-idle</span> (f g interval)
   <span style="color: #7e9960;">"Call F when idle for INTERVAL seconds and then G when there is activity.</span>
 <span style="color: #7e9960;">Thanks to Michael Heerdegen <a href="mailto:michael_heerdegen%40web.de">&lt;michael_heerdegen@web.de&gt;</a>."</span>
   (<span style="color: #909737;">letrec</span> ((run-timer-fun (<span style="color: #909737;">lambda</span> ()
@@ -61,8 +63,11 @@ functions.
 </pre>
 </div>
 
+<p>
+Limiting Usage of a specific command to a fixed frequency
+</p>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp" id="orgc0c4286">(<span style="color: #909737;">defvar</span> <span style="color: #ba5b34;">limit-usage</span> (make-hash-table))
+<pre class="src src-emacs-lisp">(<span style="color: #909737;">defvar</span> <span style="color: #ba5b34;">limit-usage</span> (make-hash-table <span style="color: #385e6b;">:test</span> 'equal))
 (<span style="color: #909737;">defun</span> <span style="color: #385e6b;">limit-usage</span> (command max-minutes)
   <span style="color: #7e9960;">"Limit usage of COMMAND to only once in MAX-MINUTES."</span>
   (advice-add command
@@ -87,9 +92,9 @@ functions.
 </div>
 </div>
 
-<div id="outline-container-org5cb0221" class="outline-2">
-<h2 id="org5cb0221">Conclusion</h2>
-<div class="outline-text-2" id="text-org5cb0221">
+<div id="outline-container-orgd46a9b0" class="outline-2">
+<h2 id="orgd46a9b0">Conclusion</h2>
+<div class="outline-text-2" id="text-orgd46a9b0">
 <p>
 Emacs is configurable in almost every aspect. Besides the advantages, the only
 problem with it is that it encourages dislike for the defaults. This costs me

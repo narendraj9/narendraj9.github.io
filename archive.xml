@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+	 xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	 xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	 xmlns:dc="http://purl.org/dc/elements/1.1/"
+	 xmlns:atom="http://www.w3.org/2005/Atom"
+	 xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	 xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	 xmlns:georss="http://www.georss.org/georss"
+     xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+     xmlns:media="http://search.yahoo.com/mrss/"><channel>
+  <title>Blog Posts</title>
+  <atom:link href="/archive.xml" rel="self" type="application/rss+xml" />
+  <link>/</link>
+  <description><![CDATA[]]></description>
+  <language>en</language>
+  <pubDate>Sat, 30 Dec 2017 16:22:23 +0530</pubDate>
+  <lastBuildDate>Sat, 30 Dec 2017 16:22:23 +0530</lastBuildDate>
+  <generator>Emacs 26.0 Org-mode 9.1.5</generator>
+  <webMaster>narendraj9@gmail.com (Narendra Joshi)</webMaster>
+  <image>
+    <url>http://orgmode.org/img/org-mode-unicorn-logo.png</url>
+    <title>Blog Posts</title>
+    <link>/</link>
+  </image>
+
+  <div class="archive">
+    <p>
+      <li>  </li>
+      <li> <span class="archive-item"><span class="archive-date"> Dec 12, 2017 </span> <a href="posts/quick-emacs-hacks.html">Emacs Quick Hacks</a> </span> </li>
+    </p>
+
+  </div>
+</channel>
+</rss>

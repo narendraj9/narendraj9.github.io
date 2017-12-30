@@ -18,16 +18,17 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-  ;;; Commentary:
+;;; Commentary:
 
 ;; Org project configuration my personal blog.
 
-  ;;; Code:
+;;; Code:
 
 (require 'org)
 (require 'ox-publish)
 (require 'ox-html)
 (require 'org-element)
+(use-package ox-rss :load-path "~/.emacs.d/packages/lisp")
 
 (defun org-blog-prepare (project-plist)
   "With help from `https://github.com/howardabrams/dot-files'.
@@ -50,6 +51,7 @@
     <a href=\"/\"> Ramblings from a Corner </a>
   </div>
   <ul class=\"banner-links\">
+    <li><a href=\"/archive.xml\"> RSS </a> </li>
     <li><a href=\"/archive.html\"> Posts </a> </li>
   </ul>
   <hr>")
@@ -143,7 +145,20 @@
          :publishing-function org-publish-attachment
          :recursive t)
 
-        ("blog" :components ("orgfiles" "assets"))))
+        ("rss"
+         :base-directory "~/blog/src/"
+         :base-extension "org"
+         :html-link-home "/"
+         :html-link-use-abs-url t
+         :rss-extension "xml"
+         :publishing-directory "~/blog/"
+         :publishing-function (org-rss-publish-to-rss)
+         :exclude ".*"
+         :include ("archive.org")
+         :section-numbers nil
+         :table-of-contents nil)
+
+        ("blog" :components ("orgfiles" "assets" "rss"))))
 
 (provide 'org-blog)
 ;;; org-blog.el ends here

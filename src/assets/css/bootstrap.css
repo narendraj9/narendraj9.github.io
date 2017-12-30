@@ -8926,6 +8926,11 @@ body {
     font-family: Amaranth;
 }
 
+.banner-links li {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
 @media (max-width: 768px) {
     #preamble {
         font-size: 25px;
@@ -8984,7 +8989,6 @@ ul.share-buttons li{
 
 #content div {
     font-family: 'Bree Serif', serif;
-    margin: 2em;
 	background-color: floralwhite;
 }
 
@@ -9041,4 +9045,8 @@ h1, h2, h3, h4, h5, h6 {
 .all-posts-link {
     font-size: 1.5em;
     text-align: left;
+}
+
+div.outline-2, div.outline-3 {
+    margin: 1em;
 }
