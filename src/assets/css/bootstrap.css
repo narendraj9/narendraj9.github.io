@@ -8986,7 +8986,7 @@ ul.share-buttons li{
 #content {
     border-left: 1px solid #eeeeee;
     border-right: 1px solid #eeeeee;
-    padding-left: 3em;
+    padding-left: 1rem;
 }
 
 #content div {
@@ -9050,7 +9050,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 div.outline-2, div.outline-3 {
-    margin: 1em;
+    margin: 0.3rem;
 }
 
 .org-src-container {
