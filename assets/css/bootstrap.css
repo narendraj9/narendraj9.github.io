@@ -8907,6 +8907,8 @@ body {
 .content-wrapper .col-sm-6 {
     background-color: floralwhite;
     box-shadow: 0px 1px 10px -3px #b97700;
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
 }
 
 #preamble {
