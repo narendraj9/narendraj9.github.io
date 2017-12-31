@@ -10,23 +10,22 @@
      xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
      xmlns:media="http://search.yahoo.com/mrss/"><channel>
   <title>Blog Posts</title>
-  <atom:link href="/archive.xml" rel="self" type="application/rss+xml" />
-  <link>/</link>
+  <atom:link href="https://vicarie.in/archive.xml" rel="self" type="application/rss+xml" />
+  <link>https://vicarie.in/</link>
   <description><![CDATA[]]></description>
   <language>en</language>
-  <pubDate>Sun, 31 Dec 2017 12:52:28 +0530</pubDate>
-  <lastBuildDate>Sun, 31 Dec 2017 12:52:28 +0530</lastBuildDate>
+  <pubDate>Sun, 31 Dec 2017 18:20:31 +0530</pubDate>
+  <lastBuildDate>Sun, 31 Dec 2017 18:20:31 +0530</lastBuildDate>
   <generator>Emacs 26.0 Org-mode 9.1.5</generator>
   <webMaster>narendraj9@gmail.com (Narendra Joshi)</webMaster>
   <image>
     <url>http://orgmode.org/img/org-mode-unicorn-logo.png</url>
     <title>Blog Posts</title>
-    <link>/</link>
+    <link>https://vicarie.in/</link>
   </image>
 
   <div class="archive">
     <p>
-      <li>  </li>
       <li> <span class="archive-item"><span class="archive-date"> Dec 12, 2017 </span> <a href="posts/quick-emacs-hacks.html">Emacs Quick Hacks</a> </span> </li>
     </p>
 

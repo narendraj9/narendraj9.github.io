@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2017-12-31 Sun 12:52 -->
+<!-- 2017-12-31 Sun 18:16 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Emacs: Quick Hacks</title>
@@ -9,6 +9,7 @@
 <meta name="author" content="Narendra Joshi">
 <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.css"/>
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Amaranth|Libre+Baskerville|Bree+Serif|Ubuntu+Mono|Pacifico&subset=latin,greek"/>
+  <link rel="alternate" type="application/rss+xml" href="/archive.xml" title="RSS">
 </head>
 <body>
 <div class="content-wrapper container">
@@ -27,7 +28,7 @@
 <header>
 <h1 class="title">Emacs: Quick Hacks</h1>
 </header><div id="outline-container-org5b1ba7a" class="outline-2">
-<h2 id="org5b1ba7a">Intro</h2>
+<h2 id="org5b1ba7a"><a id="ID-da3c972c-02a3-4217-bdf9-d3adcd31f36b"></a>Intro</h2>
 <div class="outline-text-2" id="text-org5b1ba7a">
 <p>
 I spend most of my time inside Emacs ― the truly extensible environment. I keep
@@ -38,7 +39,7 @@ such functions.
 </div>
 </div>
 <div id="outline-container-org81dde6e" class="outline-2">
-<h2 id="org81dde6e">Code</h2>
+<h2 id="org81dde6e"><a id="ID-a2d1467f-8070-4d5f-b491-c9a80a038888"></a>Code</h2>
 <div class="outline-text-2" id="text-org81dde6e">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(<span style="color: #909737;">defun</span> <span style="color: #385e6b;">do-when-idle</span> (f g interval)
@@ -76,20 +77,20 @@ I use the above function for things like
   <span style="color: #7e9960;">"Limit usage of COMMAND to only once in MAX-MINUTES."</span>
   (advice-add command
               <span style="color: #385e6b;">:around</span>
-              (<span style="color: #909737;">lambda</span> (orig-fn <span style="color: #909737;">&amp;rest</span> args)
-                (<span style="color: #909737;">let*</span> ((hash-key (symbol-name command))
-                       (last-ts (gethash hash-key limit-usage))
-                       (gap-in-minutes (<span style="color: #909737;">and</span> last-ts
-                                            (/ (time-to-seconds
-                                                (time-subtract (current-time)
-                                                               last-ts))
-                                               60))))
-                  (<span style="color: #909737;">if</span> (<span style="color: #909737;">and</span> gap-in-minutes (&lt; gap-in-minutes max-minutes))
-                      (message <span style="color: #953331;">"Last Accessed: %s Time to go: %.2f minutes"</span>
-                               (format-time-string <span style="color: #953331;">"%FT%T%z"</span> last-ts)
-                               (- max-minutes gap-in-minutes))
-                    (apply orig-fn args)
-                    (puthash hash-key (current-time) limit-usage))))))
+              `(<span style="color: #909737;">lambda</span> (orig-fn <span style="color: #909737;">&amp;rest</span> args)
+                 (<span style="color: #909737;">let*</span> ((hash-key ,(symbol-name command))
+                        (last-ts (gethash hash-key limit-usage))
+                        (gap-in-minutes (<span style="color: #909737;">and</span> last-ts
+                                             (/ (time-to-seconds
+                                                 (time-subtract (current-time)
+                                                                last-ts))
+                                                60))))
+                   (<span style="color: #909737;">if</span> (<span style="color: #909737;">and</span> gap-in-minutes (&lt; gap-in-minutes ,max-minutes))
+                       (message <span style="color: #953331;">"Last Accessed: %s Time to go: %.2f minutes"</span>
+                                (format-time-string <span style="color: #953331;">"%FT%T%z"</span> last-ts)
+                                (- ,max-minutes gap-in-minutes))
+                     (apply orig-fn args)
+                     (puthash hash-key (current-time) limit-usage))))))
 
 </pre>
 </div>
@@ -106,7 +107,7 @@ I use the above function for limiting how frequently I check email:
 </div>
 
 <div id="outline-container-orgd46a9b0" class="outline-2">
-<h2 id="orgd46a9b0">Conclusion</h2>
+<h2 id="orgd46a9b0"><a id="ID-8fa034d7-b883-48ba-8d10-aa446216bd45"></a>Conclusion</h2>
 <div class="outline-text-2" id="text-orgd46a9b0">
 <p>
 Emacs is configurable in almost every aspect. Besides the advantages, the only

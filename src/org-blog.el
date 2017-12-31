@@ -51,7 +51,7 @@
     <a href=\"/\"> Ramblings from a Corner </a>
   </div>
   <ul class=\"banner-links\">
-    <li><a href=\"/archive.xml\"> RSS </a> </li>
+    <!--<li><a href=\"/archive.xml\"> RSS </a> </li>--!>
     <li><a href=\"/archive.html\"> Posts </a> </li>
   </ul>
   <hr>")
@@ -70,22 +70,20 @@
 
 (defun org-blog-sitemap-format-entry (entry _style project)
   "Return string for each ENTRY in PROJECT."
-  (if (s-starts-with-p "posts/" entry)
-      (format "@@html:<span class=\"archive-item\"><span class=\"archive-date\">@@ %s @@html:</span>@@ [[file:%s][%s]] @@html:</span>@@"
-              (format-time-string "%h %m, %Y"
-                                  (org-publish-find-date entry project))
-              entry
-              (org-publish-find-title entry project))
-    ""))
+  (when (s-starts-with-p "posts/" entry)
+    (format "@@html:<span class=\"archive-item\"><span class=\"archive-date\">@@ %s @@html:</span>@@ [[file:%s][%s]] @@html:</span>@@"
+            (format-time-string "%h %m, %Y"
+                                (org-publish-find-date entry project))
+            entry
+            (org-publish-find-title entry project))))
 
 (defun org-blog-sitemap-function (title list)
   "Return sitemap using TITLE and LIST returned by `org-blog-sitemap-format-entry'."
   (concat "#+TITLE: " title "\n\n"
           "\n#+begin_archive\n"
           (mapconcat (lambda (li)
-                       (format "@@html:<li>@@ %s @@html:</li>@@"
-                               (car li)))
-                     (cdr list)
+                       (format "@@html:<li>@@ %s @@html:</li>@@" (car li)))
+                     (seq-filter #'car (cdr list))
                      "\n")
           "\n#+end_archive\n"))
 
@@ -148,7 +146,7 @@
         ("rss"
          :base-directory "~/blog/src/"
          :base-extension "org"
-         :html-link-home "/"
+         :html-link-home "https://vicarie.in/"
          :html-link-use-abs-url t
          :rss-extension "xml"
          :publishing-directory "~/blog/"

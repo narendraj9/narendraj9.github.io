@@ -2,6 +2,5 @@
 
 
 #+begin_archive
-@@html:<li>@@  @@html:</li>@@
 @@html:<li>@@ @@html:<span class="archive-item"><span class="archive-date">@@ Dec 12, 2017 @@html:</span>@@ [[file:posts/quick-emacs-hacks.org][Emacs Quick Hacks]] @@html:</span>@@ @@html:</li>@@
 #+end_archive
