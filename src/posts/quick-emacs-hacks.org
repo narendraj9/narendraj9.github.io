@@ -37,20 +37,20 @@ I use the above function for things like
     "Limit usage of COMMAND to only once in MAX-MINUTES."
     (advice-add command
                 :around
-                (lambda (orig-fn &rest args)
-                  (let* ((hash-key (symbol-name command))
-                         (last-ts (gethash hash-key limit-usage))
-                         (gap-in-minutes (and last-ts
-                                              (/ (time-to-seconds
-                                                  (time-subtract (current-time)
-                                                                 last-ts))
-                                                 60))))
-                    (if (and gap-in-minutes (< gap-in-minutes max-minutes))
-                        (message "Last Accessed: %s Time to go: %.2f minutes"
-                                 (format-time-string "%FT%T%z" last-ts)
-                                 (- max-minutes gap-in-minutes))
-                      (apply orig-fn args)
-                      (puthash hash-key (current-time) limit-usage))))))
+                `(lambda (orig-fn &rest args)
+                   (let* ((hash-key ,(symbol-name command))
+                          (last-ts (gethash hash-key limit-usage))
+                          (gap-in-minutes (and last-ts
+                                               (/ (time-to-seconds
+                                                   (time-subtract (current-time)
+                                                                  last-ts))
+                                                  60))))
+                     (if (and gap-in-minutes (< gap-in-minutes ,max-minutes))
+                         (message "Last Accessed: %s Time to go: %.2f minutes"
+                                  (format-time-string "%FT%T%z" last-ts)
+                                  (- ,max-minutes gap-in-minutes))
+                       (apply orig-fn args)
+                       (puthash hash-key (current-time) limit-usage))))))
 
 #+end_src
 
