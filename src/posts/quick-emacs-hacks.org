@@ -1,12 +1,10 @@
 #+TITLE: Emacs: Quick Hacks
 * Intro
 I spend most of my time inside Emacs ― the truly extensible environment. I keep
-adding new functions to my Emacs configuration that help me accomplish just
-about anything I would like to. In this post, I am sharing with you two such
-functions.
-
+adding new functions/commands to my Emacs configuration that help me accomplish
+just about anything I would like to. In this post, I am sharing with you two
+such functions.
 * Code
-Doing Something Based on Activity
 #+begin_src emacs-lisp :session vicarious :exports both :results output
   (defun do-when-idle (f g interval)
     "Call F when idle for INTERVAL seconds and then G when there is activity.
@@ -24,8 +22,15 @@ Doing Something Based on Activity
                              (funcall run-timer-fun))))
       (funcall run-timer-fun)))
 #+end_src
+I use the above function for things like
+#+name: `do-when-idle` usage
+#+begin_src emacs-lisp  :session vicarious :exports both :results output
+  (do-when-idle #'coin-ticker-mode
+                (lambda ()
+                  (coin-ticker-mode -1))
+                60)
+#+end_src
 
-Limiting Usage of a specific command to a fixed frequency
 #+begin_src emacs-lisp :session vicarious :exports both :results output
   (defvar limit-usage (make-hash-table :test 'equal))
   (defun limit-usage (command max-minutes)
@@ -49,6 +54,11 @@ Limiting Usage of a specific command to a fixed frequency
 
 #+end_src
 
+I use the above function for limiting how frequently I check email:
+#+begin_src emacs-lisp  :session vicarious :exports both :results output
+;; Check mail not more than once every 4 hour.
+(limit-usage #'gnus (* 4 60))
+#+end_src
 * Conclusion
 Emacs is configurable in almost every aspect. Besides the advantages, the only
 problem with it is that it encourages dislike for the defaults. This costs me

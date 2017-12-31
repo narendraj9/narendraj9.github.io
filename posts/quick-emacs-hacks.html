@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2017-12-30 Sat 16:22 -->
+<!-- 2017-12-31 Sun 12:52 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Emacs: Quick Hacks</title>
@@ -31,19 +31,15 @@
 <div class="outline-text-2" id="text-org5b1ba7a">
 <p>
 I spend most of my time inside Emacs ― the truly extensible environment. I keep
-adding new functions to my Emacs configuration that help me accomplish just
-about anything I would like to. In this post, I am sharing with you two such
-functions.
+adding new functions/commands to my Emacs configuration that help me accomplish
+just about anything I would like to. In this post, I am sharing with you two
+such functions.
 </p>
 </div>
 </div>
-
 <div id="outline-container-org81dde6e" class="outline-2">
 <h2 id="org81dde6e">Code</h2>
 <div class="outline-text-2" id="text-org81dde6e">
-<p>
-Doing Something Based on Activity
-</p>
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(<span style="color: #909737;">defun</span> <span style="color: #385e6b;">do-when-idle</span> (f g interval)
   <span style="color: #7e9960;">"Call F when idle for INTERVAL seconds and then G when there is activity.</span>
@@ -64,8 +60,16 @@ Doing Something Based on Activity
 </div>
 
 <p>
-Limiting Usage of a specific command to a fixed frequency
+I use the above function for things like
 </p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp" id="org9a9a1f6">(do-when-idle #'coin-ticker-mode
+              (<span style="color: #909737;">lambda</span> ()
+                (coin-ticker-mode -1))
+              60)
+</pre>
+</div>
+
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(<span style="color: #909737;">defvar</span> <span style="color: #ba5b34;">limit-usage</span> (make-hash-table <span style="color: #385e6b;">:test</span> 'equal))
 (<span style="color: #909737;">defun</span> <span style="color: #385e6b;">limit-usage</span> (command max-minutes)
@@ -87,6 +91,15 @@ Limiting Usage of a specific command to a fixed frequency
                     (apply orig-fn args)
                     (puthash hash-key (current-time) limit-usage))))))
 
+</pre>
+</div>
+
+<p>
+I use the above function for limiting how frequently I check email:
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #505050;">;; </span><span style="color: #505050;">Check mail not more than once every 4 hour.</span>
+(limit-usage #'gnus (* 4 60))
 </pre>
 </div>
 </div>
