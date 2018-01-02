@@ -28,7 +28,7 @@
 (require 'ox-publish)
 (require 'ox-html)
 (require 'org-element)
-(use-package ox-rss :load-path "~/.emacs.d/packages/lisp")
+(require 'ox-rss)
 
 (defun org-blog-prepare (project-plist)
   "With help from `https://github.com/howardabrams/dot-files'.
