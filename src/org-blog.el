@@ -66,7 +66,9 @@
       <img id=\"i-emacs\" src=\"/assets/images/emacs.svg\">
 	</p>
   </footer>
-  <script type=\"text/javascript\" src=\"/assets/js/custom.js\"> </script>")
+  <script type=\"text/javascript\" src=\"/assets/js/custom.js\"> </script>
+  <script type=\"text/javascript\" src=\"/assets/js/turbolinks.js\"> </script>
+")
 
 (defun org-blog-sitemap-format-entry (entry _style project)
   "Return string for each ENTRY in PROJECT."
@@ -99,6 +101,9 @@
       (goto-char (point-max))
       (search-backward "</body>")
       (insert "\n</div>\n<div class=\"col\"></div></div>\n</div>\n")
+      ;; Trying out a hack to fix <header> </header> tags replacement by
+      ;; turbolinks.
+      (replace-regexp "<\\(/?\\)header>" "<\\1div>" nil nil nil t)
       (save-buffer)
       (kill-buffer))
     file-path))

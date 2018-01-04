@@ -1,4 +1,4 @@
-#+TITLE Distributed Snapshots
+#+TITLE: Distributed Snapshots
 * Introduction
 * Why take snapshots?
 * Snapshots in the blink of an eye
