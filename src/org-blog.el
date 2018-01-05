@@ -101,9 +101,6 @@
       (goto-char (point-max))
       (search-backward "</body>")
       (insert "\n</div>\n<div class=\"col\"></div></div>\n</div>\n")
-      ;; Trying out a hack to fix <header> </header> tags replacement by
-      ;; turbolinks.
-      (replace-regexp "<\\(/?\\)header>" "<\\1div>" nil nil nil t)
       (save-buffer)
       (kill-buffer))
     file-path))
