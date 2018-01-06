@@ -8953,8 +8953,8 @@ body {
     text-decoration: none;
 }
 
-.banner-links a {
-    color: black;
+#preamble hr {
+    margin-top: 0.4rem;
 }
 
 footer {
