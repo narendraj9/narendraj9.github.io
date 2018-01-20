@@ -8994,7 +8994,8 @@ ul.share-buttons li{
 }
 
 #content p {
-    font-family: 'Libre Baskerville', serif;
+    font-family: Handlee, Libre Baskerville;
+    font-size: 1.4rem;
 }
 
 #postamble {
