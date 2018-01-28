@@ -8988,6 +8988,10 @@ ul.share-buttons li{
     padding-left: 1rem;
 }
 
+#content header {
+    text-align: center;
+}
+
 #content div {
     font-family: 'Bree Serif', serif;
 	background-color: floralwhite;
