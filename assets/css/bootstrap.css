@@ -8942,8 +8942,13 @@ body {
     }
 }
 
-#preamble a {
+div.banner > a {
     color: #8a6f6f;
+    text-shadow: 0px 1px 1px #86714b;
+}
+
+ul.banner-links a {
+    color: darkblue;
     text-shadow: 0px 1px 1px #86714b;
 }
 
