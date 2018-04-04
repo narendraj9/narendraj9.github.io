@@ -9005,9 +9005,8 @@ ul.share-buttons li{
 #content p {
     /* Remove Handlee and keep Libre Baskerville if you want something less*/
     /* fancy and maybe more readable. */
-    font-family: Handlee, Libre Baskerville;
+    font-family: Libre Baskerville;
     color: #125;
-    font-size: 1.4rem;
 }
 
 #postamble {
