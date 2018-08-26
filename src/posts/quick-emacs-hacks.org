@@ -74,4 +74,5 @@ I use the above function for limiting how frequently I check email:
 :END:
 Emacs is configurable in almost every aspect. Besides the advantages, the only
 problem with it is that it encourages dislike for the defaults. This costs me
-some time every week if not everyday.
+some time every week if not everyday. Being customizable to the core, it
+demands a lot of time to be spent on it before it becomes useable.

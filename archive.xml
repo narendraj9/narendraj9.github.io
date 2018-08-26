@@ -14,9 +14,9 @@
   <link>https://vicarie.in/</link>
   <description><![CDATA[]]></description>
   <language>en</language>
-  <pubDate>Sun, 27 May 2018 16:19:45 +0530</pubDate>
-  <lastBuildDate>Sun, 27 May 2018 16:19:45 +0530</lastBuildDate>
-  <generator>Emacs 27.0 Org-mode 9.1.9</generator>
+  <pubDate>Wed, 29 Aug 2018 19:14:46 +0530</pubDate>
+  <lastBuildDate>Wed, 29 Aug 2018 19:14:46 +0530</lastBuildDate>
+  <generator>Emacs 27.0 Org-mode 9.1.13</generator>
   <webMaster>narendraj9@gmail.com (Narendra Joshi)</webMaster>
   <image>
     <url>http://orgmode.org/img/org-mode-unicorn-logo.png</url>
@@ -26,7 +26,7 @@
 
   <div class="archive">
     <p>
-
+      <li> <span class="archive-item"><span class="archive-date"> Aug 08, 2018 </span> <a href="posts/quick-emacs-hacks.html">Emacs Quick Hacks</a> </span> </li>
     </p>
 
   </div>
