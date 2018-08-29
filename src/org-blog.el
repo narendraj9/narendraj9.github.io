@@ -67,7 +67,6 @@
 	</p>
   </footer>
   <script type=\"text/javascript\" src=\"/assets/js/custom.js\"> </script>
-  <script type=\"text/javascript\" src=\"/assets/js/turbolinks.js\"> </script>
   <script type=\"text/javascript\" src=\"//downloads.mailchimp.com/js/signup-forms/popup/embed.js\" data-dojo-config=\"usePlainJson: true, isDebug: false\"></script><script type=\"text/javascript\">require([\"mojo/signup-forms/Loader\"], function(L) { L.start({\"baseUrl\":\"mc.us18.list-manage.com\",\"uuid\":\"7e6d10e32e5355f05a9b343de\",\"lid\":\"420dab7107\"}) })</script>
 ")
 
