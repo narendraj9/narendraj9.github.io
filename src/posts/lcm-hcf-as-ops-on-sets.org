@@ -1,5 +1,7 @@
 #+TITLE: LCM, HCF and Sets
-#+DATE: <2018-08-29 Wed>
+#+DATE: [2018-08-01 Sat 00:24]
+#+AUTHOR: Narendra Joshi
+
 Most of us were taught sometime is school that the product of the Lowest
 Common Multiple, LCM and the Highest Common Factor, HCF of two numbers
 is equal to the product of the numbers. Lately, I've been thinking about

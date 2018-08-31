@@ -1,6 +1,6 @@
 #+TITLE: Sieve of Eratosthenes
-#+DATE: <2018-08-29 Wed>
-
+#+DATE: [2018-09-01 Sat]
+#+AUTHOR: Narendra Joshi
 
 This post is inspired by the paper--
 [[https://www.cs.hmc.edu/~oneill/papers/Sieve-JFP.pdf][The Genuine Sieve

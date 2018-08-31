@@ -1,5 +1,6 @@
-#+TITLE: Emacs: Quick Hacks
-#+DATE: <2018-08-29 Wed>
+#+TITLE: Emac: Quick Hacks
+#+DATE: [2018-07-01 Sat]
+#+AUTHOR: Narendra Joshi
 * Intro
 :PROPERTIES:
 :ID:       da3c972c-02a3-4217-bdf9-d3adcd31f36b

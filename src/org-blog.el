@@ -66,6 +66,19 @@
       <img id=\"i-emacs\" src=\"/assets/images/emacs.svg\">
 	</p>
   </footer>
+
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    a('create', 'UA-55966581-1', 'auto');
+    ga('require', 'displayfeatures');
+    ga('send', 'pageview');
+  </script>
+
+
   <script type=\"text/javascript\" src=\"/assets/js/custom.js\"> </script>
   <script type=\"text/javascript\" src=\"//downloads.mailchimp.com/js/signup-forms/popup/embed.js\" data-dojo-config=\"usePlainJson: true, isDebug: false\"></script><script type=\"text/javascript\">require([\"mojo/signup-forms/Loader\"], function(L) { L.start({\"baseUrl\":\"mc.us18.list-manage.com\",\"uuid\":\"7e6d10e32e5355f05a9b343de\",\"lid\":\"420dab7107\"}) })</script>
 ")
@@ -75,7 +88,7 @@
   "Return string for each ENTRY in PROJECT."
   (when (s-starts-with-p "posts/" entry)
     (format "@@html:<span class=\"archive-item\"><span class=\"archive-date\">@@ %s @@html:</span>@@ [[file:%s][%s]] @@html:</span>@@"
-            (format-time-string "%h %m, %Y"
+            (format-time-string "%h %d, %Y"
                                 (org-publish-find-date entry project))
             entry
             (org-publish-find-title entry project))))
@@ -121,6 +134,7 @@
 
          :with-toc nil
          :with-title t
+         :with-date t
          :section-numbers nil
          :html-doctype "html5"
          :html-html5-fancy t
