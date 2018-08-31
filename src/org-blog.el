@@ -56,9 +56,10 @@
   </ul>
   <hr>")
 
-(defun org-blog-postamble (_plist)
+(defun org-blog-postamble (plist)
   "Post-amble for whole blog."
-  "<footer class=\"footer\">
+  (concat
+   "<footer class=\"footer\">
 	<p> Built with
 	  <svg id=\"i-heart\" viewBox=\"0 0 32 32\">
     	<path d=\"M4 16 C1 12 2 6 7 4 12 2 15 6 16 8 17 6 21 2 26 4 31 6 31 12 28 16 25 20 16 28 16 28 16 28 7 20 4 16 Z\"/>
@@ -78,10 +79,23 @@
     ga('send', 'pageview');
   </script>
 
-
   <script type=\"text/javascript\" src=\"/assets/js/custom.js\"> </script>
-  <script type=\"text/javascript\" src=\"//downloads.mailchimp.com/js/signup-forms/popup/embed.js\" data-dojo-config=\"usePlainJson: true, isDebug: false\"></script><script type=\"text/javascript\">require([\"mojo/signup-forms/Loader\"], function(L) { L.start({\"baseUrl\":\"mc.us18.list-manage.com\",\"uuid\":\"7e6d10e32e5355f05a9b343de\",\"lid\":\"420dab7107\"}) })</script>
-")
+  <script type=\"text/javascript\" src=\"//downloads.mailchimp.com/js/signup-forms/popup/embed.js\" data-dojo-config=\"usePlainJson: true, isDebug: false\"></script><script type=\"text/javascript\">require([\"mojo/signup-forms/Loader\"], function(L) { L.start({\"baseUrl\":\"mc.us18.list-manage.com\",\"uuid\":\"7e6d10e32e5355f05a9b343de\",\"lid\":\"420dab7107\"}) })</script> "
+
+   ;; Add Disqus if it's a post
+   (when (s-contains-p "/posts/" (plist-get plist :input-file))
+     "
+  <div id=\"disqus_thread\"></div>
+  <script type=\"text/javascript\">
+   var disqus_shortname = 'vicarie';
+   (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+   })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href=\"http://disqus.com/?ref_noscript\">comments powered by Disqus.</a></noscript>
+  ")))
 
 
 (defun org-blog-sitemap-format-entry (entry _style project)

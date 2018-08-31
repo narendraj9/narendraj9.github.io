@@ -9009,7 +9009,7 @@ ul.share-buttons li{
     color: #125;
 }
 
-#postamble {
+#postamble > footer {
     width: 40%;
     margin: auto;
 }
