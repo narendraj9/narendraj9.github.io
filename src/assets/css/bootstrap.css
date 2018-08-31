@@ -9014,6 +9014,17 @@ ul.share-buttons li{
     margin: auto;
 }
 
+footer > a {
+    color: #555;
+}
+
+#view-source-link {
+    font-size: 0.5rem;
+    color: blue;
+    display: block;
+
+}
+
 #i-emacs {
     height: 30px;
     width: 30px;
