@@ -9019,8 +9019,8 @@ footer > a {
 }
 
 #view-source-link {
-    font-size: 0.5rem;
-    color: blue;
+    font-size: 5px;
+    color: grey;
     display: block;
 
 }
