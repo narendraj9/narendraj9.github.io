@@ -111,8 +111,10 @@ spin the wheel.
       where spin' (y:ys) n = n : spin' ys (n + y)
 #+END_SRC
 
-We make use of the fact that the first potential prime number is one
-more than the number at the head of the wheel. /Why? [Think about it.]/
+We can either start with 1 or $x + 1$ where $x$ is where the wheel
+starts. Starting with 1 makes sure that we look at numbers smaller than $x$.
+In the code snippet above, we have generated numbers starting with $x + 1$ and
+hence skipped numbers =[2..x]=.
 
 Here's an example showing it in action.
 
