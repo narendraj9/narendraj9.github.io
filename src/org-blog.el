@@ -30,6 +30,9 @@
 (require 'org-element)
 (require 'ox-rss)
 
+(defvar org-blog-date-format "%h %d, %Y"
+  "Format for displaying publish dates.")
+
 (defun org-blog-prepare (project-plist)
   "With help from `https://github.com/howardabrams/dot-files'.
   Touch `index.org' to rebuilt it.
@@ -46,8 +49,15 @@
   <link rel=\"stylesheet\" type=\"text/css\" href=\"https://fonts.googleapis.com/css?family=Amaranth|Handlee|Libre+Baskerville|Bree+Serif|Ubuntu+Mono|Pacifico&subset=latin,greek\"/>
   <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"favicon.ico\">")
 
-(defun org-blog-preamble (_plist)
+(defun org-blog-preamble (plist)
   "Pre-amble for whole blog."
+  ;; Hack! Put date for the post as the subtitle
+  (when (s-contains-p "/posts/" (plist-get plist :input-file))
+    (plist-put plist
+               :subtitle (format "Published on %s"
+                                 (org-export-get-date plist
+                                                      org-blog-date-format))))
+  ;; Return a simple banner with navigation links
   "<div class=\"banner\">
     <a href=\"/\"> Ramblings from a Corner </a>
   </div>
@@ -60,7 +70,7 @@
 (defun org-blog-postamble (plist)
   "Post-amble for whole blog."
   (concat
-  "<footer class=\"footer\">
+   "<footer class=\"footer\">
     <a href=\"https://github.com/narendraj9/narendraj9.github.io\">
 	  <p> Built with
 	    <svg id=\"i-heart\" viewBox=\"0 0 32 32\">
@@ -106,7 +116,7 @@
   "Return string for each ENTRY in PROJECT."
   (when (s-starts-with-p "posts/" entry)
     (format "@@html:<span class=\"archive-item\"><span class=\"archive-date\">@@ %s @@html:</span>@@ [[file:%s][%s]] @@html:</span>@@"
-            (format-time-string "%h %d, %Y"
+            (format-time-string org-blog-date-format
                                 (org-publish-find-date entry project))
             entry
             (org-publish-find-title entry project))))

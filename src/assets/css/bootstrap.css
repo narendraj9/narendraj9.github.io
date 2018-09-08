@@ -9087,3 +9087,8 @@ div.outline-2, div.outline-3 {
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
+
+.subtitle {
+    font-style: italic;
+    font-size: xx-small;
+}
