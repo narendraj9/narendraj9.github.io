@@ -9056,6 +9056,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .archive-date {
     color: #77500a;
+    /* A hack to make all dates align */
+    font-family: monospace;
+    font-weight: bold;
 }
 
 .archive-item {
