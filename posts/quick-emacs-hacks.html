@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2018-09-08 Sat 19:26 -->
+<!-- 2018-09-09 Sun 04:03 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Emac: Quick Hacks</title>
@@ -43,17 +43,17 @@ such functions.
 <h2 id="org81dde6e"><a id="ID-a2d1467f-8070-4d5f-b491-c9a80a038888"></a>Code</h2>
 <div class="outline-text-2" id="text-org81dde6e">
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #909737;">defun</span> <span style="color: #385e6b;">do-when-idle</span> (f g interval)
-  <span style="color: #7e9960;">"Call F when idle for INTERVAL seconds and then G when there is activity.</span>
-<span style="color: #7e9960;">Thanks to Michael Heerdegen <a href="mailto:michael_heerdegen%40web.de">&lt;michael_heerdegen@web.de&gt;</a>."</span>
-  (<span style="color: #909737;">letrec</span> ((run-timer-fun (<span style="color: #909737;">lambda</span> ()
+<pre class="src src-emacs-lisp">(<span style="color: #bf360c;">defun</span> <span style="color: #388E3C;">do-when-idle</span> (f g interval)
+  <span style="color: #6C3082;">"Call F when idle for INTERVAL seconds and then G when there is activity.</span>
+<span style="color: #6C3082;">Thanks to Michael Heerdegen <a href="mailto:michael_heerdegen%40web.de">&lt;michael_heerdegen@web.de&gt;</a>."</span>
+  (<span style="color: #bf360c;">letrec</span> ((run-timer-fun (<span style="color: #bf360c;">lambda</span> ()
                             (run-with-idle-timer interval
                                                  nil
-                                                 (<span style="color: #909737;">lambda</span> ()
+                                                 (<span style="color: #bf360c;">lambda</span> ()
                                                    (funcall f)
                                                    (add-hook 'post-command-hook
                                                              activity-fun)))))
-           (activity-fun (<span style="color: #909737;">lambda</span> ()
+           (activity-fun (<span style="color: #bf360c;">lambda</span> ()
                            (remove-hook 'post-command-hook activity-fun)
                            (funcall g)
                            (funcall run-timer-fun))))
@@ -66,29 +66,29 @@ I use the above function for things like
 </p>
 <div class="org-src-container">
 <pre class="src src-emacs-lisp" id="org9a9a1f6">(do-when-idle #'coin-ticker-mode
-              (<span style="color: #909737;">lambda</span> ()
+              (<span style="color: #bf360c;">lambda</span> ()
                 (coin-ticker-mode -1))
               60)
 </pre>
 </div>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #909737;">defvar</span> <span style="color: #ba5b34;">limit-usage</span> (make-hash-table <span style="color: #385e6b;">:test</span> 'equal))
-(<span style="color: #909737;">defun</span> <span style="color: #385e6b;">limit-usage</span> (command max-minutes)
-  <span style="color: #7e9960;">"Limit usage of COMMAND to only once in MAX-MINUTES."</span>
+<pre class="src src-emacs-lisp">(<span style="color: #bf360c;">defvar</span> <span style="color: #455A64;">limit-usage</span> (make-hash-table <span style="color: #795548;">:test</span> 'equal))
+(<span style="color: #bf360c;">defun</span> <span style="color: #388E3C;">limit-usage</span> (command max-minutes)
+  <span style="color: #6C3082;">"Limit usage of COMMAND to only once in MAX-MINUTES."</span>
   (advice-add command
-              <span style="color: #385e6b;">:around</span>
-              `(<span style="color: #909737;">lambda</span> (orig-fn <span style="color: #909737;">&amp;rest</span> args)
-                 (<span style="color: #909737;">let*</span> ((hash-key ,(symbol-name command))
+              <span style="color: #795548;">:around</span>
+              `(<span style="color: #bf360c;">lambda</span> (orig-fn <span style="color: #3f51b5;">&amp;rest</span> args)
+                 (<span style="color: #bf360c;">let*</span> ((hash-key ,(symbol-name command))
                         (last-ts (gethash hash-key limit-usage))
-                        (gap-in-minutes (<span style="color: #909737;">and</span> last-ts
+                        (gap-in-minutes (<span style="color: #bf360c;">and</span> last-ts
                                              (/ (time-to-seconds
                                                  (time-subtract (current-time)
                                                                 last-ts))
                                                 60))))
-                   (<span style="color: #909737;">if</span> (<span style="color: #909737;">and</span> gap-in-minutes (&lt; gap-in-minutes ,max-minutes))
-                       (message <span style="color: #953331;">"Last Accessed: %s Time to go: %.2f minutes"</span>
-                                (format-time-string <span style="color: #953331;">"%FT%T%z"</span> last-ts)
+                   (<span style="color: #bf360c;">if</span> (<span style="color: #bf360c;">and</span> gap-in-minutes (&lt; gap-in-minutes ,max-minutes))
+                       (message <span style="color: #6C3082;">"Last Accessed: %s Time to go: %.2f minutes"</span>
+                                (format-time-string <span style="color: #6C3082;">"%FT%T%z"</span> last-ts)
                                 (- ,max-minutes gap-in-minutes))
                      (apply orig-fn args)
                      (puthash hash-key (current-time) limit-usage))))))
@@ -100,7 +100,7 @@ I use the above function for things like
 I use the above function for limiting how frequently I check email:
 </p>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #505050;">;; </span><span style="color: #505050;">Check mail not more than once every 4 hour.</span>
+<pre class="src src-emacs-lisp"><span style="color: #795548;">;; </span><span style="color: #795548;">Check mail not more than once every 4 hour.</span>
 (limit-usage #'gnus (* 4 60))
 </pre>
 </div>
@@ -133,14 +133,12 @@ demands a lot of time to be spent on it before it becomes useable.
   </footer>
 
   <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-55966581-1"></script>
   <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-   a('create', 'UA-55966581-1', 'auto');
-   ga('require', 'displayfeatures');
-   ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-55966581-1');
   </script>
 
   <script type="text/javascript" src="/assets/js/custom.js"> </script>

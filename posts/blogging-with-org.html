@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2018-09-08 Sat 19:26 -->
+<!-- 2018-09-09 Sun 04:03 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Blogging with Org publishing</title>
@@ -93,11 +93,11 @@ We will go through the project definition in <code>src/org-blog.el</code> now.
 A few imports:
 </p>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #909737;">require</span> '<span style="color: #7f355e;">org</span>)
-(<span style="color: #909737;">require</span> '<span style="color: #7f355e;">ox-publish</span>)
-(<span style="color: #909737;">require</span> '<span style="color: #7f355e;">ox-html</span>)
-(<span style="color: #909737;">require</span> '<span style="color: #7f355e;">org-element</span>)
-(<span style="color: #909737;">require</span> '<span style="color: #7f355e;">ox-rss</span>)
+<pre class="src src-emacs-lisp">(<span style="color: #bf360c;">require</span> '<span style="color: #0288D1;">org</span>)
+(<span style="color: #bf360c;">require</span> '<span style="color: #0288D1;">ox-publish</span>)
+(<span style="color: #bf360c;">require</span> '<span style="color: #0288D1;">ox-html</span>)
+(<span style="color: #bf360c;">require</span> '<span style="color: #0288D1;">org-element</span>)
+(<span style="color: #bf360c;">require</span> '<span style="color: #0288D1;">ox-rss</span>)
 </pre>
 </div>
 
@@ -107,13 +107,13 @@ even if none of the other files in the project changed. <code>org-blog-prepare</
 called before any of the other functions in <code>org-publish</code>.
 </p>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #909737;">defun</span> <span style="color: #385e6b;">org-blog-prepare</span> (project-plist)
-  <span style="color: #7e9960;">"With help from `</span><span style="color: #7f355e;">https://github.com/howardabrams/dot-files</span><span style="color: #7e9960;">'.</span>
-<span style="color: #7e9960;">  Touch `</span><span style="color: #7f355e;">index.org</span><span style="color: #7e9960;">' to rebuilt it.</span>
-<span style="color: #7e9960;">  Argument `</span><span style="color: #7f355e;">PROJECT-PLIST</span><span style="color: #7e9960;">' contains information about the current project."</span>
-  (<span style="color: #909737;">let*</span> ((base-directory (plist-get project-plist <span style="color: #385e6b;">:base-directory</span>))
-         (buffer (find-file-noselect (expand-file-name <span style="color: #953331;">"index.org"</span> base-director<span style="color: #7f355e; background-color: #151515;">y) t)))</span>
-    (<span style="color: #909737;">with-current-buffer</span> buffer
+<pre class="src src-emacs-lisp">(<span style="color: #bf360c;">defun</span> <span style="color: #388E3C;">org-blog-prepare</span> (project-plist)
+  <span style="color: #6C3082;">"With help from `</span><span style="color: #0288D1;">https://github.com/howardabrams/dot-files</span><span style="color: #6C3082;">'.</span>
+<span style="color: #6C3082;">  Touch `</span><span style="color: #0288D1;">index.org</span><span style="color: #6C3082;">' to rebuilt it.</span>
+<span style="color: #6C3082;">  Argument `</span><span style="color: #0288D1;">PROJECT-PLIST</span><span style="color: #6C3082;">' contains information about the current project."</span>
+  (<span style="color: #bf360c;">let*</span> ((base-directory (plist-get project-plist <span style="color: #795548;">:base-directory</span>))
+         (buffer (find-file-noselect (expand-file-name <span style="color: #6C3082;">"index.org"</span> base-director<span style="color: #ee82ee; background-color: #333333;">y) t)))</span>
+    (<span style="color: #bf360c;">with-current-buffer</span> buffer
       (set-buffer-modified-p t)
       (save-buffer 0))
     (kill-buffer buffer)))
@@ -125,10 +125,10 @@ This function adds a few sytlesheets to the <code>&lt;head&gt;</code> of exporte
 files. Anything that is required to be placed into the <code>&lt;head&gt;</code> should go here.
 </p>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #909737;">defvar</span> <span style="color: #ba5b34;">org-blog-head</span>
-  <span style="color: #953331;">"&lt;link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/css/bootstrap.css\"</span><span style="color: #7f355e; background-color: #151515;">/&gt;</span>
-<span style="color: #953331;">  &lt;link rel=\"stylesheet\" type=\"text/css\" href=\"https://fonts.googleapis.com</span><span style="color: #7f355e; background-color: #151515;">/css?family=Amaranth|Handlee|Libre+Baskerville|Bree+Serif|Ubuntu+Mono|Pacifico&amp;subset=latin,greek\"/&gt;</span>
-<span style="color: #953331;">  &lt;link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"favicon.ico\"&gt;"</span>)
+<pre class="src src-emacs-lisp">(<span style="color: #bf360c;">defvar</span> <span style="color: #455A64;">org-blog-head</span>
+  <span style="color: #6C3082;">"&lt;link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/css/bootstrap.css\"</span><span style="color: #ee82ee; background-color: #333333;">/&gt;</span>
+<span style="color: #6C3082;">  &lt;link rel=\"stylesheet\" type=\"text/css\" href=\"https://fonts.googleapis.com</span><span style="color: #ee82ee; background-color: #333333;">/css?family=Amaranth|Handlee|Libre+Baskerville|Bree+Serif|Ubuntu+Mono|Pacifico&amp;subset=latin,greek\"/&gt;</span>
+<span style="color: #6C3082;">  &lt;link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"favicon.ico\"&gt;"</span>)
 </pre>
 </div>
 
@@ -142,16 +142,16 @@ take a property list as an argument and return an HTML string.
 For this blog, the preamble is a simple banner and two <code>href</code> links.
 </p>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #909737;">defun</span> <span style="color: #385e6b;">org-blog-preamble</span> (_plist)
-  <span style="color: #7e9960;">"Pre-amble for whole blog."</span>
-  <span style="color: #953331;">"&lt;div class=\"banner\"&gt;</span>
-<span style="color: #953331;">    &lt;a href=\"/\"&gt; Ramblings from a Corner &lt;/a&gt;</span>
-<span style="color: #953331;">  &lt;/div&gt;</span>
-<span style="color: #953331;">  &lt;ul class=\"banner-links\"&gt;</span>
-<span style="color: #953331;">    &lt;li&gt;&lt;a href=\"/\"&gt; About Me &lt;/a&gt; &lt;/li&gt;</span>
-<span style="color: #953331;">    &lt;li&gt;&lt;a href=\"/archive.html\"&gt; Posts &lt;/a&gt; &lt;/li&gt;</span>
-<span style="color: #953331;">  &lt;/ul&gt;</span>
-<span style="color: #953331;">  &lt;hr&gt;"</span>)
+<pre class="src src-emacs-lisp">(<span style="color: #bf360c;">defun</span> <span style="color: #388E3C;">org-blog-preamble</span> (_plist)
+  <span style="color: #6C3082;">"Pre-amble for whole blog."</span>
+  <span style="color: #6C3082;">"&lt;div class=\"banner\"&gt;</span>
+<span style="color: #6C3082;">    &lt;a href=\"/\"&gt; Ramblings from a Corner &lt;/a&gt;</span>
+<span style="color: #6C3082;">  &lt;/div&gt;</span>
+<span style="color: #6C3082;">  &lt;ul class=\"banner-links\"&gt;</span>
+<span style="color: #6C3082;">    &lt;li&gt;&lt;a href=\"/\"&gt; About Me &lt;/a&gt; &lt;/li&gt;</span>
+<span style="color: #6C3082;">    &lt;li&gt;&lt;a href=\"/archive.html\"&gt; Posts &lt;/a&gt; &lt;/li&gt;</span>
+<span style="color: #6C3082;">  &lt;/ul&gt;</span>
+<span style="color: #6C3082;">  &lt;hr&gt;"</span>)
 </pre>
 </div>
 
@@ -166,18 +166,18 @@ we should show a <a href="https://disqus.com/">Disqus comment block</a> or not. 
 from <code>:input-file</code> key in input <code>plist</code>.
 </p>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #909737;">defun</span> <span style="color: #385e6b;">org-blog-postamble</span> (plist)
-  <span style="color: #7e9960;">"Post-amble for whole blog."</span>
+<pre class="src src-emacs-lisp">(<span style="color: #bf360c;">defun</span> <span style="color: #388E3C;">org-blog-postamble</span> (plist)
+  <span style="color: #6C3082;">"Post-amble for whole blog."</span>
   (concat
-  <span style="color: #953331;">"&lt;footer class=\"footer\"&gt;</span>
-<span style="color: #953331;">      &lt;!-- Footer Definition --&gt;</span>
-<span style="color: #953331;">   &lt;/footer&gt;</span>
+  <span style="color: #6C3082;">"&lt;footer class=\"footer\"&gt;</span>
+<span style="color: #6C3082;">      &lt;!-- Footer Definition --&gt;</span>
+<span style="color: #6C3082;">   &lt;/footer&gt;</span>
 
-<span style="color: #953331;">  &lt;!-- Google Analytics Js --&gt;"</span>
+<span style="color: #6C3082;">  &lt;!-- Google Analytics Js --&gt;"</span>
 
-   <span style="color: #505050;">;; </span><span style="color: #505050;">Add Disqus if it's a post</span>
-   (<span style="color: #909737;">when</span> (s-contains-p <span style="color: #953331;">"/posts/"</span> (plist-get plist <span style="color: #385e6b;">:input-file</span>))
-   <span style="color: #953331;">"&lt;!-- Disqua JS --&gt; "</span>)))
+   <span style="color: #795548;">;; </span><span style="color: #795548;">Add Disqus if it's a post</span>
+   (<span style="color: #bf360c;">when</span> (s-contains-p <span style="color: #6C3082;">"/posts/"</span> (plist-get plist <span style="color: #795548;">:input-file</span>))
+   <span style="color: #6C3082;">"&lt;!-- Disqua JS --&gt; "</span>)))
 </pre>
 </div>
 
@@ -193,24 +193,24 @@ using <code>org-blog-sitemap-format-entry</code> as a list argument. It then ret
 HTML for the whole index/archive.
 </p>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #909737;">defun</span> <span style="color: #385e6b;">org-blog-sitemap-format-entry</span> (entry _style project)
-  <span style="color: #7e9960;">"Return string for each ENTRY in PROJECT."</span>
-  (<span style="color: #909737;">when</span> (s-starts-with-p <span style="color: #953331;">"posts/"</span> entry)
-    (format <span style="color: #953331;">"@@html:&lt;span class=\"archive-item\"&gt;&lt;span class=\"archive-date\"&gt;@@</span><span style="color: #7f355e; background-color: #151515;"> %s @@html:&lt;/span&gt;@@ [[file:%s][%s]] @@html:&lt;/span&gt;@@"</span>
-            (format-time-string <span style="color: #953331;">"%h %d, %Y"</span>
+<pre class="src src-emacs-lisp">(<span style="color: #bf360c;">defun</span> <span style="color: #388E3C;">org-blog-sitemap-format-entry</span> (entry _style project)
+  <span style="color: #6C3082;">"Return string for each ENTRY in PROJECT."</span>
+  (<span style="color: #bf360c;">when</span> (s-starts-with-p <span style="color: #6C3082;">"posts/"</span> entry)
+    (format <span style="color: #6C3082;">"@@html:&lt;span class=\"archive-item\"&gt;&lt;span class=\"archive-date\"&gt;@@</span><span style="color: #ee82ee; background-color: #333333;"> %s @@html:&lt;/span&gt;@@ [[file:%s][%s]] @@html:&lt;/span&gt;@@"</span>
+            (format-time-string <span style="color: #6C3082;">"%h %d, %Y"</span>
                                 (org-publish-find-date entry project))
             entry
             (org-publish-find-title entry project))))
 
-(<span style="color: #909737;">defun</span> <span style="color: #385e6b;">org-blog-sitemap-function</span> (title list)
-  <span style="color: #7e9960;">"Return sitemap using TITLE and LIST returned by `</span><span style="color: #7f355e;">org-blog-sitemap-format-entr</span><span style="color: #7f355e; background-color: #151515;">y</span><span style="color: #7f355e; background-color: #151515;">'."</span>
-  (concat <span style="color: #953331;">"#+TITLE: "</span> title <span style="color: #953331;">"\n\n"</span>
-          <span style="color: #953331;">"\n#+begin_archive\n"</span>
-          (mapconcat (<span style="color: #909737;">lambda</span> (li)
-                       (format <span style="color: #953331;">"@@html:&lt;li&gt;@@ %s @@html:&lt;/li&gt;@@"</span> (car li)))
+(<span style="color: #bf360c;">defun</span> <span style="color: #388E3C;">org-blog-sitemap-function</span> (title list)
+  <span style="color: #6C3082;">"Return sitemap using TITLE and LIST returned by `</span><span style="color: #0288D1;">org-blog-sitemap-format-entr</span><span style="color: #ee82ee; background-color: #333333;">y</span><span style="color: #ee82ee; background-color: #333333;">'."</span>
+  (concat <span style="color: #6C3082;">"#+TITLE: "</span> title <span style="color: #6C3082;">"\n\n"</span>
+          <span style="color: #6C3082;">"\n#+begin_archive\n"</span>
+          (mapconcat (<span style="color: #bf360c;">lambda</span> (li)
+                       (format <span style="color: #6C3082;">"@@html:&lt;li&gt;@@ %s @@html:&lt;/li&gt;@@"</span> (car li)))
                      (seq-filter #'car (cdr list))
-                     <span style="color: #953331;">"\n"</span>)
-          <span style="color: #953331;">"\n#+end_archive\n"</span>))
+                     <span style="color: #6C3082;">"\n"</span>)
+          <span style="color: #6C3082;">"\n#+end_archive\n"</span>))
 </pre>
 </div>
 
@@ -223,18 +223,18 @@ the project and is working on the file visited by my current buffer. I have
 grown accustomed to see this as progress indication for the export process. :)
 </p>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #909737;">defun</span> <span style="color: #385e6b;">org-blog-publish-to-html</span> (plist filename pub-dir)
-  <span style="color: #7e9960;">"Same as `</span><span style="color: #7f355e;">org-html-publish-to-html</span><span style="color: #7e9960;">' but modifies html before finishing."</span>
-  (<span style="color: #909737;">let</span> ((file-path (org-html-publish-to-html plist filename pub-dir)))
-    (<span style="color: #909737;">with-current-buffer</span> (find-file-noselect file-path)
+<pre class="src src-emacs-lisp">(<span style="color: #bf360c;">defun</span> <span style="color: #388E3C;">org-blog-publish-to-html</span> (plist filename pub-dir)
+  <span style="color: #6C3082;">"Same as `</span><span style="color: #0288D1;">org-html-publish-to-html</span><span style="color: #6C3082;">' but modifies html before finishing."</span>
+  (<span style="color: #bf360c;">let</span> ((file-path (org-html-publish-to-html plist filename pub-dir)))
+    (<span style="color: #bf360c;">with-current-buffer</span> (find-file-noselect file-path)
       (goto-char (point-min))
-      (search-forward <span style="color: #953331;">"&lt;body&gt;"</span>)
-      (insert (concat <span style="color: #953331;">"\n&lt;div class=\"content-wrapper container\"&gt;\n "</span>
-                      <span style="color: #953331;">"  &lt;div class=\"row\"&gt; &lt;div class=\"col\"&gt; &lt;/div&gt; "</span>
-                      <span style="color: #953331;">"  &lt;div class=\"col-sm-6 col-md-8\"&gt; "</span>))
+      (search-forward <span style="color: #6C3082;">"&lt;body&gt;"</span>)
+      (insert (concat <span style="color: #6C3082;">"\n&lt;div class=\"content-wrapper container\"&gt;\n "</span>
+                      <span style="color: #6C3082;">"  &lt;div class=\"row\"&gt; &lt;div class=\"col\"&gt; &lt;/div&gt; "</span>
+                      <span style="color: #6C3082;">"  &lt;div class=\"col-sm-6 col-md-8\"&gt; "</span>))
       (goto-char (point-max))
-      (search-backward <span style="color: #953331;">"&lt;/body&gt;"</span>)
-      (insert <span style="color: #953331;">"\n&lt;/div&gt;\n&lt;div class=\"col\"&gt;&lt;/div&gt;&lt;/div&gt;\n&lt;/div&gt;\n"</span>)
+      (search-backward <span style="color: #6C3082;">"&lt;/body&gt;"</span>)
+      (insert <span style="color: #6C3082;">"\n&lt;/div&gt;\n&lt;div class=\"col\"&gt;&lt;/div&gt;&lt;/div&gt;\n&lt;/div&gt;\n"</span>)
       (save-buffer)
       (kill-buffer))
     file-path))
@@ -249,60 +249,60 @@ for <a href="https://orgmode.org/manual/Publishing.html#Publishing">Org Publishi
 <code>add-to-list</code> instead of setting <code>org-publish-project-alist</code>.
 </p>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #909737;">setq</span> org-publish-project-alist
-      `((<span style="color: #953331;">"orgfiles"</span>
-         <span style="color: #385e6b;">:base-directory</span> <span style="color: #953331;">"~/blog/src/"</span>
-         <span style="color: #385e6b;">:exclude</span> <span style="color: #953331;">".*drafts/.*"</span>
-         <span style="color: #385e6b;">:base-extension</span> <span style="color: #953331;">"org"</span>
+<pre class="src src-emacs-lisp">(<span style="color: #bf360c;">setq</span> org-publish-project-alist
+      `((<span style="color: #6C3082;">"orgfiles"</span>
+         <span style="color: #795548;">:base-directory</span> <span style="color: #6C3082;">"~/blog/src/"</span>
+         <span style="color: #795548;">:exclude</span> <span style="color: #6C3082;">".*drafts/.*"</span>
+         <span style="color: #795548;">:base-extension</span> <span style="color: #6C3082;">"org"</span>
 
-         <span style="color: #385e6b;">:publishing-directory</span> <span style="color: #953331;">"~/blog/"</span>
+         <span style="color: #795548;">:publishing-directory</span> <span style="color: #6C3082;">"~/blog/"</span>
 
-         <span style="color: #385e6b;">:recursive</span> t
-         <span style="color: #385e6b;">:preparation-function</span> org-blog-prepare
-         <span style="color: #385e6b;">:publishing-function</span> org-blog-publish-to-html
+         <span style="color: #795548;">:recursive</span> t
+         <span style="color: #795548;">:preparation-function</span> org-blog-prepare
+         <span style="color: #795548;">:publishing-function</span> org-blog-publish-to-html
 
-         <span style="color: #385e6b;">:with-toc</span> nil
-         <span style="color: #385e6b;">:with-title</span> t
-         <span style="color: #385e6b;">:with-date</span> t
-         <span style="color: #385e6b;">:section-numbers</span> nil
-         <span style="color: #385e6b;">:html-doctype</span> <span style="color: #953331;">"html5"</span>
-         <span style="color: #385e6b;">:html-html5-fancy</span> t
-         <span style="color: #385e6b;">:html-head-include-default-style</span> nil
-         <span style="color: #385e6b;">:html-head-include-scripts</span> nil
-         <span style="color: #385e6b;">:htmlized-source</span> t
-         <span style="color: #385e6b;">:html-head-extra</span> ,org-blog-head
-         <span style="color: #385e6b;">:html-preamble</span> org-blog-preamble
-         <span style="color: #385e6b;">:html-postamble</span> org-blog-postamble
+         <span style="color: #795548;">:with-toc</span> nil
+         <span style="color: #795548;">:with-title</span> t
+         <span style="color: #795548;">:with-date</span> t
+         <span style="color: #795548;">:section-numbers</span> nil
+         <span style="color: #795548;">:html-doctype</span> <span style="color: #6C3082;">"html5"</span>
+         <span style="color: #795548;">:html-html5-fancy</span> t
+         <span style="color: #795548;">:html-head-include-default-style</span> nil
+         <span style="color: #795548;">:html-head-include-scripts</span> nil
+         <span style="color: #795548;">:htmlized-source</span> t
+         <span style="color: #795548;">:html-head-extra</span> ,org-blog-head
+         <span style="color: #795548;">:html-preamble</span> org-blog-preamble
+         <span style="color: #795548;">:html-postamble</span> org-blog-postamble
 
-         <span style="color: #385e6b;">:auto-sitemap</span> t
-         <span style="color: #385e6b;">:sitemap-filename</span> <span style="color: #953331;">"archive.org"</span>
-         <span style="color: #385e6b;">:sitemap-title</span> <span style="color: #953331;">"Blog Posts"</span>
-         <span style="color: #385e6b;">:sitemap-style</span> list
-         <span style="color: #385e6b;">:sitemap-sort-files</span> anti-chronologically
-         <span style="color: #385e6b;">:sitemap-format-entry</span> org-blog-sitemap-format-entry
-         <span style="color: #385e6b;">:sitemap-function</span> org-blog-sitemap-function)
+         <span style="color: #795548;">:auto-sitemap</span> t
+         <span style="color: #795548;">:sitemap-filename</span> <span style="color: #6C3082;">"archive.org"</span>
+         <span style="color: #795548;">:sitemap-title</span> <span style="color: #6C3082;">"Blog Posts"</span>
+         <span style="color: #795548;">:sitemap-style</span> list
+         <span style="color: #795548;">:sitemap-sort-files</span> anti-chronologically
+         <span style="color: #795548;">:sitemap-format-entry</span> org-blog-sitemap-format-entry
+         <span style="color: #795548;">:sitemap-function</span> org-blog-sitemap-function)
 
-        (<span style="color: #953331;">"assets"</span>
-         <span style="color: #385e6b;">:base-directory</span> <span style="color: #953331;">"~/blog/src/assets/"</span>
-         <span style="color: #385e6b;">:base-extension</span> <span style="color: #953331;">".*"</span>
-         <span style="color: #385e6b;">:publishing-directory</span> <span style="color: #953331;">"~/blog/assets/"</span>
-         <span style="color: #385e6b;">:publishing-function</span> org-publish-attachment
-         <span style="color: #385e6b;">:recursive</span> t)
+        (<span style="color: #6C3082;">"assets"</span>
+         <span style="color: #795548;">:base-directory</span> <span style="color: #6C3082;">"~/blog/src/assets/"</span>
+         <span style="color: #795548;">:base-extension</span> <span style="color: #6C3082;">".*"</span>
+         <span style="color: #795548;">:publishing-directory</span> <span style="color: #6C3082;">"~/blog/assets/"</span>
+         <span style="color: #795548;">:publishing-function</span> org-publish-attachment
+         <span style="color: #795548;">:recursive</span> t)
 
-        (<span style="color: #953331;">"rss"</span>
-         <span style="color: #385e6b;">:base-directory</span> <span style="color: #953331;">"~/blog/src/"</span>
-         <span style="color: #385e6b;">:base-extension</span> <span style="color: #953331;">"org"</span>
-         <span style="color: #385e6b;">:html-link-home</span> <span style="color: #953331;">"https://vicarie.in/"</span>
-         <span style="color: #385e6b;">:html-link-use-abs-url</span> t
-         <span style="color: #385e6b;">:rss-extension</span> <span style="color: #953331;">"xml"</span>
-         <span style="color: #385e6b;">:publishing-directory</span> <span style="color: #953331;">"~/blog/"</span>
-         <span style="color: #385e6b;">:publishing-function</span> (org-rss-publish-to-rss)
-         <span style="color: #385e6b;">:exclude</span> <span style="color: #953331;">".*"</span>
-         <span style="color: #385e6b;">:include</span> (<span style="color: #953331;">"archive.org"</span>)
-         <span style="color: #385e6b;">:section-numbers</span> nil
-         <span style="color: #385e6b;">:table-of-contents</span> nil)
+        (<span style="color: #6C3082;">"rss"</span>
+         <span style="color: #795548;">:base-directory</span> <span style="color: #6C3082;">"~/blog/src/"</span>
+         <span style="color: #795548;">:base-extension</span> <span style="color: #6C3082;">"org"</span>
+         <span style="color: #795548;">:html-link-home</span> <span style="color: #6C3082;">"https://vicarie.in/"</span>
+         <span style="color: #795548;">:html-link-use-abs-url</span> t
+         <span style="color: #795548;">:rss-extension</span> <span style="color: #6C3082;">"xml"</span>
+         <span style="color: #795548;">:publishing-directory</span> <span style="color: #6C3082;">"~/blog/"</span>
+         <span style="color: #795548;">:publishing-function</span> (org-rss-publish-to-rss)
+         <span style="color: #795548;">:exclude</span> <span style="color: #6C3082;">".*"</span>
+         <span style="color: #795548;">:include</span> (<span style="color: #6C3082;">"archive.org"</span>)
+         <span style="color: #795548;">:section-numbers</span> nil
+         <span style="color: #795548;">:table-of-contents</span> nil)
 
-        (<span style="color: #953331;">"blog"</span> <span style="color: #385e6b;">:components</span> (<span style="color: #953331;">"orgfiles"</span> <span style="color: #953331;">"assets"</span> <span style="color: #953331;">"rss"</span>))))
+        (<span style="color: #6C3082;">"blog"</span> <span style="color: #795548;">:components</span> (<span style="color: #6C3082;">"orgfiles"</span> <span style="color: #6C3082;">"assets"</span> <span style="color: #6C3082;">"rss"</span>))))
 </pre>
 </div>
 
@@ -314,13 +314,13 @@ publishing. To do so, I have a <a href="https://github.com/rejeep/prodigy.el">pr
 
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(prodigy-define-service
-  <span style="color: #385e6b;">:name</span> <span style="color: #953331;">"blog@localhost"</span>
-  <span style="color: #385e6b;">:command</span> <span style="color: #953331;">"python2"</span>
-  <span style="color: #385e6b;">:args</span> '(<span style="color: #953331;">"-m"</span> <span style="color: #953331;">"SimpleHTTPServer"</span> <span style="color: #953331;">"8000"</span>)
-  <span style="color: #385e6b;">:cwd</span> <span style="color: #953331;">"~/blog/"</span>
-  <span style="color: #385e6b;">:tags</span> '(file-server)
-  <span style="color: #385e6b;">:stop-signal</span> 'sigkill
-  <span style="color: #385e6b;">:kill-process-buffer-on-stop</span> t)
+  <span style="color: #795548;">:name</span> <span style="color: #6C3082;">"blog@localhost"</span>
+  <span style="color: #795548;">:command</span> <span style="color: #6C3082;">"python2"</span>
+  <span style="color: #795548;">:args</span> '(<span style="color: #6C3082;">"-m"</span> <span style="color: #6C3082;">"SimpleHTTPServer"</span> <span style="color: #6C3082;">"8000"</span>)
+  <span style="color: #795548;">:cwd</span> <span style="color: #6C3082;">"~/blog/"</span>
+  <span style="color: #795548;">:tags</span> '(file-server)
+  <span style="color: #795548;">:stop-signal</span> 'sigkill
+  <span style="color: #795548;">:kill-process-buffer-on-stop</span> t)
 </pre>
 </div>
 
@@ -342,14 +342,12 @@ Share your thoughts on the setup in the comments below. Thanks for reading.
   </footer>
 
   <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-55966581-1"></script>
   <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-   a('create', 'UA-55966581-1', 'auto');
-   ga('require', 'displayfeatures');
-   ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-55966581-1');
   </script>
 
   <script type="text/javascript" src="/assets/js/custom.js"> </script>
