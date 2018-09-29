@@ -1,5 +1,5 @@
 #+TITLE: Distributed Snapshots
-#+DATE: <2018-08-30 Thu>
+#+DATE: [2018-09-15 Sat 12:41]
 #+AUTHOR: Narendra Joshi
 * Introduction
 * Why take snapshots?
