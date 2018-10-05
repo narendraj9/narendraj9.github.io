@@ -2,7 +2,6 @@
 
 
 #+begin_archive
-@@html:<li>@@ @@html:<span class="archive-item"><span class="archive-date">@@ Sep 29, 2018 @@html:</span>@@ [[file:posts/poems.org][A Few Poems]] @@html:</span>@@ @@html:</li>@@
 @@html:<li>@@ @@html:<span class="archive-item"><span class="archive-date">@@ Sep 08, 2018 @@html:</span>@@ [[file:posts/blogging-with-org.org][Blogging with Org publishing]] @@html:</span>@@ @@html:</li>@@
 @@html:<li>@@ @@html:<span class="archive-item"><span class="archive-date">@@ Sep 01, 2018 @@html:</span>@@ [[file:posts/sieve-of-erators.org][Sieve of Eratosthenes]] @@html:</span>@@ @@html:</li>@@
 @@html:<li>@@ @@html:<span class="archive-item"><span class="archive-date">@@ Aug 01, 2018 @@html:</span>@@ [[file:posts/lcm-hcf-as-ops-on-sets.org][LCM, HCF and Sets]] @@html:</span>@@ @@html:</li>@@
