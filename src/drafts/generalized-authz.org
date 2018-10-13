@@ -1,0 +1,36 @@
+#+TITLE: Modeling Authorization
+#+DATE: [2018-10-14 Sun 01:59]
+#+AUTHOR: I321472
+
+Most applications need to take care of authorization. Authorization is the
+answer to question of whether request is permitted or not. We will understand
+different models of authorization using a meta-model in this article. I will
+use [[https://casbin.org/][Casbin]] for concrete examples. You can experiment with example model
+definitions [[https://casbin.org/editor/][Casbin Model Editor]].
+
+
+* PERM meta-model
+A instance of PERM (Policy, Effect, Request, Matchers) describes how these four
+kinds of entities interact with each other to build something that can used for
+authorization. First let's describe each of these entities and then look at an
+example model built using them.
+
+- Request :: Information about the access request. A simple request would be a
+             tuple with the subject, action and the resource.
+             A concrete request model can have Resources can be
+             [[https://github.com/intel/rmd][physical hardware components like CPU caches]] or logical entities
+             built out of persisted data like customers in a CRM system.
+             =r = {sub, action, resource}=
+- Policy :: A model of what can constitute a rule in the system, e.g., an
+            administrator should be allowed to read user info.
+            =p = {sub, action, resource}=
+- Matchers :: A model of how requests and policies are matched.
+              The simplest example would be using equality for matching
+              requests and policies if the above models for those are used.
+              =m = r.sub == p.sub && r.action == p.action && r.resource ==
+              p.resource=
+              The matcher expression is evaluated for each
+- Effect :: A model for combining/reducing policies that match a given request
+            to a final result. Value of evaluating the matcher expression is
+            available as =eff= field for the policy.
+            =e = some(p.eff == allow)=
