@@ -14,10 +14,10 @@
   <link>https://vicarie.in/</link>
   <description><![CDATA[]]></description>
   <language>en</language>
-  <pubDate>Fri, 05 Oct 2018 19:20:42 +0530</pubDate>
-  <lastBuildDate>Fri, 05 Oct 2018 19:20:42 +0530</lastBuildDate>
-  <generator>Emacs 27.0 Org-mode 9.1.14</generator>
-  <webMaster>narendraj9@gmail.com (Narendra Joshi)</webMaster>
+  <pubDate>Sun, 14 Oct 2018 18:01:21 +0530</pubDate>
+  <lastBuildDate>Sun, 14 Oct 2018 18:01:21 +0530</lastBuildDate>
+  <generator>Emacs 25.3 Org-mode 9.1.13</generator>
+  <webMaster>i321472@C02V61LJHTD8 (I321472)</webMaster>
   <image>
     <url>http://orgmode.org/img/org-mode-unicorn-logo.png</url>
     <title>Blog Posts</title>
@@ -26,10 +26,11 @@
 
   <div class="archive">
     <p>
+      <li> <span class="archive-item"><span class="archive-date"> Oct 14, 2018 </span> <a href="posts/generalized-authz.html">Modeling Authorization</a> </span> </li>
       <li> <span class="archive-item"><span class="archive-date"> Sep 08, 2018 </span> <a href="posts/blogging-with-org.html">Blogging with Org publishing</a> </span> </li>
       <li> <span class="archive-item"><span class="archive-date"> Sep 01, 2018 </span> <a href="posts/sieve-of-erators.html">Sieve of Eratosthenes</a> </span> </li>
       <li> <span class="archive-item"><span class="archive-date"> Aug 01, 2018 </span> <a href="posts/lcm-hcf-as-ops-on-sets.html">LCM, HCF and Sets</a> </span> </li>
-      <li> <span class="archive-item"><span class="archive-date"> Jul 01, 2018 </span> <a href="posts/quick-emacs-hacks.html">Emacs Quick Hacks</a> </span> </li>
+      <li> <span class="archive-item"><span class="archive-date"> Jul 01, 2018 </span> <a href="posts/quick-emacs-hacks.html">Emac: Quick Hacks</a> </span> </li>
     </p>
 
   </div>

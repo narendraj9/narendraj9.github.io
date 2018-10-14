@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2018-10-14 Sun 17:58 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modeling Authorization</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="I321472">
+<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.css"/>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Amaranth|Handlee|Libre+Baskerville|Bree+Serif|Ubuntu+Mono|Pacifico&subset=latin,greek"/>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+<div class="content-wrapper container">
+   <div class="row"> <div class="col"> </div>   <div class="col-sm-6 col-md-8">
+<div id="preamble" class="status">
+<div class="banner">
+    <a href="/"> Ramblings from a Corner </a>
+  </div>
+  <ul class="banner-links">
+    <li><a href="/"> About Me </a> </li>
+    <li><a href="/archive.html"> Posts </a> </li>
+  </ul>
+  <hr>
+</div>
+<div id="content">
+<header>
+<h1 class="title">Modeling Authorization</h1>
+<p class="subtitle">Published on Oct 14, 2018</p>
+</header><p>
+Most applications need to take care of authorization. Authorization is the
+answer to the question of whether request is permitted or not. We will
+understand different models of authorization using a meta-model in this
+article. I am going to use <a href="https://casbin.org/">Casbin</a> for concrete examples. You can experiment
+with example model definitions using <a href="https://casbin.org/editor/">Casbin Model Editor</a>.
+</p>
+
+<div id="outline-container-orgb52ed41" class="outline-2">
+<h2 id="orgb52ed41">PERM Meta-Model</h2>
+<div class="outline-text-2" id="text-orgb52ed41">
+<p>
+A instance of PERM (Policy, Effect, Request, Matchers) describes how these four
+kinds of entities interact with each other to build something that can used for
+authorization. First let's describe each of these entities and then look at an
+example model built using them.
+</p>
+
+<dl class="org-dl">
+<dt>Request</dt><dd>Information about the access request. A simple request would be a
+tuple with the subject, action and the resource.
+A concrete request model can have Resources like
+<a href="https://github.com/intel/rmd">physical hardware components like CPU caches</a> or logical entities
+built out of persisted data like customers in a CRM system.
+<code>r = {sub, action, resource}</code></dd>
+<dt>Policy</dt><dd>A model of what can constitute a rule in the system, e.g., an
+administrator should be allowed to read user info.
+<code>p = {sub, action, resource}</code></dd>
+<dt>Matchers</dt><dd>A model of how requests and policies are matched.
+The simplest example would be using equality for matching
+requests and policies if the above models for those are used.
+<code>m = r.sub == p.sub &amp;&amp; r.action == p.action &amp;&amp; r.resource == p.resource</code>
+Given a request, a value is produced for every policy using this
+matcher expression. So, we have a <code>p.eft</code> value for every policy
+in our policy set. We haven't defined instances of policies
+yet. We have only defined how those instances would look like,
+i.e. the policy model.</dd>
+<dt>Effect</dt><dd>A model for combining/reducing policies that match a given request
+to a final result. Value of evaluating the matcher expression is
+available in <code>eft</code> field in every policy.
+<code>e = some(p.eft == allow)</code></dd>
+</dl>
+
+<p>
+The diagram below illustrates show a request is authorized using a model
+based on PERM.
+</p>
+
+
+<figure>
+<img src="../assets/data/perm.png" alt="perm.png" width="100%">
+
+</figure>
+</div>
+</div>
+
+<div id="outline-container-org40e95f1" class="outline-2">
+<h2 id="org40e95f1">Model Definitions</h2>
+<div class="outline-text-2" id="text-org40e95f1">
+<p>
+Here is the complete model definition for ACL-based authorization:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-conf" id="org02cefe9">[<span style="color: #909737;">request_definition</span>]
+<span style="color: #ba5b34;">r</span> = sub, obj, act
+
+[<span style="color: #909737;">policy_definition</span>]
+<span style="color: #ba5b34;">p</span> = sub, obj, act
+
+[<span style="color: #909737;">policy_effect</span>]
+<span style="color: #ba5b34;">e</span> = some(where (p.eft == allow))
+
+[<span style="color: #909737;">matchers</span>]
+<span style="color: #ba5b34;">m</span> = r.sub == p.sub &amp;&amp; r.obj == p.obj &amp;&amp; r.act == p.act
+</pre>
+</div>
+
+<p>
+For such a model, the policies that define authorization rules will look like
+</p>
+<div class="org-src-container">
+<pre class="src src-conf" id="org9b98df3">p, alice, data1, read
+p, bob, data2, write
+</pre>
+</div>
+
+
+<p>
+If we wish to allow everything to users that belong to the <code>admin</code> group, all
+we need to change is the definition of the matcher:
+</p>
+<div class="org-src-container">
+<pre class="src src-conf" id="org24bf98b">[<span style="color: #909737;">matchers</span>]
+<span style="color: #ba5b34;">m</span> = r.sub == admin || (r.sub == p.sub &amp;&amp; r.obj == p.obj &amp;&amp; r.act == p.act)
+</pre>
+</div>
+
+<p>
+To enable simple attribute based access control, we need access to the actual
+data in the resource object. For example if we only want to allow requests
+which is initiated by the owner of the resource, the matcher expression would
+change to:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-conf" id="orge333faf"><span style="color: #ba5b34;">m</span> = r.obj.owner == r.sub &amp;&amp; (r.sub == p.sub &amp;&amp; r.obj == p.obj &amp;&amp; r.act == p.act)
+</pre>
+</div>
+
+<p>
+The PERM meta-model is flexible enough to allow us to switch to complex
+authorization models even if we start with a simple model in the
+beginning. An extension of the PERM model would be to allow materialized views
+of the resource based on policies. This requires that the final result is a
+resource rather than a boolean value. This might seem like a good idea in the
+beginning but it seems to be mixing two different ideas:
+</p>
+<ul class="org-ul">
+<li>Allowing access to a resource</li>
+<li>Building an instance of a logical resource based on constraints or the
+context.</li>
+</ul>
+
+<p>
+For example, let's say a hypothetical SaaS company needs to manage credits for
+multiple applications that register themselves on their platform (Ola credits,
+Uber credits). There can be a field in the User resource, say <code>ratings</code>, which
+has a list of ratings (logically) for all these applications. Now, we must
+ensure that ratings for one application are not visible to another
+application. All applications have access to all other fields but this field
+needs to be filtered. In my opinion, this field should have never been designed
+such that it ends up with data for all applications while building the User
+object/map/representation in memory.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge992d0b" class="outline-2">
+<h2 id="orge992d0b">Conclusion</h2>
+<div class="outline-text-2" id="text-orge992d0b">
+<p>
+PERM is a flexible meta-model for building authorization models.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<footer class="footer">
+    <a href="https://github.com/narendraj9/narendraj9.github.io">
+	  <p> Built with
+	    <svg id="i-heart" viewBox="0 0 32 32">
+    	  <path d="M4 16 C1 12 2 6 7 4 12 2 15 6 16 8 17 6 21 2 26 4 31 6 31 12 28 16 25 20 16 28 16 28 16 28 7 20 4 16 Z"/>
+	    </svg> in
+        <img id="i-emacs" src="/assets/images/emacs.svg"/>
+        <span id="view-source-link"> View Source </span>
+	  </p>
+    </a>
+  </footer>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-55966581-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-55966581-1');
+  </script>
+
+  <script type="text/javascript" src="/assets/js/custom.js"> </script>
+  <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us18.list-manage.com","uuid":"7e6d10e32e5355f05a9b343de","lid":"420dab7107"}) })</script>
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+   var disqus_shortname = 'vicarie';
+   (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+   })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+</div>
+<div class="col"></div></div>
+</div>
+</body>
+</html>

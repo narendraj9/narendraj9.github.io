@@ -2,8 +2,9 @@
 
 
 #+begin_archive
+@@html:<li>@@ @@html:<span class="archive-item"><span class="archive-date">@@ Oct 14, 2018 @@html:</span>@@ [[file:posts/generalized-authz.org][Modeling Authorization]] @@html:</span>@@ @@html:</li>@@
 @@html:<li>@@ @@html:<span class="archive-item"><span class="archive-date">@@ Sep 08, 2018 @@html:</span>@@ [[file:posts/blogging-with-org.org][Blogging with Org publishing]] @@html:</span>@@ @@html:</li>@@
 @@html:<li>@@ @@html:<span class="archive-item"><span class="archive-date">@@ Sep 01, 2018 @@html:</span>@@ [[file:posts/sieve-of-erators.org][Sieve of Eratosthenes]] @@html:</span>@@ @@html:</li>@@
 @@html:<li>@@ @@html:<span class="archive-item"><span class="archive-date">@@ Aug 01, 2018 @@html:</span>@@ [[file:posts/lcm-hcf-as-ops-on-sets.org][LCM, HCF and Sets]] @@html:</span>@@ @@html:</li>@@
-@@html:<li>@@ @@html:<span class="archive-item"><span class="archive-date">@@ Jul 01, 2018 @@html:</span>@@ [[file:posts/quick-emacs-hacks.org][Emacs Quick Hacks]] @@html:</span>@@ @@html:</li>@@
+@@html:<li>@@ @@html:<span class="archive-item"><span class="archive-date">@@ Jul 01, 2018 @@html:</span>@@ [[file:posts/quick-emacs-hacks.org][Emac: Quick Hacks]] @@html:</span>@@ @@html:</li>@@
 #+end_archive
