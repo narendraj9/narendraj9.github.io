@@ -5,5 +5,6 @@ poet. I intend to use this space for writing about things that I think I have
 understood well in the hope that they may be helpful to others (including my
 future self).
 
-To get in touch, email me at narendraj9 at gmail dot com. If you would like to
-hire me, here is my [[file:assets/data/resume.pdf][Resume´.]]
+To get in touch, email me at narendraj9 at gmail dot com. Here is my [[file:assets/data/resume.pdf][Resume´.]]
+
+[[att:../../miscellany/personal/org/data/18/71F4CD-B6A5-4198-A76A-A9C3EA523FC0/icse2018seip.pdf]]

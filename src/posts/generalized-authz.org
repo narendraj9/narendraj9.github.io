@@ -51,7 +51,7 @@ based on PERM.
                                                             v
                                                      +-------------+        +-----------+
                                                      |     cF54    |        |           |
-                                       +------------>|   Matcher   |------->| Policy 1  |-----------+
+                                       +------------>|   Matcher   |--------+ Policy 1  +-----------+
                                        |             |     exp     |        |  Effect   |           |
                                        |             |             |        |   c282    |           |
                                        |             +-------------+        +-----------+           |
@@ -65,7 +65,7 @@ based on PERM.
                                        |                   v                                        |          |              |     +---------------------+
   +----------------------------+       |             +-------------+        +-----------+           +--------->|              |     |                     |
   |                            |       |             |    cF54     |        |           |                      |   Effect     |---->| Result (true/false) |
-  | Request {sub, verb, action}+-------|------------>|   Matcher   |------->|  Policy 2 +--------------------->|  Expression  |     |      c8E8           |
+  | Request {sub, verb, action}+-------|------------>|   Matcher   |--------+  Policy 2 +--------------------->|  Expression  |     |      c8E8           |
   |         c18F               |       |             |     exp     |        |   Effect  |                      |   cFDA       |     +---------------------+
   +----------------------------+       |             |             |        |    c841   |           +--------->|              |
                                        |             +-------------+        +-----------+           |          |              |
@@ -80,7 +80,7 @@ based on PERM.
                                        |                    v                                       |
                                        |             +-------------+        +-----------+           |
                                        |             |     cF54    |        |           |           |
-                                       +------------>|   Matcher   |------->|  Policy 3 +-----------+
+                                       +------------>|   Matcher   |--------+  Policy 3 +-----------+
                                                      |     exp     |        |   Effect  |
                                                      |             |        |    c2C2   |
                                                      +-------------+        +-----------+
@@ -88,7 +88,7 @@ based on PERM.
 
 #+ATTR_HTML: :width 100%
 #+RESULTS: A image describing PERM meta-model
-[[file:../assets/data/perm.png]]
+[[file:../assets/data/perm.png][file:../assets/data/perm.png]]
 
 * Model Definitions
 Here is the complete model definition for ACL-based authorization:
