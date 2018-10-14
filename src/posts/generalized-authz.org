@@ -3,10 +3,10 @@
 #+AUTHOR: I321472
 
 Most applications need to take care of authorization. Authorization is the
-answer to the question of whether request is permitted or not. We will
-understand different models of authorization using a meta-model in this
-article. I am going to use [[https://casbin.org/][Casbin]] for concrete examples. You can experiment
-with example model definitions using [[https://casbin.org/editor/][Casbin Model Editor]].
+answer to the question of whether a request is permitted or not. We will look
+at different models of authorization using a meta-model in this article. I am
+going to use [[https://casbin.org/][Casbin]] for concrete examples. You can experiment with example
+model definitions using [[https://casbin.org/editor/][Casbin Model Editor]].
 
 * PERM Meta-Model
 A instance of PERM (Policy, Effect, Request, Matchers) describes how these four
@@ -16,7 +16,7 @@ example model built using them.
 
 - Request :: Information about the access request. A simple request would be a
              tuple with the subject, action and the resource.
-             A concrete request model can have Resources like
+             A concrete request model can have resources such as
              [[https://github.com/intel/rmd][physical hardware components like CPU caches]] or logical entities
              built out of persisted data like customers in a CRM system.
              ~r = {sub, action, resource}~
@@ -37,7 +37,7 @@ example model built using them.
             available in =eft= field in every policy.
             ~e = some(p.eft == allow)~
 
-The diagram below illustrates show a request is authorized using a model
+The diagram below illustrates how a request is authorized using a model
 based on PERM.
 
 #+name: A image describing PERM meta-model
@@ -116,8 +116,8 @@ p, bob, data2, write
 #+end_src
 
 
-If we wish to allow everything to users that belong to the =admin= group, all
-we need to change is the definition of the matcher:
+If we wish to allow everything to the =admin= user, all we need to change is
+the definition of the matcher:
 #+name: New matcher allowing admin users everything
 #+begin_src conf :results verbatim drawer
 [matchers]
@@ -126,7 +126,7 @@ m = r.sub == admin || (r.sub == p.sub && r.obj == p.obj && r.act == p.act)
 
 To enable simple attribute based access control, we need access to the actual
 data in the resource object. For example if we only want to allow requests
-which is initiated by the owner of the resource, the matcher expression would
+which are initiated by the owner of the resource, the matcher expression would
 change to:
 
 #+name: New matcher for simple attribute based access control
@@ -146,13 +146,14 @@ beginning but it seems to be mixing two different ideas:
 
 For example, let's say a hypothetical SaaS company needs to manage credits for
 multiple applications that register themselves on their platform (Ola credits,
-Uber credits). There can be a field in the User resource, say =ratings=, which
-has a list of ratings (logically) for all these applications. Now, we must
-ensure that ratings for one application are not visible to another
+Uber credits). There can be a field in the User resource, say =credits=, which
+has a list of credits (logically) for all these applications. Now, we must
+ensure that credits for one application are not visible to any other
 application. All applications have access to all other fields but this field
 needs to be filtered. In my opinion, this field should have never been designed
 such that it ends up with data for all applications while building the User
-object/map/representation in memory.
+object/map/representation in memory. Share your thoughts about this in the
+comments below.
 
 * Conclusion
 PERM is a flexible meta-model for building authorization models.

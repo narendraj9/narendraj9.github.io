@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2018-10-14 Sun 17:58 -->
+<!-- 2018-10-14 Sun 18:13 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Modeling Authorization</title>
@@ -30,10 +30,10 @@
 <p class="subtitle">Published on Oct 14, 2018</p>
 </header><p>
 Most applications need to take care of authorization. Authorization is the
-answer to the question of whether request is permitted or not. We will
-understand different models of authorization using a meta-model in this
-article. I am going to use <a href="https://casbin.org/">Casbin</a> for concrete examples. You can experiment
-with example model definitions using <a href="https://casbin.org/editor/">Casbin Model Editor</a>.
+answer to the question of whether a request is permitted or not. We will look
+at different models of authorization using a meta-model in this article. I am
+going to use <a href="https://casbin.org/">Casbin</a> for concrete examples. You can experiment with example
+model definitions using <a href="https://casbin.org/editor/">Casbin Model Editor</a>.
 </p>
 
 <div id="outline-container-orgb52ed41" class="outline-2">
@@ -49,7 +49,7 @@ example model built using them.
 <dl class="org-dl">
 <dt>Request</dt><dd>Information about the access request. A simple request would be a
 tuple with the subject, action and the resource.
-A concrete request model can have Resources like
+A concrete request model can have resources such as
 <a href="https://github.com/intel/rmd">physical hardware components like CPU caches</a> or logical entities
 built out of persisted data like customers in a CRM system.
 <code>r = {sub, action, resource}</code></dd>
@@ -72,7 +72,7 @@ available in <code>eft</code> field in every policy.
 </dl>
 
 <p>
-The diagram below illustrates show a request is authorized using a model
+The diagram below illustrates how a request is authorized using a model
 based on PERM.
 </p>
 
@@ -117,8 +117,8 @@ p, bob, data2, write
 
 
 <p>
-If we wish to allow everything to users that belong to the <code>admin</code> group, all
-we need to change is the definition of the matcher:
+If we wish to allow everything to the <code>admin</code> user, all we need to change is
+the definition of the matcher:
 </p>
 <div class="org-src-container">
 <pre class="src src-conf" id="org24bf98b">[<span style="color: #909737;">matchers</span>]
@@ -129,7 +129,7 @@ we need to change is the definition of the matcher:
 <p>
 To enable simple attribute based access control, we need access to the actual
 data in the resource object. For example if we only want to allow requests
-which is initiated by the owner of the resource, the matcher expression would
+which are initiated by the owner of the resource, the matcher expression would
 change to:
 </p>
 
@@ -155,13 +155,14 @@ context.</li>
 <p>
 For example, let's say a hypothetical SaaS company needs to manage credits for
 multiple applications that register themselves on their platform (Ola credits,
-Uber credits). There can be a field in the User resource, say <code>ratings</code>, which
-has a list of ratings (logically) for all these applications. Now, we must
-ensure that ratings for one application are not visible to another
+Uber credits). There can be a field in the User resource, say <code>credits</code>, which
+has a list of credits (logically) for all these applications. Now, we must
+ensure that credits for one application are not visible to any other
 application. All applications have access to all other fields but this field
 needs to be filtered. In my opinion, this field should have never been designed
 such that it ends up with data for all applications while building the User
-object/map/representation in memory.
+object/map/representation in memory. Share your thoughts about this in the
+comments below.
 </p>
 </div>
 </div>
