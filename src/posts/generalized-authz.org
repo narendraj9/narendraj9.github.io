@@ -9,7 +9,7 @@ going to use [[https://casbin.org/][Casbin]] for concrete examples. You can expe
 model definitions using [[https://casbin.org/editor/][Casbin Model Editor]].
 
 * PERM Meta-Model
-A instance of PERM (Policy, Effect, Request, Matchers) describes how these four
+An instance of PERM (Policy, Effect, Request, Matchers) describes how these four
 kinds of entities interact with each other to build something that can used for
 authorization. First let's describe each of these entities and then look at an
 example model built using them.
