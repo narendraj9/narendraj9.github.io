@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2019-01-14 Mon 00:28 -->
+<!-- 2019-08-25 Sun 18:38 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Modeling Authorization</title>
@@ -39,9 +39,9 @@ going to use <a href="https://casbin.org/">Casbin</a> for concrete examples. You
 model definitions using <a href="https://casbin.org/editor/">Casbin Model Editor</a>.
 </p>
 
-<div id="outline-container-orgb443c76" class="outline-2">
-<h2 id="orgb443c76">PERM Meta-Model</h2>
-<div class="outline-text-2" id="text-orgb443c76">
+<div id="outline-container-orgde0d141" class="outline-2">
+<h2 id="orgde0d141">PERM Meta-Model</h2>
+<div class="outline-text-2" id="text-orgde0d141">
 <p>
 An instance of PERM (Policy, Effect, Request, Matchers) describes how these four
 kinds of entities interact with each other to build something that can used for
@@ -87,15 +87,15 @@ based on PERM.
 </div>
 </div>
 
-<div id="outline-container-orgc7f68fd" class="outline-2">
-<h2 id="orgc7f68fd">Model Definitions</h2>
-<div class="outline-text-2" id="text-orgc7f68fd">
+<div id="outline-container-org01853b5" class="outline-2">
+<h2 id="org01853b5">Model Definitions</h2>
+<div class="outline-text-2" id="text-org01853b5">
 <p>
 Here is the complete model definition for ACL-based authorization:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-conf" id="orgb2f02d6">[<span style="color: #909737;">request_definition</span>]
+<pre class="src src-conf" id="org9d68551">[<span style="color: #909737;">request_definition</span>]
 <span style="color: #ba5b34;">r</span> = sub, obj, act
 
 [<span style="color: #909737;">policy_definition</span>]
@@ -113,7 +113,7 @@ Here is the complete model definition for ACL-based authorization:
 For such a model, the policies that define authorization rules will look like
 </p>
 <div class="org-src-container">
-<pre class="src src-conf" id="org3b0284e">p, alice, data1, read
+<pre class="src src-conf" id="org4428a61">p, alice, data1, read
 p, bob, data2, write
 </pre>
 </div>
@@ -124,7 +124,7 @@ If we wish to allow everything to the <code>admin</code> user, all we need to ch
 the definition of the matcher:
 </p>
 <div class="org-src-container">
-<pre class="src src-conf" id="org5b7c1cb">[<span style="color: #909737;">matchers</span>]
+<pre class="src src-conf" id="orgcf4e680">[<span style="color: #909737;">matchers</span>]
 <span style="color: #ba5b34;">m</span> = r.sub == admin || (r.sub == p.sub &amp;&amp; r.obj == p.obj &amp;&amp; r.act == p.act)
 </pre>
 </div>
@@ -137,7 +137,7 @@ change to:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-conf" id="org18d6246"><span style="color: #ba5b34;">m</span> = r.obj.owner == r.sub &amp;&amp; (r.sub == p.sub &amp;&amp; r.obj == p.obj &amp;&amp; r.act == p.act)
+<pre class="src src-conf" id="orge155a04"><span style="color: #ba5b34;">m</span> = r.obj.owner == r.sub &amp;&amp; (r.sub == p.sub &amp;&amp; r.obj == p.obj &amp;&amp; r.act == p.act)
 </pre>
 </div>
 
@@ -170,9 +170,9 @@ comments below.
 </div>
 </div>
 
-<div id="outline-container-org0680d75" class="outline-2">
-<h2 id="org0680d75">Conclusion</h2>
-<div class="outline-text-2" id="text-org0680d75">
+<div id="outline-container-orgc3f5dbc" class="outline-2">
+<h2 id="orgc3f5dbc">Conclusion</h2>
+<div class="outline-text-2" id="text-orgc3f5dbc">
 <p>
 PERM is a flexible meta-model for building authorization models.
 </p>

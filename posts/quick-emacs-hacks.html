@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2019-01-14 Mon 00:28 -->
+<!-- 2019-08-25 Sun 19:26 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Emac: Quick Hacks</title>
@@ -31,9 +31,9 @@
 <header>
 <h1 class="title">Emac: Quick Hacks</h1>
 <p class="subtitle">Published on Jul 01, 2018</p>
-</header><div id="outline-container-org9ce5982" class="outline-2">
-<h2 id="org9ce5982"><a id="ID-da3c972c-02a3-4217-bdf9-d3adcd31f36b"></a>Intro</h2>
-<div class="outline-text-2" id="text-org9ce5982">
+</header><div id="outline-container-orga29bfd8" class="outline-2">
+<h2 id="orga29bfd8">Intro</h2>
+<div class="outline-text-2" id="text-orga29bfd8">
 <p>
 I spend most of my time inside Emacs ― the truly extensible environment. I keep
 adding new functions/commands to my Emacs configuration that help me accomplish
@@ -42,9 +42,9 @@ such functions.
 </p>
 </div>
 </div>
-<div id="outline-container-orgc1cb1ee" class="outline-2">
-<h2 id="orgc1cb1ee"><a id="ID-a2d1467f-8070-4d5f-b491-c9a80a038888"></a>Code</h2>
-<div class="outline-text-2" id="text-orgc1cb1ee">
+<div id="outline-container-org5d9cad1" class="outline-2">
+<h2 id="org5d9cad1">Code</h2>
+<div class="outline-text-2" id="text-org5d9cad1">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(<span style="color: #909737;">defun</span> <span style="color: #34676f;">do-when-idle</span> (f g interval)
   <span style="color: #7e9960;">"Call F when idle for INTERVAL seconds and then G when there is activity.</span>
@@ -68,7 +68,7 @@ such functions.
 I use the above function for things like
 </p>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp" id="orgd795355">(do-when-idle #'coin-ticker-mode
+<pre class="src src-emacs-lisp" id="orgab6be3c">(do-when-idle #'coin-ticker-mode
               (<span style="color: #909737;">lambda</span> ()
                 (coin-ticker-mode -1))
               60)
@@ -110,9 +110,9 @@ I use the above function for limiting how frequently I check email:
 </div>
 </div>
 
-<div id="outline-container-org2b21001" class="outline-2">
-<h2 id="org2b21001"><a id="ID-8fa034d7-b883-48ba-8d10-aa446216bd45"></a>Conclusion</h2>
-<div class="outline-text-2" id="text-org2b21001">
+<div id="outline-container-org87cad36" class="outline-2">
+<h2 id="org87cad36">Conclusion</h2>
+<div class="outline-text-2" id="text-org87cad36">
 <p>
 Emacs is configurable in almost every aspect. Besides the advantages, the only
 problem with it is that it encourages dislike for the defaults. This costs me
