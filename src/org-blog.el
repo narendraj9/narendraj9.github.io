@@ -143,7 +143,7 @@
         (search-forward "<body>")
         (insert (concat "\n<div class=\"content-wrapper container\">\n "
                         "  <div class=\"row\"> <div class=\"col\"> </div> "
-                        "  <div class=\"col-sm-6 col-md-8\"> "))
+                        "  <div class=\"col-sm-12 col-md-10 col-lg-10\"> "))
         (goto-char (point-max))
         (search-backward "</body>")
         (insert "\n</div>\n<div class=\"col\"></div></div>\n</div>\n")
