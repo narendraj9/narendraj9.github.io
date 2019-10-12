@@ -4,7 +4,8 @@
 
 This post is inspired by the paper--
 [[https://www.cs.hmc.edu/~oneill/papers/Sieve-JFP.pdf][The Genuine Sieve
-of Eratosthenes]]. Since I did the recreational activity of thinking
+of Eratosthenes]].
+Since I did the recreational activity of thinking
 about the wheels, I intend to talk about their construction and the fact
 that they exhibit [[http://mathworld.wolfram.com/Monoid.html][Monoid]]
 structure.
