@@ -1,4 +1,4 @@
 Ramblings from a corner
 =======================
 
-Visit: http://vicarie.in
+Visit: https://narendraj9.dev
