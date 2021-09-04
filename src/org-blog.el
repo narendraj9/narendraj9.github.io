@@ -30,6 +30,9 @@
 (require 'org-element)
 (require 'ox-rss)
 
+(defcustom org-blog-base-directory (expand-file-name "~/code/blog")
+  "Base directory for my org-publish blog.")
+
 (defvar org-blog-date-format "%h %d, %Y"
   "Format for displaying publish dates.")
 
@@ -154,11 +157,11 @@
 
 (setq org-publish-project-alist
       `(("orgfiles"
-         :base-directory "~/blog/src/"
+         :base-directory ,(expand-file-name "src/" org-blog-base-directory)
          :exclude ".*drafts/.*"
          :base-extension "org"
 
-         :publishing-directory "~/blog/"
+         :publishing-directory ,org-blog-base-directory
 
          :recursive t
          :preparation-function org-blog-prepare
@@ -186,19 +189,19 @@
          :sitemap-function org-blog-sitemap-function)
 
         ("assets"
-         :base-directory "~/blog/src/assets/"
+         :base-directory ,(expand-file-name "src/assets/" org-blog-base-directory)
          :base-extension ".*"
-         :publishing-directory "~/blog/assets/"
+         :publishing-directory ,(expand-file-name "assets/" org-blog-base-directory)
          :publishing-function org-publish-attachment
          :recursive t)
 
         ("rss"
-         :base-directory "~/blog/src/"
+         :base-directory ,(expand-file-name "src/" org-blog-base-directory)
          :base-extension "org"
          :html-link-home "https://vicarie.in/"
          :html-link-use-abs-url t
          :rss-extension "xml"
-         :publishing-directory "~/blog/"
+         :publishing-directory ,org-blog-base-directory
          :publishing-function (org-rss-publish-to-rss)
          :exclude ".*"
          :include ("archive.org")
@@ -206,6 +209,16 @@
          :table-of-contents nil)
 
         ("blog" :components ("orgfiles" "assets" "rss"))))
+
+
+(when (fboundp 'prodigy-define-service)
+  (prodigy-define-service
+    :name "blog@localhost"
+    :command "python"
+    :args '("-m" "http.server" "8000")
+    :cwd org-blog-base-directory
+    :stop-signal 'sigkill
+    :kill-process-buffer-on-stop t))
 
 (provide 'org-blog)
 ;;; org-blog.el ends here

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2019-10-12 Sat 13:35 -->
+<!-- 2021-09-04 Sat 18:07 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Emac: Quick Hacks</title>
@@ -31,9 +31,9 @@
 <header>
 <h1 class="title">Emac: Quick Hacks</h1>
 <p class="subtitle">Published on Jul 01, 2018</p>
-</header><div id="outline-container-orga29bfd8" class="outline-2">
-<h2 id="orga29bfd8">Intro</h2>
-<div class="outline-text-2" id="text-orga29bfd8">
+</header><div id="outline-container-org0a6c44b" class="outline-2">
+<h2 id="org0a6c44b">Intro</h2>
+<div class="outline-text-2" id="text-org0a6c44b">
 <p>
 I spend most of my time inside Emacs ― the truly extensible environment. I keep
 adding new functions/commands to my Emacs configuration that help me accomplish
@@ -42,21 +42,21 @@ such functions.
 </p>
 </div>
 </div>
-<div id="outline-container-org5d9cad1" class="outline-2">
-<h2 id="org5d9cad1">Code</h2>
-<div class="outline-text-2" id="text-org5d9cad1">
+<div id="outline-container-orgd9d7dc0" class="outline-2">
+<h2 id="orgd9d7dc0">Code</h2>
+<div class="outline-text-2" id="text-orgd9d7dc0">
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #909737;">defun</span> <span style="color: #34676f;">do-when-idle</span> (f g interval)
-  <span style="color: #7e9960;">"Call F when idle for INTERVAL seconds and then G when there is activity.</span>
-<span style="color: #7e9960;">Thanks to Michael Heerdegen <a href="mailto:michael_heerdegen%40web.de">&lt;michael_heerdegen@web.de&gt;</a>."</span>
-  (<span style="color: #909737;">letrec</span> ((run-timer-fun (<span style="color: #909737;">lambda</span> ()
+<pre class="src src-emacs-lisp">(defun do-when-idle (f g interval)
+  "Call F when idle for INTERVAL seconds and then G when there is activity.
+Thanks to Michael Heerdegen &lt;michael_heerdegen@web.de&gt;."
+  (letrec ((run-timer-fun (lambda ()
                             (run-with-idle-timer interval
                                                  nil
-                                                 (<span style="color: #909737;">lambda</span> ()
+                                                 (lambda ()
                                                    (funcall f)
                                                    (add-hook 'post-command-hook
                                                              activity-fun)))))
-           (activity-fun (<span style="color: #909737;">lambda</span> ()
+           (activity-fun (lambda ()
                            (remove-hook 'post-command-hook activity-fun)
                            (funcall g)
                            (funcall run-timer-fun))))
@@ -68,30 +68,30 @@ such functions.
 I use the above function for things like
 </p>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp" id="orgab6be3c">(do-when-idle #'coin-ticker-mode
-              (<span style="color: #909737;">lambda</span> ()
+<pre class="src src-emacs-lisp" id="orgccd220d">(do-when-idle #'coin-ticker-mode
+              (lambda ()
                 (coin-ticker-mode -1))
               60)
 </pre>
 </div>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #909737;">defvar</span> <span style="color: #ba5b34;">limit-usage</span> (make-hash-table <span style="color: #385e6b;">:test</span> 'equal))
-(<span style="color: #909737;">defun</span> <span style="color: #34676f;">limit-usage</span> (command max-minutes)
-  <span style="color: #7e9960;">"Limit usage of COMMAND to only once in MAX-MINUTES."</span>
+<pre class="src src-emacs-lisp">(defvar limit-usage (make-hash-table :test 'equal))
+(defun limit-usage (command max-minutes)
+  "Limit usage of COMMAND to only once in MAX-MINUTES."
   (advice-add command
-              <span style="color: #385e6b;">:around</span>
-              `(<span style="color: #909737;">lambda</span> (orig-fn <span style="color: #909737;">&amp;rest</span> args)
-                 (<span style="color: #909737;">let*</span> ((hash-key ,(symbol-name command))
+              :around
+              `(lambda (orig-fn &amp;rest args)
+                 (let* ((hash-key ,(symbol-name command))
                         (last-ts (gethash hash-key limit-usage))
-                        (gap-in-minutes (<span style="color: #909737;">and</span> last-ts
+                        (gap-in-minutes (and last-ts
                                              (/ (time-to-seconds
                                                  (time-subtract (current-time)
                                                                 last-ts))
                                                 60))))
-                   (<span style="color: #909737;">if</span> (<span style="color: #909737;">and</span> gap-in-minutes (&lt; gap-in-minutes ,max-minutes))
-                       (message <span style="color: #953331;">"Last Accessed: %s Time to go: %.2f minutes"</span>
-                                (format-time-string <span style="color: #953331;">"%FT%T%z"</span> last-ts)
+                   (if (and gap-in-minutes (&lt; gap-in-minutes ,max-minutes))
+                       (message "Last Accessed: %s Time to go: %.2f minutes"
+                                (format-time-string "%FT%T%z" last-ts)
                                 (- ,max-minutes gap-in-minutes))
                      (apply orig-fn args)
                      (puthash hash-key (current-time) limit-usage))))))
@@ -103,16 +103,16 @@ I use the above function for things like
 I use the above function for limiting how frequently I check email:
 </p>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #505050;">;; </span><span style="color: #505050;">Check mail not more than once every 4 hour.</span>
+<pre class="src src-emacs-lisp">;; Check mail not more than once every 4 hour.
 (limit-usage #'gnus (* 4 60))
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org87cad36" class="outline-2">
-<h2 id="org87cad36">Conclusion</h2>
-<div class="outline-text-2" id="text-org87cad36">
+<div id="outline-container-orgdc520bf" class="outline-2">
+<h2 id="orgdc520bf">Conclusion</h2>
+<div class="outline-text-2" id="text-orgdc520bf">
 <p>
 Emacs is configurable in almost every aspect. Besides the advantages, the only
 problem with it is that it encourages dislike for the defaults. This costs me

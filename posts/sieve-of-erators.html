@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2019-10-16 Wed 01:20 -->
+<!-- 2021-09-04 Sat 18:12 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sieve of Eratosthenes</title>
@@ -63,7 +63,7 @@ that they exhibit <a href="http://mathworld.wolfram.com/Monoid.html">Monoid</a>
 structure.
 </p>
 
-<div id="outline-container-org116eb1c" class="outline-2">
+<div id="outline-container-sieve-of-eratosthenes" class="outline-2">
 <h2 id="sieve-of-eratosthenes">Sieve of Eratosthenes</h2>
 <div class="outline-text-2" id="text-sieve-of-eratosthenes">
 <p>
@@ -89,9 +89,9 @@ define infinite structures like the sequence of prime numbers.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #34676f;">primes</span> <span style="color: #ba5b34;">=</span> filterPrime [2<span style="color: #ba5b34;">..</span>]
-  <span style="color: #909737;">where</span> filterPrime (p<span style="color: #909737;">:</span>xs) <span style="color: #ba5b34;">=</span>
-          p <span style="color: #909737;">:</span> filterPrime [x <span style="color: #ba5b34;">|</span> x <span style="color: #ba5b34;">&lt;-</span> xs, x <span style="color: #ba5b34;">`mod`</span> p <span style="color: #ba5b34;">/=</span> 0]
+<pre class="src src-haskell">primes = filterPrime [2..]
+  where filterPrime (p:xs) =
+          p : filterPrime [x | x &lt;- xs, x `mod` p /= 0]
 </pre>
 </div>
 
@@ -103,7 +103,7 @@ pretty well.
 </div>
 </div>
 
-<div id="outline-container-org65c4958" class="outline-2">
+<div id="outline-container-spinning-wheels-and-the-sieve" class="outline-2">
 <h2 id="spinning-wheels-and-the-sieve">Spinning Wheels and the Sieve</h2>
 <div class="outline-text-2" id="text-spinning-wheels-and-the-sieve">
 <p>
@@ -135,8 +135,8 @@ repeat themselves indefinitely.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #34676f;">genWheel</span> <span style="color: #ba5b34;">::</span> <span style="color: #909737;">Int</span> <span style="color: #ba5b34;">-&gt;</span> <span style="color: #909737;">Wheel</span>
-<span style="color: #34676f;">genWheel</span> x <span style="color: #ba5b34;">=</span> <span style="color: #909737;">let</span> ys <span style="color: #ba5b34;">=</span> replicate (x <span style="color: #ba5b34;">-</span> 2) 1 <span style="color: #ba5b34;">++</span> [2] <span style="color: #ba5b34;">++</span> ys <span style="color: #909737;">in</span> <span style="color: #909737;">Wheel</span> ys
+<pre class="src src-haskell">genWheel :: Int -&gt; Wheel
+genWheel x = let ys = replicate (x - 2) 1 ++ [2] ++ ys in Wheel ys
 </pre>
 </div>
 
@@ -150,15 +150,15 @@ be its identity element. Yes, it is a Monoid.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #909737;">data</span> <span style="color: #909737;">Wheel</span> <span style="color: #ba5b34;">=</span> <span style="color: #909737;">Wheel</span> { getWheel <span style="color: #ba5b34;">::</span> [<span style="color: #909737;">Int</span>] }
-           <span style="color: #909737;">deriving</span> <span style="color: #909737;">Show</span>
+<pre class="src src-haskell">data Wheel = Wheel { getWheel :: [Int] }
+           deriving Show
 
-<span style="color: #909737;">instance</span> <span style="color: #909737;">Monoid</span> <span style="color: #909737;">Wheel</span> <span style="color: #909737;">where</span>
-  mempty <span style="color: #ba5b34;">=</span> <span style="color: #909737;">Wheel</span> (repeat 1)
-  mappend (<span style="color: #909737;">Wheel</span> xs) (<span style="color: #909737;">Wheel</span> ys) <span style="color: #ba5b34;">=</span> <span style="color: #909737;">Wheel</span> (go xs ys)
-    <span style="color: #909737;">where</span> go as<span style="color: #ba5b34;">@</span>(x<span style="color: #909737;">:</span>xs) bs<span style="color: #ba5b34;">@</span>(y<span style="color: #909737;">:</span>ys) <span style="color: #ba5b34;">|</span> x <span style="color: #ba5b34;">==</span> y <span style="color: #ba5b34;">=</span> x <span style="color: #909737;">:</span> go xs ys
-                                 <span style="color: #ba5b34;">|</span> x <span style="color: #ba5b34;">&gt;</span> y <span style="color: #ba5b34;">=</span> go as (y <span style="color: #ba5b34;">+</span> head ys <span style="color: #909737;">:</span> tail ys)
-                                 <span style="color: #ba5b34;">|</span> otherwise <span style="color: #ba5b34;">=</span> go (x <span style="color: #ba5b34;">+</span> head xs <span style="color: #909737;">:</span> tail xs) bs
+instance Monoid Wheel where
+  mempty = Wheel (repeat 1)
+  mappend (Wheel xs) (Wheel ys) = Wheel (go xs ys)
+    where go as@(x:xs) bs@(y:ys) | x == y = x : go xs ys
+                                 | x &gt; y = go as (y + head ys : tail ys)
+                                 | otherwise = go (x + head xs : tail xs) bs
 </pre>
 </div>
 
@@ -181,9 +181,9 @@ spin the wheel.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #34676f;">spin</span> <span style="color: #ba5b34;">::</span> <span style="color: #909737;">Wheel</span> <span style="color: #ba5b34;">-&gt;</span> [<span style="color: #909737;">Int</span>]
-<span style="color: #34676f;">spin</span> (<span style="color: #909737;">Wheel</span> (x<span style="color: #909737;">:</span>xs)) <span style="color: #ba5b34;">=</span> spin' xs (x <span style="color: #ba5b34;">+</span> 1)
-  <span style="color: #909737;">where</span> spin' (y<span style="color: #909737;">:</span>ys) n <span style="color: #ba5b34;">=</span> n <span style="color: #909737;">:</span> spin' ys (n <span style="color: #ba5b34;">+</span> y)
+<pre class="src src-haskell">spin :: Wheel -&gt; [Int]
+spin (Wheel (x:xs)) = spin' xs (x + 1)
+  where spin' (y:ys) n = n : spin' ys (n + y)
 </pre>
 </div>
 
@@ -199,11 +199,11 @@ Here's an example showing it in action.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">&#955;<span style="color: #34676f;">&gt;</span> take 10 <span style="color: #ba5b34;">$</span> spin (genWheel 2)
+<pre class="src src-haskell">λ&gt; take 10 $ spin (genWheel 2)
 [3,5,7,9,11,13,15,17,19,21]
-&#955;<span style="color: #34676f;">&gt;</span> take 10 <span style="color: #ba5b34;">$</span> spin (genWheel 2 <span style="color: #ba5b34;">`mappend`</span> genWheel 3)
+λ&gt; take 10 $ spin (genWheel 2 `mappend` genWheel 3)
 [5,7,11,13,17,19,23,25,29,31]
-&#955;<span style="color: #34676f;">&gt;</span> take 10 <span style="color: #ba5b34;">$</span> spin (genWheel 2 <span style="color: #ba5b34;">`mappend`</span> genWheel 3)
+λ&gt; take 10 $ spin (genWheel 2 `mappend` genWheel 3)
 [5,7,11,13,17,19,23,25,29,31]
 </pre>
 </div>
